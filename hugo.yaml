@@ -1,0 +1,30 @@
+baseURL: https://brettgfitzgerald.com/
+languageCode: en-us
+title: Brett Fitzgerald
+theme: ["PaperMod"]
+
+params:
+  profileMode:
+    enabled: true
+    title: "Brett Fitzgerald"
+    subtitle: "Cognitive meanderings of a mid-career technologist"
+    buttons:
+      - name: Blog
+        url: "/posts"
+  socialIcons:
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/brettgfitzgerald/"
+  analytics:
+    google:
+      SiteVerificationTag: "G-Z4RD2MGN21"
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 20
