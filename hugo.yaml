@@ -28,3 +28,9 @@ menu:
       name: About
       url: /about/
       weight: 20
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
