@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Brett Fitzgerald</description>
     <generator>Hugo -- 0.143.1</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2025 12:57:27 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build a Large Language Model From Scratch</title>
+      <link>http://localhost:1313/posts/build-a-large-language-model/</link>
+      <pubDate>Thu, 06 Feb 2025 12:57:27 -0500</pubDate>
+      <guid>http://localhost:1313/posts/build-a-large-language-model/</guid>
+      <description>Working through Sebastian Raschka&amp;#39;s book.</description>
+    </item>
     <item>
       <title>New Blog</title>
       <link>http://localhost:1313/posts/new-blog/</link>
