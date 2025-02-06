@@ -1,26 +1,98 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Brett Fitzgerald</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on Brett Fitzgerald</description>
-    <generator>Hugo -- 0.143.1</generator>
+    <title>Brett Fitzgerald</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Brett Fitzgerald</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Feb 2025 12:57:27 -0500</lastBuildDate>
+    
+    
+    
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Build a Large Language Model From Scratch</title>
       <link>http://localhost:1313/posts/build-a-large-language-model/</link>
       <pubDate>Thu, 06 Feb 2025 12:57:27 -0500</pubDate>
       <guid>http://localhost:1313/posts/build-a-large-language-model/</guid>
-      <description>Working through Sebastian Raschka&amp;#39;s book.</description>
+      <description>&lt;h2 id=&#34;building-a-large-language-model-from-scratch&#34;&gt;Building a large language model from scratch&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m a machine learning / A.I. hobbyist. The technologies fascinate me, and I can&amp;rsquo;t seem to learn enough about them. Sebastian Raschka&amp;rsquo;s book, Build a Large Language Model (From Scratch) caught my eye. I don&amp;rsquo;t recall how I stumbled on it, but I found it when it was still in early access from Manning Publications. I purchased it, and started working through it as the final chapters were being written and released. I just completed the book and all the included work and loved every minute of it.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Build a Large Language Model From Scratch by Sebastian Raschka&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/build-a-large-language-model/llm-book.jpg&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;my-approach&#34;&gt;My approach&lt;/h2&gt;
+&lt;p&gt;A while ago, I read some advice about learning programming from digital books and tutorials. The advice was to never copy and paste code from samples but to hand-type all the code. I took that approach with this book. I typed every single line of code (except for a couple of blocks which were highly repetitive and long). You can see all my work here: &lt;a href=&#34;https://github.com/controversy187/build-a-large-language-model&#34;&gt;https://github.com/controversy187/build-a-large-language-model&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I did my best to work in section chunks. I didn&amp;rsquo;t want to start a section unless I had the time dedicated to completing it. Some sections are pretty short, others are fairly involved and time-consuming.&lt;/p&gt;
+&lt;p&gt;I built this in Jupyter Notebooks on my laptop, which is pretty underpowered for this type of work. The premise of the book was that you can build an LLM on consumer hardware, and it can perform decently well. As I&amp;rsquo;m writing this, I&amp;rsquo;m currently fine-tuning my model locally. My model is about 50 steps into a 230-step tuning, and I just crossed the 20-minute execution time mark. The earlier code samples ran quicker, but the last few sections used larger models, which slowed things down considerably.&lt;/p&gt;
+&lt;p&gt;I didn&amp;rsquo;t do most of the supplemental exercises. I tend to have an &amp;ldquo;I want to do ALL THE THINGS!&amp;rdquo; personality. The drawback is that if I take the time to do all the things, I eventually get long-term distracted and never actually finish what I started. So I sort of rushed through this book. I even took several weeks off around Christmas and New Year&amp;rsquo;s. But I got back into it and powered through the last few chapters.&lt;/p&gt;
+&lt;p&gt;So, more or less, I read through the chapters and wrote all the mandatory coding assignments.&lt;/p&gt;
+&lt;h2 id=&#34;learnings&#34;&gt;Learnings&lt;/h2&gt;
+&lt;p&gt;What can I tell you about large language models? A lot more than I could before I started this book, but certainly not all the things the author attempted to teach me. I&amp;rsquo;ll summarize my understanding, but I could be wrong about some of these things, and I most certainly forgot or misunderstood others.&lt;/p&gt;
+&lt;h3 id=&#34;tokenization--vocabulary&#34;&gt;Tokenization &amp;amp; Vocabulary&lt;/h3&gt;
+&lt;p&gt;A large language model starts its life by building a vocabulary of text. A massive amount of text is distilled down into a list of unique words. Each word is then translated into an integer because computers like numbers more than they like words. This process is referred to as &amp;ldquo;tokenization&amp;rdquo;, where the word is replaced with a numerical token. So now we have a list of unique tokens, which is the vocabulary of the large language model.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Build a more advanced tokenizer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;text &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, world. Is this-- a test?&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; re&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;([,.:;?_!&amp;#34;()&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;]|--|\s)&amp;#39;&lt;/span&gt;, text)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [item&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;strip() &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; item &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; result &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; item&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;strip()]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(result)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Outputs &amp;#34;[&amp;#39;Hello&amp;#39;, &amp;#39;,&amp;#39;, &amp;#39;world&amp;#39;, &amp;#39;.&amp;#39;, &amp;#39;Is&amp;#39;, &amp;#39;this&amp;#39;, &amp;#39;--&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;test&amp;#39;, &amp;#39;?&amp;#39;]&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;all_words &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sorted(set(result))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vocab_size &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; len(all_words)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(vocab_size)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Outputs 10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Display the first 51 tokens in our vocabulary.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vocab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {token:integer &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; integer,token &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; enumerate(all_words)}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i, item &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; enumerate(vocab&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;items()):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(item)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Outputs:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;--&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;?&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Is&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;test&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;this&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;world&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# In this example, the id 9 represents the word &amp;#34;world&amp;#34;. 5 represents &amp;#34;Is&amp;#34;. etc.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is where my understanding gets fuzzy. We didn&amp;rsquo;t get very far before that happened, &amp;rsquo;eh? Now, we take that massive amount of text we were using earlier to create the vocabulary (or a subset, or totally different text), and we tokenize the entire text. We do this by using the vocabulary we built previously and substituting the words in the training text for their equivalent token value. This is now our training text.&lt;/p&gt;
+&lt;h3 id=&#34;model-training--relationships&#34;&gt;Model Training &amp;amp; Relationships&lt;/h3&gt;
+&lt;p&gt;With that complete, we can &amp;ldquo;train&amp;rdquo; the model. This process involves taking each token in the vocabulary and building a relationship to each other token in the vocabulary, based on those tokens&amp;rsquo; relative positions to each other in the training text. So if the word &amp;ldquo;cat&amp;rdquo; is followed by the word &amp;ldquo;jump&amp;rdquo;, the model records that relationship. But it also records the relationship of the word &amp;ldquo;cat&amp;rdquo; to other words in the text. So &amp;ldquo;jump&amp;rdquo; follows &amp;ldquo;cat&amp;rdquo;, but maybe it does so more frequently when they are close to the word &amp;ldquo;mouse&amp;rdquo;. And maybe less frequently when they are close to the word &amp;ldquo;nap&amp;rdquo;. Recording ALL these relationships would require a massive dataset, so the relationships are mathematically reduced and approximated. There are definitely more technical terms to use, and the book went into them. I definitely forget them, though.&lt;/p&gt;
+&lt;h3 id=&#34;text-generation-process&#34;&gt;Text Generation Process&lt;/h3&gt;
+&lt;p&gt;Now, if you provide a starter text to the model, it will try to complete the text for you. Continuing our example, if I gave the model the text &amp;ldquo;My cat saw a mouse and it&amp;rdquo;, based on the word cat being close to the word mouse, it might predict the word &amp;ldquo;jumped&amp;rdquo; to come next. So it appends the word &amp;ldquo;jumped&amp;rdquo; to the text I submitted, and then it takes that whole new sentence and feeds it back into itself. So now the input text is &amp;ldquo;My cat saw a mouse and it jumped&amp;rdquo;. The next output word could be &amp;ldquo;on&amp;rdquo;, so it appends that word and feeds this concatenated output back into its input.&lt;/p&gt;
+&lt;p&gt;Every time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window) and then calculates the most likely next token, then converts it all back to text for us to read.&lt;/p&gt;
+&lt;h3 id=&#34;model-weights--distribution&#34;&gt;Model Weights &amp;amp; Distribution&lt;/h3&gt;
+&lt;p&gt;Saving all those relationships between the tokens are known as the &amp;ldquo;weights&amp;rdquo; of the model. Those can be distributed, so if you train a model on a given training text, you can give that to your friends and they can use those model weights to predict text similar to that training text.&lt;/p&gt;
+&lt;h3 id=&#34;fine-tuning&#34;&gt;Fine Tuning&lt;/h3&gt;
+&lt;p&gt;Fine-tuning is the process of training a model for specific&amp;hellip; things. My mind is getting fuzzier here, so I&amp;rsquo;m not going to go into this deeper. Suffice it to say, that you start with a base language model and continue to train it using specific input and output pairs. In the book, we built a spam classifier that determined if a given message was spam or not, as well as a model that will follow instructions. That&amp;rsquo;s actually the one that&amp;rsquo;s being trained right now as I write this post, so I&amp;rsquo;m not sure how it will turn out. Based on the fact that it&amp;rsquo;s published in a book, I think it will come out just fine.&lt;/p&gt;
+&lt;p&gt;So while I&amp;rsquo;m not completely done with the book, I&amp;rsquo;m very nearly there. I did learn a lot of great concepts, although obviously some of them weren&amp;rsquo;t retained. It would probably behoove me to go back through the book again and quickly breeze through it, in order to refresh my memory and cement my learnings.&lt;/p&gt;
+&lt;h2 id=&#34;meta-learnings&#34;&gt;Meta learnings&lt;/h2&gt;
+&lt;p&gt;Other than the technical aspects of Large Language Models, what else did I learn through this experience?&lt;/p&gt;
+&lt;p&gt;Through my experiment with typing all the code samples by hand, I can say that my time would have been better spent with a different approach. If I do this again, I&amp;rsquo;ll probably not type all the code snippets, but rather &amp;ldquo;type&amp;rdquo; them in my mind, and really understand what each line does. The times I learned the most were actually when I made a typo and had to go back through my code to debug it. That forced me to understand what was happening so I could figure out what went wrong.&lt;/p&gt;
+&lt;p&gt;I learn better with paper, rather than a digital book. I don&amp;rsquo;t know why. I had both available to me, and I read the first couple of chapters in the paper book. That information stuck better. Maybe because it was earlier in the book and simpler to understand, or maybe the format played into it. But I enjoyed it better, regardless.&lt;/p&gt;
+&lt;p&gt;I didn&amp;rsquo;t have to &amp;ldquo;figure out&amp;rdquo; anything, and I think that hampered my learning. There are supplemental exercises in the book, where the author gives you a problem and you have to figure out how to solve it. The answers are given in his GitHub repository. That would have slowed me down a lot, but I&amp;rsquo;m very confident that I would have learned the material better.&lt;/p&gt;
+&lt;h2 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s next?&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m torn right now. I want to understand this material better, but I wonder if getting into lower-level, specific material might help me understand AI and machine learning better. What will likely happen is that I&amp;rsquo;ll copy and paste this content into Claude.ai and suggest a path forward for me.&lt;/p&gt;
+</description>
     </item>
+    
     <item>
       <title>New Blog</title>
       <link>http://localhost:1313/posts/new-blog/</link>
       <pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/new-blog/</guid>
-      <description>First post, announcing my blog, soon to be forgotten.</description>
+      <description>&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
+&lt;p&gt;Does the internet need another blog? Definitively, no. Do I have original insights that you will benefit from reading? Most likely not. So what&amp;rsquo;s the point of this blog?&lt;/p&gt;
+&lt;p&gt;I recently changed jobs, and I&amp;rsquo;m learning a lot. I retain information better when I describe it to someone. I also have a fear that if I constantly regurgitate my ongoing education to my close family, they will eventually want to murder me. That&amp;rsquo;s where this blog comes in. I&amp;rsquo;m going to teach you what I&amp;rsquo;m learning, so I can learn it better.&lt;/p&gt;
+&lt;p&gt;Inevitably, I&amp;rsquo;ll forget about this blog. Posts will become less frequent, and then stop completely. At some point, I&amp;rsquo;ll just stop writing here completely. After a while, I&amp;rsquo;ll find a new use for my domain name, and this will cease to exist, except in the ever growing dataset of archive.org. So, let&amp;rsquo;s get on with it!&lt;/p&gt;
+</description>
     </item>
+    
   </channel>
 </rss>

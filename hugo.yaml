@@ -17,6 +17,7 @@ params:
   analytics:
     google:
       SiteVerificationTag: "G-Z4RD2MGN21"
+  description: "Cognitive meanderings of a mid-career technologist" # Default site description
 
 menu:
   main:
