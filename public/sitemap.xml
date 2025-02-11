@@ -3,9 +3,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/</loc>
     
-    <lastmod>2025-02-06T12:57:27-05:00</lastmod>
+    <lastmod>2025-02-10T15:20:00-05:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -16,9 +16,9 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/posts/build-a-large-language-model/</loc>
+    <loc>http://localhost:1313/</loc>
     
-    <lastmod>2025-02-06T12:57:27-05:00</lastmod>
+    <lastmod>2025-02-10T15:20:00-05:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -30,6 +30,32 @@
   
   <url>
     <loc>http://localhost:1313/posts/</loc>
+    
+    <lastmod>2025-02-10T15:20:00-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/video-compression-analysis/</loc>
+    
+    <lastmod>2025-02-10T09:45:51-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/build-a-large-language-model/</loc>
     
     <lastmod>2025-02-06T12:57:27-05:00</lastmod>
     

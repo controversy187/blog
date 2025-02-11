@@ -13,6 +13,59 @@
     
     
     <item>
+      <title>Automatic Music Markers in Davinci Resolve</title>
+      <link>http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/</link>
+      <pubDate>Mon, 10 Feb 2025 15:20:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/</guid>
+      <description>&lt;h2 id=&#34;making-music-videos&#34;&gt;Making Music Videos&lt;/h2&gt;
+&lt;p&gt;I am very formulaic in how I make videos for my personal library.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Shoot some footage on my cell phone and/or a GoPro.&lt;/li&gt;
+&lt;li&gt;Find a song that captures the feeling of the event.&lt;/li&gt;
+&lt;li&gt;Import all the clips from the event to DaVinci Resolve, and the song selected above.&lt;/li&gt;
+&lt;li&gt;Add the song to the timeline.&lt;/li&gt;
+&lt;li&gt;I then go through the clips, usually chronologically, and see which ones are &amp;ldquo;cool enough&amp;rdquo; to make it the cut.&lt;/li&gt;
+&lt;li&gt;If I end up with more clips than I have time for, ruthlessly cut clips until I have the right amount for the song.&lt;/li&gt;
+&lt;li&gt;Manually drag clip start and end points to align with the measures of the song.&lt;/li&gt;
+&lt;li&gt;Apply Autolevels to each clip, based on the midpoint of the clip (I&amp;rsquo;m red/green color blind and haven&amp;rsquo;t invest any time into figuring out how to color grade).&lt;/li&gt;
+&lt;li&gt;Export and Upload.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It&amp;rsquo;s time consuming, but I usually enjoy it. One part that is always frustrating, though, is aligning the cuts in the clips to the measures in the song. I play the timeline and tap the beat on my desk, usually counting out the beats. If I&amp;rsquo;m lucky, there is a visible spike in the waveform on the beats, so I can drag my video clip boundaries to align with them. Sometimes I just have to guess where they are. The whole point is that a generic video like this will draw someone in mre effectively if the video is synchronized with the audio. It&amp;rsquo;s hard to describe, but without the synchronization, the video just sort of plays and the music creates a general feeling. When the timings line up, it feels like the music is pushing the visuals forward, creating more of an emotional resonance with the viewer. That&amp;rsquo;s my experience, at least.&lt;/p&gt;
+&lt;p&gt;I wanted to figure out how I could make it easier to find those beats in the audio, and the measure boundaries, so I could speed my workflow.&lt;/p&gt;
+&lt;h2 id=&#34;making-a-click-track&#34;&gt;Making a click-track&lt;/h2&gt;
+&lt;p&gt;My first attempt was to use python to analyize the audio file of the song I was using. I figured that there is likely some library out there that would determine the beats and hopefully the measures. I could then use that information to generate a new audio file. A single &amp;ldquo;click&amp;rdquo; sound on the beats, and a higher pitched click on the first beat of each measure. With that audio file, I could add it to the timeline in Resolve, mute it, and have a very clear visual to align my video clips to.&lt;/p&gt;
+&lt;p&gt;With some help from Claude.ai and ChatGPT, I played with the librosa libary. It was suprisingly accurate at finding the beats and generating a click track. The biggest hurdle I ran into happened during musical transitions. It seems that librosa analyizes the music for acoustic &amp;ldquo;density&amp;rdquo;. Music is generally more &amp;ldquo;dense&amp;rdquo; on the beats, which is where louder drums are hit, guitar chords are strummed, keys are struck, and generally most or all of the instruments &amp;ldquo;happen&amp;rdquo; at the same time.&lt;/p&gt;
+&lt;p&gt;For example, a guitar chord would be played on a beat, and then it is left to resonate until the next beat, or possibly a divison of the next beat. So with most of the instruments striking on the beats, those moments are more dense. Any given song will usually have a relatively consistent feel, and it seems like librosa does a good job of determining that feel, finding those dense moments and aligning them to the beats. Where it struggled for me is when the general density of the music changed.&lt;/p&gt;
+&lt;p&gt;I was testing with The Allman Brother&amp;rsquo;s song Ramblin&amp;rsquo; Man. This song starts with a clearly defined introduction which is mainly electric guitar for a couple of measures, and then the full band comes in. The problem is that librosa seems to normalize to the relatively low density of the electric guitar-only intro, and correctly identifies the beats. But once the full band comes in, the density goes up significantly, and librosa identifies extra beats for a short period, until it renormalizes to the higher density of the song. That throws off the counts of our beats, and then our measures are no longer in alignment.&lt;/p&gt;
+&lt;p&gt;I played with several parameters of librosa, but never got to satisfactory results.&lt;/p&gt;
+&lt;h2 id=&#34;making-project-markers&#34;&gt;Making project markers&lt;/h2&gt;
+&lt;p&gt;DaVinci Resolve (and most other populary video editing tools) support a feature called Markers. I haven&amp;rsquo;t used them before, so this is my first foray into them. The idea is that you can set specific markers on your timeline and then snap clips to them.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Video Compression Analysis</title>
+      <link>http://localhost:1313/posts/video-compression-analysis/</link>
+      <pubDate>Mon, 10 Feb 2025 09:45:51 -0500</pubDate>
+      <guid>http://localhost:1313/posts/video-compression-analysis/</guid>
+      <description>&lt;h2 id=&#34;a-videography-hobbyist&#34;&gt;A videography Hobbyist&lt;/h2&gt;
+&lt;p&gt;In my free time, I like shooting videos of my family&amp;rsquo;s adventures and doing some basic editing. I shoot on my cellphone and a GoPro. For the past several years, I have rendered my final projects in 1080p at 24 frames per second. I liked the ability to shoot in 4k and still &amp;ldquo;zoom in&amp;rdquo; digitally to 1080. That also let me shoot slow motion video at 1080, and match my final render resolution. I recently got a newer GoPro, so now I can shoot 4k at 120 fps, which allows me slow down to 20% speed if I render my final project at 24 fps.&lt;/p&gt;
+&lt;p&gt;With this advent of being able to shoot slow motion in 4k resolution, I decided to start rendering my projects in 4k, by default. I&amp;rsquo;m also experimenting with doing very quick edits, just splicing the day&amp;rsquo;s footage together, applying automatic color balancing per-clip, and then rendering at 60fps. This is more of a &amp;ldquo;home movie&amp;rdquo; of a day or event, rather than a curated, edited highlight video. I do all this in Davinci Resolve. Previously, I would be able to render my 1080 videos at 24fps and be happy with the file size and quality of picture. Now that I am rendering at four times the resolution and two and a half times the framerate, my output filesize has ballooned, and I need to pay better attention to my compression.&lt;/p&gt;
+&lt;p&gt;I want to find a good balance between output filesize and quality for my home movies.&lt;/p&gt;
+&lt;h2 id=&#34;comparison-of-projects&#34;&gt;Comparison of projects&lt;/h2&gt;
+&lt;p&gt;In the past, I would shoot for around 100 megabytes per minute of rendered video. So a 5 minute video, rendered at a resultion of 1080, at 24 frames per second would come in around 500 MB. Videos I really spent time on, I would bump up my quality settings and I&amp;rsquo;d be happy with a 3 gig file for a 5 minute video.&lt;/p&gt;
+&lt;p&gt;I recently rendered a video using Davinci Resolve&amp;rsquo;s 4k &amp;ldquo;Master&amp;rdquo; preset. So a resultion of 4k, at 60 frames per second, and a duration of 22 minutes came in at a whopping 75 gigabytes (~3.4 GB / min). I used Resolve&amp;rsquo;s &amp;ldquo;YouTube&amp;rdquo; preset, and that reduced the filesize to 1.8 GB.(~80 MB / min). That is a significant difference!&lt;/p&gt;
+&lt;p&gt;For reference, my input files, shot on the GoPro Hero 13 were shot in 4k, mostly at 120 fps. They totaled 18.2GB, so my rendered file was actually four times larger than my source material!&lt;/p&gt;
+&lt;p&gt;The two questions I have are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What is the difference in output files between these two?&lt;/li&gt;
+&lt;li&gt;Is there a noticeable difference in visible quality?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;differences-in-objective-data&#34;&gt;Differences in objective data&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Build a Large Language Model From Scratch</title>
       <link>http://localhost:1313/posts/build-a-large-language-model/</link>
       <pubDate>Thu, 06 Feb 2025 12:57:27 -0500</pubDate>
