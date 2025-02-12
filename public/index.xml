@@ -13,6 +13,156 @@
     
     
     <item>
+      <title>Video Compression Analysis</title>
+      <link>http://localhost:1313/posts/video-compression-analysis/</link>
+      <pubDate>Wed, 12 Feb 2025 05:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/video-compression-analysis/</guid>
+      <description>&lt;h2 id=&#34;a-videography-hobbyist&#34;&gt;A videography hobbyist&lt;/h2&gt;
+&lt;p&gt;In my free time, I like shooting videos of my family&amp;rsquo;s adventures and doing some basic editing. I shoot on my cellphone and a GoPro. For the past several years, I have rendered my final projects in 1080p at 24 frames per second. I liked the ability to shoot in 4k and still &amp;ldquo;zoom in&amp;rdquo; digitally to 1080. That also let me shoot slow motion video at 1080, and match my final render resolution. I recently got a newer GoPro, so now I can shoot 4k at 120 fps, which allows me slow down to 20% speed if I render my final project at 24 fps.&lt;/p&gt;
+&lt;p&gt;With this advent of being able to shoot slow motion in 4k resolution, I decided to start rendering my projects in 4k, by default. I&amp;rsquo;m also experimenting with doing very quick edits, just splicing the day&amp;rsquo;s footage together, applying automatic color balancing per-clip, and then rendering at 60fps. This is more of a &amp;ldquo;home movie&amp;rdquo; of a day or event, rather than a curated, edited highlight video. I do all this in Davinci Resolve. Previously, I would be able to render my 1080 videos at 24fps and be happy with the file size and quality of picture. Now that I am rendering at four times the resolution and two and a half times the framerate, my output filesize has ballooned, and I need to pay better attention to my compression.&lt;/p&gt;
+&lt;p&gt;I want to find a good balance between output filesize and quality for my home movies.&lt;/p&gt;
+&lt;h2 id=&#34;comparison-of-projects&#34;&gt;Comparison of projects&lt;/h2&gt;
+&lt;p&gt;In the past, I would shoot for around 100 megabytes per minute of rendered video. So a 5 minute video, rendered at a resolution of 1080, at 24 frames per second would come in around 500 MB. For videos I really spent time on, I would bump up my quality settings and I&amp;rsquo;d be happy with a 3 gig file for a 5 minute video.&lt;/p&gt;
+&lt;p&gt;I recently rendered a video using Davinci Resolve&amp;rsquo;s 4k &amp;ldquo;Master&amp;rdquo; preset. So a resolution of 4k, at 60 frames per second, and a duration of 22 minutes came in at a whopping 75 gigabytes (~3.4 GB / min). I used Resolve&amp;rsquo;s &amp;ldquo;YouTube&amp;rdquo; preset, and that reduced the filesize to 1.8 GB.(~80 MB / min). That is a significant difference!&lt;/p&gt;
+&lt;p&gt;For reference, my input files, shot on the GoPro Hero 13 were shot in 4k, mostly at 120 fps. They totaled 18.2GB, so my rendered file was actually four times larger than my source material!&lt;/p&gt;
+&lt;p&gt;The two questions I have are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What is the difference in output files between these two?&lt;/li&gt;
+&lt;li&gt;Is there a noticeable difference in visible quality?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;differences-in-objective-data&#34;&gt;Differences in objective data&lt;/h2&gt;
+&lt;p&gt;I wrote a &lt;a href=&#34;https://gist.github.com/controversy187/0d33948ba3afeb5ba4c4d2fb9ae8113f&#34;&gt;python script&lt;/a&gt; that compares various aspects of the videos. I also ran them through the various presets in &lt;a href=&#34;https://handbrake.fr/&#34;&gt;Handbrake&lt;/a&gt; to see how they compare. The video is 21:49 long. These are the results of that comparison, in order of increasing filesize.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Filename&lt;/th&gt;
+&lt;th&gt;Bitrate (kbps)&lt;/th&gt;
+&lt;th&gt;Resolution&lt;/th&gt;
+&lt;th&gt;Framerate (FPS)&lt;/th&gt;
+&lt;th&gt;Video Codec&lt;/th&gt;
+&lt;th&gt;Filesize&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Source Video (Sample).MP4&lt;/td&gt;
+&lt;td&gt;120000&lt;/td&gt;
+&lt;td&gt;3840x2160&lt;/td&gt;
+&lt;td&gt;119.88&lt;/td&gt;
+&lt;td&gt;hevc&lt;/td&gt;
+&lt;td&gt;67 &lt;strong&gt;MB&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Resolve - YouTube - h264.mp4&lt;/td&gt;
+&lt;td&gt;11618&lt;/td&gt;
+&lt;td&gt;3840x2160&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;h264&lt;/td&gt;
+&lt;td&gt;1.8 GB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Resolve - YouTube - h265.mp4&lt;/td&gt;
+&lt;td&gt;10566&lt;/td&gt;
+&lt;td&gt;3840x2160&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;hevc&lt;/td&gt;
+&lt;td&gt;1.7 GB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Resolve - Master - h264 - HandBrake - Fast.mp4&lt;/td&gt;
+&lt;td&gt;37948&lt;/td&gt;
+&lt;td&gt;3840x2160&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;hevc&lt;/td&gt;
+&lt;td&gt;6 GB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Resolve - Master - h264 - HandBrake - VeryFast.mp4&lt;/td&gt;
+&lt;td&gt;41025&lt;/td&gt;
+&lt;td&gt;3840x2160&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;hevc&lt;/td&gt;
+&lt;td&gt;6.5 GB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Resolve - Master - h264 - HandBrake - HQ.mp4&lt;/td&gt;
+&lt;td&gt;57001&lt;/td&gt;
+&lt;td&gt;3840x2160&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;hevc&lt;/td&gt;
+&lt;td&gt;9 GB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Resolve - Master - h264 - HandBrake - Super HQ.mp4&lt;/td&gt;
+&lt;td&gt;78210&lt;/td&gt;
+&lt;td&gt;3840x2160&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;hevc&lt;/td&gt;
+&lt;td&gt;12.5 GB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Resolve - Master - h265.mp4&lt;/td&gt;
+&lt;td&gt;473927&lt;/td&gt;
+&lt;td&gt;3840x2160&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;h264&lt;/td&gt;
+&lt;td&gt;75.7 GB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Resolve - Master - h264.mp4&lt;/td&gt;
+&lt;td&gt;474208&lt;/td&gt;
+&lt;td&gt;3840x2160&lt;/td&gt;
+&lt;td&gt;60&lt;/td&gt;
+&lt;td&gt;h264&lt;/td&gt;
+&lt;td&gt;75.8 GB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Obviously, Handbrake is going a good job at compressing the video, and lowering the bitrate, thus reducing filesize. But how do the videos actually &lt;em&gt;look&lt;/em&gt;?&lt;/p&gt;
+&lt;h2 id=&#34;subjective-comparison&#34;&gt;Subjective comparison&lt;/h2&gt;
+&lt;p&gt;Here are images captured from each of the above videos.&lt;/p&gt;
+&lt;div id=&#34;gallery&#34;&gt;
+  &lt;a href=&#34;images/Resolve - YouTube - h264.jpg&#34; data-sub-html=&#34;Davinci Resolve, YouTube preset, h264&#34;&gt;
+  	&lt;img src=&#34;images/Resolve - YouTube - h264.jpg&#34; width=&#34;100%&#34;&gt;
+  	Davinci Resolve, YouTube preset, h264
+  &lt;/a&gt;
+  &lt;a href=&#34;images/Resolve - YouTube - h265.jpg&#34; data-sub-html=&#34;Davinci Resolve, YouTube preset, h265&#34;&gt;
+  	&lt;img src=&#34;images/Resolve - YouTube - h265.jpg&#34; width=&#34;100%&#34;&gt;
+  	Davinci Resolve, YouTube Preset, h265
+  &lt;/a&gt;
+  &lt;a href=&#34;images/Resolve - Master - h264 - HandBrake - Fast.jpg&#34; data-sub-html=&#34;Handbrake, Fast&#34;&gt;
+  	&lt;img src=&#34;images/Resolve - Master - h264 - HandBrake - Fast.jpg&#34; width=&#34;100%&#34;&gt;
+  	Handbrake, Fast
+  &lt;/a&gt;
+  &lt;a href=&#34;images/Resolve - Master - h264 - HandBrake - VeryFast.jpg&#34; data-sub-html=&#34;Handbrake, Very Fast&#34;&gt;
+  	&lt;img src=&#34;images/Resolve - Master - h264 - HandBrake - VeryFast.jpg&#34; width=&#34;100%&#34;&gt;
+  	Handbrake, Very Fast
+  &lt;/a&gt;
+  &lt;a href=&#34;images/Resolve - Master - h264 - HandBrake - HQ.jpg&#34; data-sub-html=&#34;Handbrake, High Quality&#34;&gt;
+  	&lt;img src=&#34;images/Resolve - Master - h264 - HandBrake - HQ.jpg&#34; width=&#34;100%&#34;&gt;
+  	Handbrake, High Quality
+  &lt;/a&gt;
+  &lt;a href=&#34;images/Resolve - Master - h264 - HandBrake - Super HQ.jpg&#34; data-sub-html=&#34;Handbrake, Super High Quality&#34;&gt;
+  	&lt;img src=&#34;images/Resolve - Master - h264 - HandBrake - Super HQ.jpg&#34; width=&#34;100%&#34;&gt;
+  	Handbrake, Super High Quality
+  &lt;/a&gt;
+  &lt;a href=&#34;images/Resolve - Master - h264.jpg&#34; data-sub-html=&#34;Davinci Resolve, Master - h264&#34;&gt;
+  	&lt;img src=&#34;images/Resolve - Master - h264.jpg&#34; width=&#34;100%&#34;&gt;
+  	Davinci Resolve, Master - h264
+  &lt;/a&gt;
+  &lt;a href=&#34;images/Resolve - Master - h265.jpg&#34; data-sub-html=&#34;Davinci Resolve, Master - h265&#34;&gt;
+  	&lt;img src=&#34;images/Resolve - Master - h265.jpg&#34; width=&#34;100%&#34;&gt;
+  	Davinci Resolve, Master - h265
+  &lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;In these very specific examples, you can immediately see that the DaVinci Resolve YouTube presets are not good. The h264 version shows artifiacts on the right side of the frame and all detail in the snow on the ground is completely lost. Interestingly, the h265 codec doesn&amp;rsquo;t lose as much detail, and is slightly smaller. In the case were you need a small file, it seems like the h265 does a better job at these lower bitrates.&lt;/p&gt;
+&lt;p&gt;When we jump up into the Handbrake re-encodes, things get noticeably better. Honestly, from the still frames it&amp;rsquo;s very hard (for me) to tell the difference between these images, all the way through to the masters. Even when I watch the playback of the videos themselves, I&amp;rsquo;m hard pressed to see any difference. It could be that the source clips themselves only have a 120Mbps bitrate, and we&amp;rsquo;re re-encoding at a higher bitrate for the masters (474Mbps).&lt;/p&gt;
+&lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;To really judge this fairly, I probably should have rendered everything out from DaVinci Resolve and manually adjusted the bitrate. Based on these tests, though, I&amp;rsquo;m not seeing a noticeable loss in quality between the 474Mbps best quality from Resolve and a re-encoded to 78Mbps in Handbrake. For the time being, I&amp;rsquo;m planning to render out from Resolve and limiting my bitrate to 80Mbps. That&amp;rsquo;s only 590 MB or so per minute of video, which isn&amp;rsquo;t bad for what I&amp;rsquo;m doing with them.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Automatic Music Markers in Davinci Resolve</title>
       <link>http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/</link>
       <pubDate>Mon, 10 Feb 2025 15:20:00 -0500</pubDate>
@@ -40,28 +190,6 @@
 &lt;p&gt;I played with several parameters of librosa, but never got to satisfactory results.&lt;/p&gt;
 &lt;h2 id=&#34;making-project-markers&#34;&gt;Making project markers&lt;/h2&gt;
 &lt;p&gt;DaVinci Resolve (and most other populary video editing tools) support a feature called Markers. I haven&amp;rsquo;t used them before, so this is my first foray into them. The idea is that you can set specific markers on your timeline and then snap clips to them.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Video Compression Analysis</title>
-      <link>http://localhost:1313/posts/video-compression-analysis/</link>
-      <pubDate>Mon, 10 Feb 2025 09:45:51 -0500</pubDate>
-      <guid>http://localhost:1313/posts/video-compression-analysis/</guid>
-      <description>&lt;h2 id=&#34;a-videography-hobbyist&#34;&gt;A videography Hobbyist&lt;/h2&gt;
-&lt;p&gt;In my free time, I like shooting videos of my family&amp;rsquo;s adventures and doing some basic editing. I shoot on my cellphone and a GoPro. For the past several years, I have rendered my final projects in 1080p at 24 frames per second. I liked the ability to shoot in 4k and still &amp;ldquo;zoom in&amp;rdquo; digitally to 1080. That also let me shoot slow motion video at 1080, and match my final render resolution. I recently got a newer GoPro, so now I can shoot 4k at 120 fps, which allows me slow down to 20% speed if I render my final project at 24 fps.&lt;/p&gt;
-&lt;p&gt;With this advent of being able to shoot slow motion in 4k resolution, I decided to start rendering my projects in 4k, by default. I&amp;rsquo;m also experimenting with doing very quick edits, just splicing the day&amp;rsquo;s footage together, applying automatic color balancing per-clip, and then rendering at 60fps. This is more of a &amp;ldquo;home movie&amp;rdquo; of a day or event, rather than a curated, edited highlight video. I do all this in Davinci Resolve. Previously, I would be able to render my 1080 videos at 24fps and be happy with the file size and quality of picture. Now that I am rendering at four times the resolution and two and a half times the framerate, my output filesize has ballooned, and I need to pay better attention to my compression.&lt;/p&gt;
-&lt;p&gt;I want to find a good balance between output filesize and quality for my home movies.&lt;/p&gt;
-&lt;h2 id=&#34;comparison-of-projects&#34;&gt;Comparison of projects&lt;/h2&gt;
-&lt;p&gt;In the past, I would shoot for around 100 megabytes per minute of rendered video. So a 5 minute video, rendered at a resultion of 1080, at 24 frames per second would come in around 500 MB. Videos I really spent time on, I would bump up my quality settings and I&amp;rsquo;d be happy with a 3 gig file for a 5 minute video.&lt;/p&gt;
-&lt;p&gt;I recently rendered a video using Davinci Resolve&amp;rsquo;s 4k &amp;ldquo;Master&amp;rdquo; preset. So a resultion of 4k, at 60 frames per second, and a duration of 22 minutes came in at a whopping 75 gigabytes (~3.4 GB / min). I used Resolve&amp;rsquo;s &amp;ldquo;YouTube&amp;rdquo; preset, and that reduced the filesize to 1.8 GB.(~80 MB / min). That is a significant difference!&lt;/p&gt;
-&lt;p&gt;For reference, my input files, shot on the GoPro Hero 13 were shot in 4k, mostly at 120 fps. They totaled 18.2GB, so my rendered file was actually four times larger than my source material!&lt;/p&gt;
-&lt;p&gt;The two questions I have are:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;What is the difference in output files between these two?&lt;/li&gt;
-&lt;li&gt;Is there a noticeable difference in visible quality?&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;differences-in-objective-data&#34;&gt;Differences in objective data&lt;/h2&gt;
 </description>
     </item>
     
