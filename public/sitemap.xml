@@ -29,6 +29,32 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/tags/</loc>
+    
+    <lastmod>2025-02-12T05:00:00-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/video/</loc>
+    
+    <lastmod>2025-02-12T05:00:00-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/posts/video-compression-analysis/</loc>
     
     <lastmod>2025-02-12T05:00:00-05:00</lastmod>
@@ -55,7 +81,46 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/tags/ai/</loc>
+    
+    <lastmod>2025-02-06T12:57:27-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/posts/build-a-large-language-model/</loc>
+    
+    <lastmod>2025-02-06T12:57:27-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/llm/</loc>
+    
+    <lastmod>2025-02-06T12:57:27-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/python/</loc>
     
     <lastmod>2025-02-06T12:57:27-05:00</lastmod>
     
@@ -84,28 +149,6 @@
     <loc>http://localhost:1313/posts/new-blog/</loc>
     
     <lastmod>2025-02-05T00:00:00+00:00</lastmod>
-    
-    
-    <changefreq>weekly</changefreq>
-    
-    
-    <priority>0.5</priority>
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/categories/</loc>
-    
-    
-    <changefreq>weekly</changefreq>
-    
-    
-    <priority>0.5</priority>
-    
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/</loc>
     
     
     <changefreq>weekly</changefreq>

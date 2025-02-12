@@ -3,6 +3,10 @@ date: '2025-02-06T12:57:27-05:00'
 draft: false
 title: 'Build a Large Language Model From Scratch'
 description: "A developer's journey through building an LLM from scratch, sharing key insights about tokenization, training, and the learning process of mastering AI fundamentals."
+tags:
+    - AI
+    - LLM
+    - Python
 ---
 
 ## Building a large language model from scratch

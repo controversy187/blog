@@ -2,7 +2,9 @@
 date: '2025-02-12T05:00:00-05:00'
 draft: false
 title: 'Video Compression Analysis'
-description: ''
+description: 'A detailed analysis comparing video compression settings in DaVinci Resolve and Handbrake, exploring the balance between file size and quality when rendering 4K footage at 60fps. Includes both technical comparisons and visual quality assessments.'
+tags:
+    - Video
 ---
 ## A videography hobbyist
 In my free time, I like shooting videos of my family's adventures and doing some basic editing. I shoot on my cellphone and a GoPro. For the past several years, I have rendered my final projects in 1080p at 24 frames per second. I liked the ability to shoot in 4k and still "zoom in" digitally to 1080. That also let me shoot slow motion video at 1080, and match my final render resolution. I recently got a newer GoPro, so now I can shoot 4k at 120 fps, which allows me slow down to 20% speed if I render my final project at 24 fps.
