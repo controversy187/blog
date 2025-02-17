@@ -71,10 +71,10 @@ With that complete, we can "train" the model. This process involves taking each 
 ### Text Generation Process
 Now, if you provide a starter text to the model, it will try to complete the text for you. Continuing our example, if I gave the model the text "My cat saw a mouse and it", based on the word cat being close to the word mouse, it might predict the word "jumped" to come next. So it appends the word "jumped" to the text I submitted, and then it takes that whole new sentence and feeds it back into itself. So now the input text is "My cat saw a mouse and it jumped". The next output word could be "on", so it appends that word and feeds this concatenated output back into its input.
 
-Every time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window) and then calculates the most likely next token, then converts it all back to text for us to read.
+~~Every time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window) and then calculates the most likely next token, then converts it all back to text for us to read.~~ _[See update](#update-2025-02-17)_
 
 ### Model Weights & Distribution
-Saving all those relationships between the tokens are known as the "weights" of the model. Those can be distributed, so if you train a model on a given training text, you can give that to your friends and they can use those model weights to predict text similar to that training text.
+~~Saving all those relationships between the tokens are known as the "weights" of the model.~~ _[See update](#update-2025-02-17)_ Those can be distributed, so if you train a model on a given training text, you can give that to your friends and they can use those model weights to predict text similar to that training text.
 
 ### Fine Tuning
 Fine-tuning is the process of training a model for specific... things. My mind is getting fuzzier here, so I'm not going to go into this deeper. Suffice it to say, that you start with a base language model and continue to train it using specific input and output pairs. In the book, we built a spam classifier that determined if a given message was spam or not, as well as a model that will follow instructions. That's actually the one that's being trained right now as I write this post, so I'm not sure how it will turn out. Based on the fact that it's published in a book, I think it will come out just fine.
@@ -93,4 +93,29 @@ I didn't have to "figure out" anything, and I think that hampered my learning. T
 ## What's next?
 I'm torn right now. I want to understand this material better, but I wonder if getting into lower-level, specific material might help me understand AI and machine learning better. What will likely happen is that I'll copy and paste this content into Claude.ai and suggest a path forward for me.
 
+---
+## Update: 2025-02-17
 
+[Sebastian Raschka](https://www.linkedin.com/in/sebastianraschka/) sent me a kind message in response to this post and clarified some of my thinking. To quote him:
+
+> 1) "Every time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window)". You do this initially when you parse the input text. But then you technically don't need to re-tokenize anything. You can leave the generated output in the tokenized form when creating the next token. 
+> 
+> What I mean is if the text is 
+> 
+> "My cat saw a mouse"
+> 
+> The tokens might be "123 1 5 6 99" (numbers are arbitrary examples). Then the LLM generates the token 801 for "jump". Then you simply use "123 1 5 6 99 801" as the input for the next word. 
+> 
+> When you show the output to the user, then you convert back into text.
+> 
+> 2) "Saving all those relationships between the tokens are known as the “weights” of the model."
+> 
+> I would say that relationships between tokens are the attention scores. The model weights are more like values that are involved in computing things like the attention scores (and other things). 
+> 
+> Now that you finished the book, in case you are bored, I do also have some more materials as bonus material in the GitHub repository. 
+> 
+> I'd say the GPT->Llama conversion (https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/07_gpt_to_llama) and the DPO preference tuning (https://github.com/rasbt/LLMs-from-scratch/blob/main/ch07/04_preference-tuning-with-dpo/dpo-from-scratch.ipynb) are maybe the most interesting ones.
+> 
+> I also just uploaded some PyTorch tips for increasing the training speed of the model: https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/10_llm-training-speed
+> 
+> These materials are less polished than the book itself, but maybe you'll still find them useful!
