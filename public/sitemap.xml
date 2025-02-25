@@ -5,7 +5,20 @@
   <url>
     <loc>http://localhost:1313/</loc>
     
-    <lastmod>2025-02-12T05:00:00-05:00</lastmod>
+    <lastmod>2025-02-25T10:22:19-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/davinci-resolve/</loc>
+    
+    <lastmod>2025-02-25T10:22:19-05:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -18,7 +31,20 @@
   <url>
     <loc>http://localhost:1313/posts/</loc>
     
-    <lastmod>2025-02-12T05:00:00-05:00</lastmod>
+    <lastmod>2025-02-25T10:22:19-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/speed-controls-in-davinci-resolve/</loc>
+    
+    <lastmod>2025-02-25T10:22:19-05:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -31,7 +57,7 @@
   <url>
     <loc>http://localhost:1313/tags/</loc>
     
-    <lastmod>2025-02-12T05:00:00-05:00</lastmod>
+    <lastmod>2025-02-25T10:22:19-05:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -44,7 +70,7 @@
   <url>
     <loc>http://localhost:1313/tags/video/</loc>
     
-    <lastmod>2025-02-12T05:00:00-05:00</lastmod>
+    <lastmod>2025-02-25T10:22:19-05:00</lastmod>
     
     
     <changefreq>weekly</changefreq>
@@ -58,6 +84,19 @@
     <loc>http://localhost:1313/posts/video-compression-analysis/</loc>
     
     <lastmod>2025-02-12T05:00:00-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/</loc>
+    
+    <lastmod>2025-02-10T15:20:00-05:00</lastmod>
     
     
     <changefreq>weekly</changefreq>

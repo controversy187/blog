@@ -13,6 +13,25 @@
     
     
     <item>
+      <title>Speed Controls in Davinci Resolve</title>
+      <link>http://localhost:1313/posts/speed-controls-in-davinci-resolve/</link>
+      <pubDate>Tue, 25 Feb 2025 10:22:19 -0500</pubDate>
+      <guid>http://localhost:1313/posts/speed-controls-in-davinci-resolve/</guid>
+      <description>&lt;h2 id=&#34;controlling-clip-speed-in-davinci-resolve&#34;&gt;Controlling clip speed in DaVinci Resolve&lt;/h2&gt;
+&lt;p&gt;This is the process I just learned for adjusting speed within clips in DaVinci Resolve 19. This isn&amp;rsquo;t an adjustment for an entire clip, but portions of a clip. You can see the use-case in several of the shots &lt;a href=&#34;https://www.youtube.com/watch?v=IymFBGIcqcI&#34;&gt;here&lt;/a&gt;. In the past, I’d cut a clip where I wanted the speed to change and adjust the middle section’s speed, turning one clip into three.&lt;/p&gt;
+&lt;h2 id=&#34;adjust-clip-speed-using-time-controls&#34;&gt;Adjust clip speed using Time Controls&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ll use the last clip from the above video as a tutorial. The first step is to select the clip you want to adjust on your timeline, in the Edit tab. Right-click the clip and select &amp;ldquo;Retime Controls&amp;rdquo; (ctrl+R on Windows).
+&lt;img alt=&#34;Context Menu&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/context_menu.jpg&#34;&gt;
+You’ll see blue triangles pointing right. Move your playhead (the timeline cursor showing your current frame) to the frame where you want the speed change to start. At the bottom of the clip on the timeline, you should see an indicator that shows &amp;ldquo;100%&amp;rdquo; followed by a downward facing triangle. Clicking that triangle pops open a context menu. From there, select &amp;ldquo;Add Speed Point.&amp;rdquo;
+&lt;img alt=&#34;Add Speed Point&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/add-speed-point.jpg&#34;&gt;
+This functions like a keyframe, if you&amp;rsquo;ve done other video effects or editing in the past. With that divider there, you can see the clip is effectively bisected at the frame you have selected, and each side shows 100%. Now, you can select either side (I&amp;rsquo;ll use the right-side) to adjust the speed. Clicking the black down arrow there allows you &amp;ldquo;Change Speed&amp;rdquo; to a handful of preset options. I&amp;rsquo;ll select 25%.
+&lt;img alt=&#34;25 Percent&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/25-percent.jpg&#34;&gt;
+Now the arrows change color and extend. Effectively, you have created another clip, with a slower speed. To resume normal speed later, move your playhead to that spot and add another speed point (via the black arrow). Then reset the right side to 100%. Your final result is a clip that runs at normal speed, slows down in the middle, and resumes normal speed at the end!
+&lt;img alt=&#34;Final Cut&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/final-edit.jpg&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Video Compression Analysis</title>
       <link>http://localhost:1313/posts/video-compression-analysis/</link>
       <pubDate>Wed, 12 Feb 2025 05:00:00 -0500</pubDate>
@@ -159,6 +178,37 @@
 &lt;p&gt;When we jump up into the Handbrake re-encodes, things get noticeably better. Honestly, from the still frames it&amp;rsquo;s very hard (for me) to tell the difference between these images, all the way through to the masters. Even when I watch the playback of the videos themselves, I&amp;rsquo;m hard pressed to see any difference. It could be that the source clips themselves only have a 120Mbps bitrate, and we&amp;rsquo;re re-encoding at a higher bitrate for the masters (474Mbps).&lt;/p&gt;
 &lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
 &lt;p&gt;To really judge this fairly, I probably should have rendered everything out from DaVinci Resolve and manually adjusted the bitrate. Based on these tests, though, I&amp;rsquo;m not seeing a noticeable loss in quality between the 474Mbps best quality from Resolve and a re-encoded to 78Mbps in Handbrake. For the time being, I&amp;rsquo;m planning to render out from Resolve and limiting my bitrate to 80Mbps. That&amp;rsquo;s only 590 MB or so per minute of video, which isn&amp;rsquo;t bad for what I&amp;rsquo;m doing with them.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Automatic Music Markers in Davinci Resolve</title>
+      <link>http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/</link>
+      <pubDate>Mon, 10 Feb 2025 15:20:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/</guid>
+      <description>&lt;h2 id=&#34;making-music-videos&#34;&gt;Making Music Videos&lt;/h2&gt;
+&lt;p&gt;I am very formulaic in how I make videos for my personal library.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Shoot some footage on my cell phone and/or a GoPro.&lt;/li&gt;
+&lt;li&gt;Find a song that captures the feeling of the event.&lt;/li&gt;
+&lt;li&gt;Import all the clips from the event to DaVinci Resolve, and the song selected above.&lt;/li&gt;
+&lt;li&gt;Add the song to the timeline.&lt;/li&gt;
+&lt;li&gt;I then go through the clips, usually chronologically, and see which ones are &amp;ldquo;cool enough&amp;rdquo; to make it the cut.&lt;/li&gt;
+&lt;li&gt;If I end up with more clips than I have time for, ruthlessly cut clips until I have the right amount for the song.&lt;/li&gt;
+&lt;li&gt;Manually drag clip start and end points to align with the measures of the song.&lt;/li&gt;
+&lt;li&gt;Apply Autolevels to each clip, based on the midpoint of the clip (I&amp;rsquo;m red/green color blind and haven&amp;rsquo;t invest any time into figuring out how to color grade).&lt;/li&gt;
+&lt;li&gt;Export and Upload.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It&amp;rsquo;s time consuming, but I usually enjoy it. One part that is always frustrating, though, is aligning the cuts in the clips to the measures in the song. I play the timeline and tap the beat on my desk, usually counting out the beats. If I&amp;rsquo;m lucky, there is a visible spike in the waveform on the beats, so I can drag my video clip boundaries to align with them. Sometimes I just have to guess where they are. The whole point is that a generic video like this will draw someone in mre effectively if the video is synchronized with the audio. It&amp;rsquo;s hard to describe, but without the synchronization, the video just sort of plays and the music creates a general feeling. When the timings line up, it feels like the music is pushing the visuals forward, creating more of an emotional resonance with the viewer. That&amp;rsquo;s my experience, at least.&lt;/p&gt;
+&lt;p&gt;I wanted to figure out how I could make it easier to find those beats in the audio, and the measure boundaries, so I could speed my workflow.&lt;/p&gt;
+&lt;h2 id=&#34;making-a-click-track&#34;&gt;Making a click-track&lt;/h2&gt;
+&lt;p&gt;My first attempt was to use python to analyize the audio file of the song I was using. I figured that there is likely some library out there that would determine the beats and hopefully the measures. I could then use that information to generate a new audio file. A single &amp;ldquo;click&amp;rdquo; sound on the beats, and a higher pitched click on the first beat of each measure. With that audio file, I could add it to the timeline in Resolve, mute it, and have a very clear visual to align my video clips to.&lt;/p&gt;
+&lt;p&gt;With some help from Claude.ai and ChatGPT, I played with the librosa libary. It was suprisingly accurate at finding the beats and generating a click track. The biggest hurdle I ran into happened during musical transitions. It seems that librosa analyizes the music for acoustic &amp;ldquo;density&amp;rdquo;. Music is generally more &amp;ldquo;dense&amp;rdquo; on the beats, which is where louder drums are hit, guitar chords are strummed, keys are struck, and generally most or all of the instruments &amp;ldquo;happen&amp;rdquo; at the same time.&lt;/p&gt;
+&lt;p&gt;For example, a guitar chord would be played on a beat, and then it is left to resonate until the next beat, or possibly a divison of the next beat. So with most of the instruments striking on the beats, those moments are more dense. Any given song will usually have a relatively consistent feel, and it seems like librosa does a good job of determining that feel, finding those dense moments and aligning them to the beats. Where it struggled for me is when the general density of the music changed.&lt;/p&gt;
+&lt;p&gt;I was testing with The Allman Brother&amp;rsquo;s song Ramblin&amp;rsquo; Man. This song starts with a clearly defined introduction which is mainly electric guitar for a couple of measures, and then the full band comes in. The problem is that librosa seems to normalize to the relatively low density of the electric guitar-only intro, and correctly identifies the beats. But once the full band comes in, the density goes up significantly, and librosa identifies extra beats for a short period, until it renormalizes to the higher density of the song. That throws off the counts of our beats, and then our measures are no longer in alignment.&lt;/p&gt;
+&lt;p&gt;I played with several parameters of librosa, but never got to satisfactory results.&lt;/p&gt;
+&lt;h2 id=&#34;making-project-markers&#34;&gt;Making project markers&lt;/h2&gt;
+&lt;p&gt;DaVinci Resolve (and most other populary video editing tools) support a feature called Markers. I haven&amp;rsquo;t used them before, so this is my first foray into them. The idea is that you can set specific markers on your timeline and then snap clips to them.&lt;/p&gt;
 </description>
     </item>
     
