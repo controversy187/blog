@@ -1,6 +1,6 @@
 ---
 date: '2025-04-02T00:00:00-05:00'
-draft: true
+draft: false
 title: 'Obsidian, MCP Servers, and Supercharging Your Second Brain with AI'
 description: "Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system."
 tags:
