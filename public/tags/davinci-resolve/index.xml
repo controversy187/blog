@@ -13,15 +13,45 @@
     
     
     <item>
+      <title>Obsidian, MCP Servers, and Retreiving Data from my Second Brain</title>
+      <link>http://localhost:1313/posts/mcp-server-experiences/</link>
+      <pubDate>Wed, 02 Apr 2025 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/mcp-server-experiences/</guid>
+      <description>&lt;h2 id=&#34;my-journey-with-mcp-servers&#34;&gt;My Journey with MCP Servers&lt;/h2&gt;
+&lt;p&gt;I recently learned of MCP servers through a &lt;a href=&#34;https://news.ycombinator.com/item?id=43410866&#34;&gt;post on Hacker News&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
+&lt;p&gt;[Explain what MCP servers are and why you started using them]&lt;/p&gt;
+&lt;h3 id=&#34;setup-and-configuration&#34;&gt;Setup and Configuration&lt;/h3&gt;
+&lt;p&gt;[Discuss your setup process and initial configuration]&lt;/p&gt;
+&lt;h3 id=&#34;challenges-encountered&#34;&gt;Challenges Encountered&lt;/h3&gt;
+&lt;p&gt;[Share any problems or challenges you faced]&lt;/p&gt;
+&lt;h3 id=&#34;performance-analysis&#34;&gt;Performance Analysis&lt;/h3&gt;
+&lt;p&gt;[Talk about the performance aspects of MCP servers in your environment]&lt;/p&gt;
+&lt;h3 id=&#34;lessons-learned&#34;&gt;Lessons Learned&lt;/h3&gt;
+&lt;p&gt;[Share insights and lessons from your experience]&lt;/p&gt;
+&lt;h3 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h3&gt;
+&lt;p&gt;[Provide recommendations for others considering MCP servers]&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;[Summarize your overall experience and final thoughts]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Speed Controls in Davinci Resolve</title>
       <link>http://localhost:1313/posts/speed-controls-in-davinci-resolve/</link>
       <pubDate>Tue, 25 Feb 2025 10:22:19 -0500</pubDate>
       <guid>http://localhost:1313/posts/speed-controls-in-davinci-resolve/</guid>
       <description>&lt;h2 id=&#34;controlling-clip-speed-in-davinci-resolve&#34;&gt;Controlling clip speed in DaVinci Resolve&lt;/h2&gt;
-&lt;p&gt;This is the process I just learned for adjusting speed within clips in DaVinci Resolve 19. This isn&amp;rsquo;t an adjustment for an entire clip, but portions a clip. The use-case in several of the couple of clips &lt;a href=&#34;https://www.youtube.com/watch?v=IymFBGIcqcI&#34;&gt;here&lt;/a&gt;. In the past, I would cut a clip where I wanted the speed to change, then adjust the speed of one of the clips. The effect would be turning one clip into three, with the middle clip slowed down.&lt;/p&gt;
+&lt;p&gt;This is the process I just learned for adjusting speed within clips in DaVinci Resolve 19. This isn&amp;rsquo;t an adjustment for an entire clip, but portions of a clip. You can see the use-case in several of the shots &lt;a href=&#34;https://www.youtube.com/watch?v=IymFBGIcqcI&#34;&gt;here&lt;/a&gt;. In the past, I’d cut a clip where I wanted the speed to change and adjust the middle section’s speed, turning one clip into three.&lt;/p&gt;
 &lt;h2 id=&#34;adjust-clip-speed-using-time-controls&#34;&gt;Adjust clip speed using Time Controls&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;ll use the last clip from the above video as a tutorial. The first step is to select the clip you want to adjust on your timeline, in the Edit tab. Right-click the clip and select &amp;ldquo;Retime Controls&amp;rdquo; (ctrl+R on Windows).
-&lt;img alt=&#34;Context Menu&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/context_menu.jpg&#34;&gt;&lt;/p&gt;
+&lt;img alt=&#34;Context Menu&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/context_menu.jpg&#34;&gt;
+You’ll see blue triangles pointing right. Move your playhead (the timeline cursor showing your current frame) to the frame where you want the speed change to start. At the bottom of the clip on the timeline, you should see an indicator that shows &amp;ldquo;100%&amp;rdquo; followed by a downward facing triangle. Clicking that triangle pops open a context menu. From there, select &amp;ldquo;Add Speed Point.&amp;rdquo;
+&lt;img alt=&#34;Add Speed Point&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/add-speed-point.jpg&#34;&gt;
+This functions like a keyframe, if you&amp;rsquo;ve done other video effects or editing in the past. With that divider there, you can see the clip is effectively bisected at the frame you have selected, and each side shows 100%. Now, you can select either side (I&amp;rsquo;ll use the right-side) to adjust the speed. Clicking the black down arrow there allows you &amp;ldquo;Change Speed&amp;rdquo; to a handful of preset options. I&amp;rsquo;ll select 25%.
+&lt;img alt=&#34;25 Percent&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/25-percent.jpg&#34;&gt;
+Now the arrows change color and extend. Effectively, you have created another clip, with a slower speed. To resume normal speed later, move your playhead to that spot and add another speed point (via the black arrow). Then reset the right side to 100%. Your final result is a clip that runs at normal speed, slows down in the middle, and resumes normal speed at the end!
+&lt;img alt=&#34;Final Cut&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/final-edit.jpg&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
