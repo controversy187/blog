@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Brett Fitzgerald</title>
-    <link>http://localhost:1313/</link>
+    <link>https://brettgfitzgerald.com/</link>
     <description>Recent content on Brett Fitzgerald</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     
-    <atom:link href="http://localhost:1313/tags/servers/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://brettgfitzgerald.com/tags/servers/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cursor AI: Rediscovering the Joy of Code (A PM&#39;s Journey)</title>
-      <link>http://localhost:1313/posts/delving-into-cursor/</link>
+      <link>https://brettgfitzgerald.com/posts/delving-into-cursor/</link>
       <pubDate>Tue, 13 May 2025 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/delving-into-cursor/</guid>
+      <guid>https://brettgfitzgerald.com/posts/delving-into-cursor/</guid>
       <description>&lt;h2 id=&#34;delving-into-cursor&#34;&gt;Delving into Cursor&lt;/h2&gt;
 &lt;p&gt;Ok, I&amp;rsquo;m late to the game. I just started using &lt;a href=&#34;https://cursor.sh&#34;&gt;Cursor&lt;/a&gt; to write code. To be fair, writing code isn&amp;rsquo;t really part of my day-to-day job as a Product Manager for an advanced data analytics team, but I wanted to scratch that &amp;ldquo;builder&amp;rdquo; itch in me. Also, I wanted better data than what is available through Jira&amp;rsquo;s API. That means I need to write some code, probably in Python since that&amp;rsquo;s my jam. And why not use these AI tools that everyone else is using? But which one(s) should I use?&lt;/p&gt;
 &lt;h2 id=&#34;cursor-vs-windsurf-vs-gemini-code-assist-vs-others&#34;&gt;Cursor vs. Windsurf vs. Gemini Code Assist vs. Others&lt;/h2&gt;
@@ -52,9 +52,9 @@ Me: No, that&amp;rsquo;s where we started!&lt;/p&gt;
     
     <item>
       <title>Obsidian, MCP Servers, and Supercharging Your Second Brain with AI</title>
-      <link>http://localhost:1313/posts/mcp-server-experiences/</link>
+      <link>https://brettgfitzgerald.com/posts/mcp-server-experiences/</link>
       <pubDate>Wed, 02 Apr 2025 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/mcp-server-experiences/</guid>
+      <guid>https://brettgfitzgerald.com/posts/mcp-server-experiences/</guid>
       <description>&lt;h2 id=&#34;my-journey-with-mcp-servers&#34;&gt;My Journey with MCP Servers&lt;/h2&gt;
 &lt;p&gt;I recently learned of MCP (Model Control Protocol) servers through a &lt;a href=&#34;https://news.ycombinator.com/item?id=43410866&#34;&gt;post on Hacker News&lt;/a&gt;. The premise seems really neat. MCP is essentially a protocol that allows AI models like Claude to interact with external tools and services through a standardized interface. I can write a very simple server and create &amp;ldquo;tools&amp;rdquo; for the Claude.ai desktop application to connect to and use. The example in the post created some tools that gave Claude access to read and write to the local filesystem (unrestricted, by the way). The original intent was to have Claude write some application. I cloned and ran the &lt;a href=&#34;https://github.com/ZbigniewTomanek/my-mcp-server&#34;&gt;sample MCP server&lt;/a&gt; from the article to play with it, and was immediately impressed. This unlocks so many opportunities to integrate an LLM with countless services!&lt;/p&gt;
 &lt;p&gt;Hold on to that thought&amp;hellip;&lt;/p&gt;
@@ -63,7 +63,7 @@ Me: No, that&amp;rsquo;s where we started!&lt;/p&gt;
 &lt;p&gt;This is where my MCP server can help.&lt;/p&gt;
 &lt;h2 id=&#34;getting-things-going&#34;&gt;Getting things going&lt;/h2&gt;
 &lt;p&gt;To get it all setup, I basically cloned the MCP server linked above, and then set it up as they described, creating the server config in the Claude Desktop app. Since I&amp;rsquo;m running Linux, I had to &lt;a href=&#34;https://github.com/aaddrick/claude-desktop-debian&#34;&gt;hack around a bit&lt;/a&gt; to get the Windows Claude client running, but it works fine. With the MCP server connected, I now showed that I had several tools available to Claude.&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;Available Tools&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/mcp-server-experiences/available-tools.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Available Tools&#34; loading=&#34;lazy&#34; src=&#34;https://brettgfitzgerald.com/posts/mcp-server-experiences/available-tools.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;After some sample queries, I validated that Claude now had full access to my filesystem!&lt;/p&gt;
 &lt;h2 id=&#34;plumbing-the-depths-of-my-second-brain&#34;&gt;Plumbing the depths of my second brain&amp;hellip;&lt;/h2&gt;
 &lt;p&gt;Since I write a Daily Note every day, I first asked Claude to summarize my daily notes for the month of March 2025. It came up with accurate and surprisingly detailed insights.&lt;/p&gt;
@@ -121,7 +121,7 @@ Your month shows a balanced life with consistent attention to physical fitness, 
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This was great! For years, my Second Brain has been a storage device. I had the ability to go back and manually retrieve that information, but I had to read the notes into my short-term (actual) brain, and hold it there while I search for other information to connect it to. Obsidian and the Second Brain method make this simpler by encouraging the use of internal links in notes, but now I had another tool for synthesizing meaningful information from all these connections!&lt;/p&gt;
 &lt;h3 id=&#34;creating-notes&#34;&gt;Creating Notes&lt;/h3&gt;
 &lt;p&gt;Equipped with a tool for analyzing my second brain, I turned toward project management. I&amp;rsquo;ve had a few ideas for side projects that I wanted to flesh out a bit. I&amp;rsquo;ve worked with LLMs in the past to bounce ideas off and refine some thoughts, but now I could generate documentation around these ideas, store that information, and retrieve it later for ongoing processing and development! I took a conversation about a project I&amp;rsquo;m thinking through, described my desired goal, and then asked Claude to develop a plan for a low-code, low-cost MVP to test market fit. It described the approach, I refined it a bit, and then asked Claude to store the project documentation in my Obsidian Vault. Boom, project plan and action steps created!&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;Project Plan&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/mcp-server-experiences/project-plan.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Project Plan&#34; loading=&#34;lazy&#34; src=&#34;https://brettgfitzgerald.com/posts/mcp-server-experiences/project-plan.jpg&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;reflection&#34;&gt;Reflection&lt;/h3&gt;
 &lt;p&gt;MCP Servers seem extremely powerful. For such a long time, LLMs have seemed contained to limited use cases. Plugins for code editors have allowed functionality in coding and chatbots are common. Further integrations have required the use of APIs and coding to leverage the power of LLMs in other contexts. Now, with MCP Servers, it really feels like we have simple-to-create interfaces that allow LLMs to interact with the rest of the digital world. What will you create?&lt;/p&gt;
 </description>
@@ -129,9 +129,9 @@ Your month shows a balanced life with consistent attention to physical fitness, 
     
     <item>
       <title>Video Compression Analysis</title>
-      <link>http://localhost:1313/posts/video-compression-analysis/</link>
+      <link>https://brettgfitzgerald.com/posts/video-compression-analysis/</link>
       <pubDate>Wed, 12 Feb 2025 05:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/video-compression-analysis/</guid>
+      <guid>https://brettgfitzgerald.com/posts/video-compression-analysis/</guid>
       <description>&lt;h2 id=&#34;a-videography-hobbyist&#34;&gt;A videography hobbyist&lt;/h2&gt;
 &lt;p&gt;In my free time, I like shooting videos of my family&amp;rsquo;s adventures and doing some basic editing. I shoot on my cellphone and a GoPro. For the past several years, I have rendered my final projects in 1080p at 24 frames per second. I liked the ability to shoot in 4k and still &amp;ldquo;zoom in&amp;rdquo; digitally to 1080. That also let me shoot slow motion video at 1080, and match my final render resolution. I recently got a newer GoPro, so now I can shoot 4k at 120 fps, which allows me slow down to 20% speed if I render my final project at 24 fps.&lt;/p&gt;
 &lt;p&gt;With this advent of being able to shoot slow motion in 4k resolution, I decided to start rendering my projects in 4k, by default. I&amp;rsquo;m also experimenting with doing very quick edits, just splicing the day&amp;rsquo;s footage together, applying automatic color balancing per-clip, and then rendering at 60fps. This is more of a &amp;ldquo;home movie&amp;rdquo; of a day or event, rather than a curated, edited highlight video. I do all this in Davinci Resolve. Previously, I would be able to render my 1080 videos at 24fps and be happy with the file size and quality of picture. Now that I am rendering at four times the resolution and two and a half times the framerate, my output filesize has ballooned, and I need to pay better attention to my compression.&lt;/p&gt;
@@ -279,12 +279,12 @@ Your month shows a balanced life with consistent attention to physical fitness, 
     
     <item>
       <title>Build a Large Language Model From Scratch</title>
-      <link>http://localhost:1313/posts/build-a-large-language-model/</link>
+      <link>https://brettgfitzgerald.com/posts/build-a-large-language-model/</link>
       <pubDate>Thu, 06 Feb 2025 12:57:27 -0500</pubDate>
-      <guid>http://localhost:1313/posts/build-a-large-language-model/</guid>
+      <guid>https://brettgfitzgerald.com/posts/build-a-large-language-model/</guid>
       <description>&lt;h2 id=&#34;building-a-large-language-model-from-scratch&#34;&gt;Building a large language model from scratch&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;m a machine learning / A.I. hobbyist. The technologies fascinate me, and I can&amp;rsquo;t seem to learn enough about them. Sebastian Raschka&amp;rsquo;s book, Build a Large Language Model (From Scratch) caught my eye. I don&amp;rsquo;t recall how I stumbled on it, but I found it when it was still in early access from Manning Publications. I purchased it, and started working through it as the final chapters were being written and released. I just completed the book and all the included work and loved every minute of it.&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;Build a Large Language Model From Scratch by Sebastian Raschka&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/build-a-large-language-model/llm-book.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Build a Large Language Model From Scratch by Sebastian Raschka&#34; loading=&#34;lazy&#34; src=&#34;https://brettgfitzgerald.com/posts/build-a-large-language-model/llm-book.jpg&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;my-approach&#34;&gt;My approach&lt;/h2&gt;
 &lt;p&gt;A while ago, I read some advice about learning programming from digital books and tutorials. The advice was to never copy and paste code from samples but to hand-type all the code. I took that approach with this book. I typed every single line of code (except for a couple of blocks which were highly repetitive and long). You can see all my work here: &lt;a href=&#34;https://github.com/controversy187/build-a-large-language-model&#34;&gt;https://github.com/controversy187/build-a-large-language-model&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;I did my best to work in section chunks. I didn&amp;rsquo;t want to start a section unless I had the time dedicated to completing it. Some sections are pretty short, others are fairly involved and time-consuming.&lt;/p&gt;
@@ -369,9 +369,9 @@ Your month shows a balanced life with consistent attention to physical fitness, 
     
     <item>
       <title>New Blog</title>
-      <link>http://localhost:1313/posts/new-blog/</link>
+      <link>https://brettgfitzgerald.com/posts/new-blog/</link>
       <pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/new-blog/</guid>
+      <guid>https://brettgfitzgerald.com/posts/new-blog/</guid>
       <description>&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
 &lt;p&gt;Does the internet need another blog? Definitively, no. Do I have original insights that you will benefit from reading? Most likely not. So what&amp;rsquo;s the point of this blog?&lt;/p&gt;
 &lt;p&gt;I recently changed jobs, and I&amp;rsquo;m learning a lot. I retain information better when I describe it to someone. I also have a fear that if I constantly regurgitate my ongoing education to my close family, they will eventually want to murder me. That&amp;rsquo;s where this blog comes in. I&amp;rsquo;m going to teach you what I&amp;rsquo;m learning, so I can learn it better.&lt;/p&gt;
