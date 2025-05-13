@@ -13,45 +13,117 @@
     
     
     <item>
-      <title>Obsidian, MCP Servers, and Retreiving Data from my Second Brain</title>
-      <link>http://localhost:1313/posts/mcp-server-experiences/</link>
-      <pubDate>Wed, 02 Apr 2025 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/mcp-server-experiences/</guid>
-      <description>&lt;h2 id=&#34;my-journey-with-mcp-servers&#34;&gt;My Journey with MCP Servers&lt;/h2&gt;
-&lt;p&gt;I recently learned of MCP servers through a &lt;a href=&#34;https://news.ycombinator.com/item?id=43410866&#34;&gt;post on Hacker News&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
-&lt;p&gt;[Explain what MCP servers are and why you started using them]&lt;/p&gt;
-&lt;h3 id=&#34;setup-and-configuration&#34;&gt;Setup and Configuration&lt;/h3&gt;
-&lt;p&gt;[Discuss your setup process and initial configuration]&lt;/p&gt;
-&lt;h3 id=&#34;challenges-encountered&#34;&gt;Challenges Encountered&lt;/h3&gt;
-&lt;p&gt;[Share any problems or challenges you faced]&lt;/p&gt;
-&lt;h3 id=&#34;performance-analysis&#34;&gt;Performance Analysis&lt;/h3&gt;
-&lt;p&gt;[Talk about the performance aspects of MCP servers in your environment]&lt;/p&gt;
-&lt;h3 id=&#34;lessons-learned&#34;&gt;Lessons Learned&lt;/h3&gt;
-&lt;p&gt;[Share insights and lessons from your experience]&lt;/p&gt;
-&lt;h3 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h3&gt;
-&lt;p&gt;[Provide recommendations for others considering MCP servers]&lt;/p&gt;
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;[Summarize your overall experience and final thoughts]&lt;/p&gt;
+      <title>Cursor AI: Rediscovering the Joy of Code (A PM&#39;s Journey)</title>
+      <link>http://localhost:1313/posts/delving-into-cursor/</link>
+      <pubDate>Tue, 13 May 2025 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/delving-into-cursor/</guid>
+      <description>&lt;h2 id=&#34;delving-into-cursor&#34;&gt;Delving into Cursor&lt;/h2&gt;
+&lt;p&gt;Ok, I&amp;rsquo;m late to the game. I just started using &lt;a href=&#34;https://cursor.sh&#34;&gt;Cursor&lt;/a&gt; to write code. To be fair, writing code isn&amp;rsquo;t really part of my day-to-day job as a Product Manager for an advanced data analytics team, but I wanted to scratch that &amp;ldquo;builder&amp;rdquo; itch in me. Also, I wanted better data than what is available through Jira&amp;rsquo;s API. That means I need to write some code, probably in Python since that&amp;rsquo;s my jam. And why not use these AI tools that everyone else is using? But which one(s) should I use?&lt;/p&gt;
+&lt;h2 id=&#34;cursor-vs-windsurf-vs-gemini-code-assist-vs-others&#34;&gt;Cursor vs. Windsurf vs. Gemini Code Assist vs. Others&lt;/h2&gt;
+&lt;p&gt;Cursor. Why? No reason. Gotta start somewhere, and that&amp;rsquo;s what the kids are talking about.&lt;/p&gt;
+&lt;h2 id=&#34;getting-set-up&#34;&gt;Getting set up&lt;/h2&gt;
+&lt;p&gt;Super simple to get Cursor running. Create an account, download the software, and go. Up and running. It looks very familiar (I guess it&amp;rsquo;s a fork of VSCode, which itself resembles Sublime Text, etc.). There&amp;rsquo;s a file browser in the left sidebar, and primary tabbed coding window. In Cursor, though, there&amp;rsquo;s a chatbox on the right that connects to their AI agent. After signup, you&amp;rsquo;re given two weeks of their Pro version for free. I honestly don&amp;rsquo;t know what their free version includes. That was really hard to determine on their website. Full disclosure, I still don&amp;rsquo;t know. Regardless, that&amp;rsquo;s about all you need to get setup.&lt;/p&gt;
+&lt;h2 id=&#34;first-steps&#34;&gt;First steps&lt;/h2&gt;
+&lt;p&gt;Not knowing where to start, I typed in the description of the application I wanted to build. I&amp;rsquo;ve worked with LLMs enough to know to ask if it has any questions for me before it starts doing anything. Sure enough, it asked about technologies to use, and some basic structure questions. Once I answered those, it started writing my code for me! It proposed several files and I blindly accepted the proposals. In short order, I had a basic application running!&lt;/p&gt;
+&lt;h2 id=&#34;iterating&#34;&gt;Iterating&lt;/h2&gt;
+&lt;p&gt;The app itself wasn&amp;rsquo;t worth using yet. Several things were non-functional or looked terrible, but I started to correct the issues one at a time. Through this entire process, I didn&amp;rsquo;t write any code. I simply described the change I wanted to make, and Cursor made a suggestion. I accepted it, and tested the results, going back and forth with the agent. I hear a lot about Cursor&amp;rsquo;s superpower: Tab completion. Describe something, hit Tab, and Cursor fills in the rest. I still haven&amp;rsquo;t used that. The Agentic build is doing everything I ask of it.&lt;/p&gt;
+&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
+&lt;p&gt;Eventually, my conversation started losing context. A little note at the bottom of the chat window informed me that starting a new chat will yield better results. But would Cursor pick up where it left off? It turned out, no. A new chat was a new chat. It had the context of the codebase, but only the details of the files that I specifically mentioned. This floundering and context-loss made me realize I needed a better way to guide Cursor, which led me to&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;a-project-plan&#34;&gt;A Project Plan&lt;/h2&gt;
+&lt;p&gt;As a recovering Agilist, I don&amp;rsquo;t like having a plan. I like to just build things. But a plan gives a person a larger context for what their work does, where it leads, and what it fits into. And that&amp;rsquo;s just what a coding agent needs. So I stopped building for a bit, then told Cursor what my project goals are, and asked it to create a markdown file describing the project, building a checklist of incremental steps we would need to accomplish the project. It happily complied! From that point on, as we accomplished tasks, we checked them off, started a new chat, and picked up right where we left off. Tagging the project plan and the relevant files in a new chat very quickly reacclimated Cursor to what we were doing.&lt;/p&gt;
+&lt;p&gt;More recently, as features that I&amp;rsquo;m building into this application are more sizeable, I&amp;rsquo;m creating Feature plans in addition to the Project plan. So I can give Cursor the overall context of the project, then give it the more granular context of the feature we&amp;rsquo;re building. Keeping these agentic chats small seems to keep them more intellegent.&lt;/p&gt;
+&lt;h2 id=&#34;bug-loops&#34;&gt;Bug loops&lt;/h2&gt;
+&lt;p&gt;I did stumble on some long loops a bug being introduced, then three or four steps of remediation, then it reintroduced the same bug again. As a concise example, I&amp;rsquo;m new to Big Query and was asking for Cursor to store and update some Big Query records.&lt;/p&gt;
+&lt;p&gt;Me: Grab the data from the API and update the table in BQ with it.
+Cursor: Sure, here&amp;rsquo;s the code.
+Me: I ran it and it&amp;rsquo;s adding every record as a new record. I want to update the existing records, and add any new ones. Think &amp;ldquo;Upsert&amp;rdquo;.
+Cursor: Got it. Here&amp;rsquo;s the new code that adds new records and updates existing ones.
+Me: I ran that, and now Big Query is complaining about not updating a streaming buffer.
+Cursor: That makes sense. The streaming buffer hasn&amp;rsquo;t finished writing to the table from our last operation, so you can&amp;rsquo;t update those records. I&amp;rsquo;ll refactor the code to accommodate this by creating new rows for each record we get back from the API
+Me: No, that&amp;rsquo;s where we started!&lt;/p&gt;
+&lt;p&gt;In order to break out of some of these loops, I had to do some learning (from a co-worker) and learned about Merging records. I mentioned that to Cursor, and it quickly leveraged that method to accomodate the streaming buffers.&lt;/p&gt;
+&lt;h2 id=&#34;final-thoughts&#34;&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;I described this to my wife. I like building things and solving problems. I used to write code for a living, but I have a horrible memory. I knew &lt;em&gt;how&lt;/em&gt; I wanted to solve a problem, but I spent so much time looking up coding references, examples, or debugging things that seemed pretty far into the weeds. Solving the problems was fun, but writing the code was more of a tedius hoop I had to jump through. Heaven forbid I had to go back through someone else&amp;rsquo;s code to try and discover what they were attempting to do!&lt;/p&gt;
+&lt;p&gt;Cursor has reignited my joy in coding. I am focused on building and solving problems, not remembering syntax and keeping a complex process flow in my active memory. I can delegate the detailed parts to an AI agent who is, frankly, better at keeping them straight. I&amp;rsquo;m learning how to interact with the agent in a way that we both meet with success. Small steps, incremental value delivery. Tight feedback loops. It&amp;rsquo;s all that agile stuff. But the fundamental agile stuff, not the meetings, roles, process, and Agile-Industry.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s fun.&lt;/p&gt;
+&lt;p&gt;After my two week free Pro trial, the Agent chat just threw errors at me. It said I should try again later, but I never got it to work. I did end up paying the $20 / month for the paid pro version so that I could continue building my application. Frankly, I&amp;rsquo;m getting excited again about building more things. Ideas keep coming like they used to. When I was new to programming and I naively felt like I could build anything with a handful of for loops and if statements. The feeling of ability seemed to unlock so many ideas. Now I&amp;rsquo;m feeling that excitement again. Is Cursor (and agentic programming in general) perfect? Nope! But it&amp;rsquo;s really good, and it&amp;rsquo;s going to get better!&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Speed Controls in Davinci Resolve</title>
-      <link>http://localhost:1313/posts/speed-controls-in-davinci-resolve/</link>
-      <pubDate>Tue, 25 Feb 2025 10:22:19 -0500</pubDate>
-      <guid>http://localhost:1313/posts/speed-controls-in-davinci-resolve/</guid>
-      <description>&lt;h2 id=&#34;controlling-clip-speed-in-davinci-resolve&#34;&gt;Controlling clip speed in DaVinci Resolve&lt;/h2&gt;
-&lt;p&gt;This is the process I just learned for adjusting speed within clips in DaVinci Resolve 19. This isn&amp;rsquo;t an adjustment for an entire clip, but portions of a clip. You can see the use-case in several of the shots &lt;a href=&#34;https://www.youtube.com/watch?v=IymFBGIcqcI&#34;&gt;here&lt;/a&gt;. In the past, I’d cut a clip where I wanted the speed to change and adjust the middle section’s speed, turning one clip into three.&lt;/p&gt;
-&lt;h2 id=&#34;adjust-clip-speed-using-time-controls&#34;&gt;Adjust clip speed using Time Controls&lt;/h2&gt;
-&lt;p&gt;I&amp;rsquo;ll use the last clip from the above video as a tutorial. The first step is to select the clip you want to adjust on your timeline, in the Edit tab. Right-click the clip and select &amp;ldquo;Retime Controls&amp;rdquo; (ctrl+R on Windows).
-&lt;img alt=&#34;Context Menu&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/context_menu.jpg&#34;&gt;
-You’ll see blue triangles pointing right. Move your playhead (the timeline cursor showing your current frame) to the frame where you want the speed change to start. At the bottom of the clip on the timeline, you should see an indicator that shows &amp;ldquo;100%&amp;rdquo; followed by a downward facing triangle. Clicking that triangle pops open a context menu. From there, select &amp;ldquo;Add Speed Point.&amp;rdquo;
-&lt;img alt=&#34;Add Speed Point&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/add-speed-point.jpg&#34;&gt;
-This functions like a keyframe, if you&amp;rsquo;ve done other video effects or editing in the past. With that divider there, you can see the clip is effectively bisected at the frame you have selected, and each side shows 100%. Now, you can select either side (I&amp;rsquo;ll use the right-side) to adjust the speed. Clicking the black down arrow there allows you &amp;ldquo;Change Speed&amp;rdquo; to a handful of preset options. I&amp;rsquo;ll select 25%.
-&lt;img alt=&#34;25 Percent&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/25-percent.jpg&#34;&gt;
-Now the arrows change color and extend. Effectively, you have created another clip, with a slower speed. To resume normal speed later, move your playhead to that spot and add another speed point (via the black arrow). Then reset the right side to 100%. Your final result is a clip that runs at normal speed, slows down in the middle, and resumes normal speed at the end!
-&lt;img alt=&#34;Final Cut&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/speed-controls-in-davinci-resolve/final-edit.jpg&#34;&gt;&lt;/p&gt;
+      <title>Obsidian, MCP Servers, and Supercharging Your Second Brain with AI</title>
+      <link>http://localhost:1313/posts/mcp-server-experiences/</link>
+      <pubDate>Wed, 02 Apr 2025 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/mcp-server-experiences/</guid>
+      <description>&lt;h2 id=&#34;my-journey-with-mcp-servers&#34;&gt;My Journey with MCP Servers&lt;/h2&gt;
+&lt;p&gt;I recently learned of MCP (Model Control Protocol) servers through a &lt;a href=&#34;https://news.ycombinator.com/item?id=43410866&#34;&gt;post on Hacker News&lt;/a&gt;. The premise seems really neat. MCP is essentially a protocol that allows AI models like Claude to interact with external tools and services through a standardized interface. I can write a very simple server and create &amp;ldquo;tools&amp;rdquo; for the Claude.ai desktop application to connect to and use. The example in the post created some tools that gave Claude access to read and write to the local filesystem (unrestricted, by the way). The original intent was to have Claude write some application. I cloned and ran the &lt;a href=&#34;https://github.com/ZbigniewTomanek/my-mcp-server&#34;&gt;sample MCP server&lt;/a&gt; from the article to play with it, and was immediately impressed. This unlocks so many opportunities to integrate an LLM with countless services!&lt;/p&gt;
+&lt;p&gt;Hold on to that thought&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;my-second-brain&#34;&gt;My Second Brain&lt;/h2&gt;
+&lt;p&gt;For the past several years, I&amp;rsquo;ve been using Tiago Forte&amp;rsquo;s &lt;a href=&#34;https://www.buildingasecondbrain.com/&#34;&gt;Build a Second Brain&lt;/a&gt; method using Obsidian.md for my second brain. I implemented the &lt;a href=&#34;https://fortelabs.com/blog/para/&#34;&gt;PARA Method&lt;/a&gt; for organization, and create a Daily Note every day to link my chronological life to my disorganized brain. It&amp;rsquo;s been a good system, even if I don&amp;rsquo;t use it to it&amp;rsquo;s fullest. At the very least, I have all my notes synced with me between my desktop, laptop, and phone, thanks to Syncthing. That being said, Obsidian&amp;rsquo;s search capabilities are relatively lackluster.&lt;/p&gt;
+&lt;p&gt;This is where my MCP server can help.&lt;/p&gt;
+&lt;h2 id=&#34;getting-things-going&#34;&gt;Getting things going&lt;/h2&gt;
+&lt;p&gt;To get it all setup, I basically cloned the MCP server linked above, and then set it up as they described, creating the server config in the Claude Desktop app. Since I&amp;rsquo;m running Linux, I had to &lt;a href=&#34;https://github.com/aaddrick/claude-desktop-debian&#34;&gt;hack around a bit&lt;/a&gt; to get the Windows Claude client running, but it works fine. With the MCP server connected, I now showed that I had several tools available to Claude.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Available Tools&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/mcp-server-experiences/available-tools.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;After some sample queries, I validated that Claude now had full access to my filesystem!&lt;/p&gt;
+&lt;h2 id=&#34;plumbing-the-depths-of-my-second-brain&#34;&gt;Plumbing the depths of my second brain&amp;hellip;&lt;/h2&gt;
+&lt;p&gt;Since I write a Daily Note every day, I first asked Claude to summarize my daily notes for the month of March 2025. It came up with accurate and surprisingly detailed insights.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;March 2025 Daily Notes Summary
+Personal Life
+Family Activities:
+
+Started the month at ****** with the ****** and ****** families, though you noted it was chaotic with misaligned schedules
+Went skiing with ****** at Crystal Mountain on March 10th, where you had a meaningful father-son conversation about life and relationships
+Your daughter ****** attended Middle School Ministry several times
+References to your family (******, ******, ******, ******) appear consistently throughout the month
+
+Fitness:
+
+Maintained consistent workout schedule with 15 recorded workout days
+Primarily practiced Jiu-Jitsu at ****** (both gi and nogi classes)
+Also incorporated running into your fitness routine
+Tracked your weight throughout the month, ranging from 179 lbs to 187 lbs, with an average around 182 lbs
+
+Spiritual Practice:
+
+Maintained daily quiet time starting mid-month (March 18-31)
+Studied the Gospel of Matthew, progressing sequentially from Matthew 12:38 through Matthew 14:33
+Each quiet time session appears well-documented with dedicated notes
+
+Professional Life
+Regular Meetings:
+
+****** (almost daily)
+Weekly kickoff meetings (Mondays)
+One-on-one meetings with various team members including ******, ******, and ******
+
+Key Projects:
+
+****** Rush Orders project with weekly check-ins
+****** project with multiple coordination meetings
+Corporate Injury Analysis work
+Supply Chain ****** activities and meetings
+Non******stock ETA modeling work (created ******)
+
+Professional Development:
+
+Participated in Looker Studio training for data visualization
+Worked on Google Maps Optimization POC
+Set up Gemini in VSCode
+Explored Jira metrics via API
+
+People Management:
+
+Reached out to ****** about a ******
+Provided feedback on ******&amp;#39;s Flow Metrics presentation
+Worked with various team members including ******, ******, ******, and ******
+
+Your month shows a balanced life with consistent attention to physical fitness, spiritual growth, family time, and professional responsibilities, with a particular focus on data and supply chain projects at work.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This was great! For years, my Second Brain has been a storage device. I had the ability to go back and manually retrieve that information, but I had to read the notes into my short-term (actual) brain, and hold it there while I search for other information to connect it to. Obsidian and the Second Brain method make this simpler by encouraging the use of internal links in notes, but now I had another tool for synthesizing meaningful information from all these connections!&lt;/p&gt;
+&lt;h3 id=&#34;creating-notes&#34;&gt;Creating Notes&lt;/h3&gt;
+&lt;p&gt;Equipped with a tool for analyzing my second brain, I turned toward project management. I&amp;rsquo;ve had a few ideas for side projects that I wanted to flesh out a bit. I&amp;rsquo;ve worked with LLMs in the past to bounce ideas off and refine some thoughts, but now I could generate documentation around these ideas, store that information, and retrieve it later for ongoing processing and development! I took a conversation about a project I&amp;rsquo;m thinking through, described my desired goal, and then asked Claude to develop a plan for a low-code, low-cost MVP to test market fit. It described the approach, I refined it a bit, and then asked Claude to store the project documentation in my Obsidian Vault. Boom, project plan and action steps created!&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Project Plan&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/mcp-server-experiences/project-plan.jpg&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;reflection&#34;&gt;Reflection&lt;/h3&gt;
+&lt;p&gt;MCP Servers seem extremely powerful. For such a long time, LLMs have seemed contained to limited use cases. Plugins for code editors have allowed functionality in coding and chatbots are common. Further integrations have required the use of APIs and coding to leverage the power of LLMs in other contexts. Now, with MCP Servers, it really feels like we have simple-to-create interfaces that allow LLMs to interact with the rest of the digital world. What will you create?&lt;/p&gt;
 </description>
     </item>
     
@@ -202,37 +274,6 @@ Now the arrows change color and extend. Effectively, you have created another cl
 &lt;p&gt;When we jump up into the Handbrake re-encodes, things get noticeably better. Honestly, from the still frames it&amp;rsquo;s very hard (for me) to tell the difference between these images, all the way through to the masters. Even when I watch the playback of the videos themselves, I&amp;rsquo;m hard pressed to see any difference. It could be that the source clips themselves only have a 120Mbps bitrate, and we&amp;rsquo;re re-encoding at a higher bitrate for the masters (474Mbps).&lt;/p&gt;
 &lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
 &lt;p&gt;To really judge this fairly, I probably should have rendered everything out from DaVinci Resolve and manually adjusted the bitrate. Based on these tests, though, I&amp;rsquo;m not seeing a noticeable loss in quality between the 474Mbps best quality from Resolve and a re-encoded to 78Mbps in Handbrake. For the time being, I&amp;rsquo;m planning to render out from Resolve and limiting my bitrate to 80Mbps. That&amp;rsquo;s only 590 MB or so per minute of video, which isn&amp;rsquo;t bad for what I&amp;rsquo;m doing with them.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Automatic Music Markers in Davinci Resolve</title>
-      <link>http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/</link>
-      <pubDate>Mon, 10 Feb 2025 15:20:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/</guid>
-      <description>&lt;h2 id=&#34;making-music-videos&#34;&gt;Making Music Videos&lt;/h2&gt;
-&lt;p&gt;I am very formulaic in how I make videos for my personal library.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Shoot some footage on my cell phone and/or a GoPro.&lt;/li&gt;
-&lt;li&gt;Find a song that captures the feeling of the event.&lt;/li&gt;
-&lt;li&gt;Import all the clips from the event to DaVinci Resolve, and the song selected above.&lt;/li&gt;
-&lt;li&gt;Add the song to the timeline.&lt;/li&gt;
-&lt;li&gt;I then go through the clips, usually chronologically, and see which ones are &amp;ldquo;cool enough&amp;rdquo; to make it the cut.&lt;/li&gt;
-&lt;li&gt;If I end up with more clips than I have time for, ruthlessly cut clips until I have the right amount for the song.&lt;/li&gt;
-&lt;li&gt;Manually drag clip start and end points to align with the measures of the song.&lt;/li&gt;
-&lt;li&gt;Apply Autolevels to each clip, based on the midpoint of the clip (I&amp;rsquo;m red/green color blind and haven&amp;rsquo;t invest any time into figuring out how to color grade).&lt;/li&gt;
-&lt;li&gt;Export and Upload.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;It&amp;rsquo;s time consuming, but I usually enjoy it. One part that is always frustrating, though, is aligning the cuts in the clips to the measures in the song. I play the timeline and tap the beat on my desk, usually counting out the beats. If I&amp;rsquo;m lucky, there is a visible spike in the waveform on the beats, so I can drag my video clip boundaries to align with them. Sometimes I just have to guess where they are. The whole point is that a generic video like this will draw someone in mre effectively if the video is synchronized with the audio. It&amp;rsquo;s hard to describe, but without the synchronization, the video just sort of plays and the music creates a general feeling. When the timings line up, it feels like the music is pushing the visuals forward, creating more of an emotional resonance with the viewer. That&amp;rsquo;s my experience, at least.&lt;/p&gt;
-&lt;p&gt;I wanted to figure out how I could make it easier to find those beats in the audio, and the measure boundaries, so I could speed my workflow.&lt;/p&gt;
-&lt;h2 id=&#34;making-a-click-track&#34;&gt;Making a click-track&lt;/h2&gt;
-&lt;p&gt;My first attempt was to use python to analyize the audio file of the song I was using. I figured that there is likely some library out there that would determine the beats and hopefully the measures. I could then use that information to generate a new audio file. A single &amp;ldquo;click&amp;rdquo; sound on the beats, and a higher pitched click on the first beat of each measure. With that audio file, I could add it to the timeline in Resolve, mute it, and have a very clear visual to align my video clips to.&lt;/p&gt;
-&lt;p&gt;With some help from Claude.ai and ChatGPT, I played with the librosa libary. It was suprisingly accurate at finding the beats and generating a click track. The biggest hurdle I ran into happened during musical transitions. It seems that librosa analyizes the music for acoustic &amp;ldquo;density&amp;rdquo;. Music is generally more &amp;ldquo;dense&amp;rdquo; on the beats, which is where louder drums are hit, guitar chords are strummed, keys are struck, and generally most or all of the instruments &amp;ldquo;happen&amp;rdquo; at the same time.&lt;/p&gt;
-&lt;p&gt;For example, a guitar chord would be played on a beat, and then it is left to resonate until the next beat, or possibly a divison of the next beat. So with most of the instruments striking on the beats, those moments are more dense. Any given song will usually have a relatively consistent feel, and it seems like librosa does a good job of determining that feel, finding those dense moments and aligning them to the beats. Where it struggled for me is when the general density of the music changed.&lt;/p&gt;
-&lt;p&gt;I was testing with The Allman Brother&amp;rsquo;s song Ramblin&amp;rsquo; Man. This song starts with a clearly defined introduction which is mainly electric guitar for a couple of measures, and then the full band comes in. The problem is that librosa seems to normalize to the relatively low density of the electric guitar-only intro, and correctly identifies the beats. But once the full band comes in, the density goes up significantly, and librosa identifies extra beats for a short period, until it renormalizes to the higher density of the song. That throws off the counts of our beats, and then our measures are no longer in alignment.&lt;/p&gt;
-&lt;p&gt;I played with several parameters of librosa, but never got to satisfactory results.&lt;/p&gt;
-&lt;h2 id=&#34;making-project-markers&#34;&gt;Making project markers&lt;/h2&gt;
-&lt;p&gt;DaVinci Resolve (and most other populary video editing tools) support a feature called Markers. I haven&amp;rsquo;t used them before, so this is my first foray into them. The idea is that you can set specific markers on your timeline and then snap clips to them.&lt;/p&gt;
 </description>
     </item>
     
