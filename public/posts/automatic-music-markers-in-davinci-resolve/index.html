@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=46463&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Automatic Music Markers in Davinci Resolve | Brett Fitzgerald</title>
 <meta name="keywords" content="">
-<meta name="description" content="Making Music Videos I am very formulaic in how I make videos for my personal library.
-Shoot some footage on my cell phone and/or a GoPro. Find a song that captures the feeling of the event. Import all the clips from the event to DaVinci Resolve, and the song selected above. Add the song to the timeline. I then go through the clips, usually chronologically, and see which ones are &ldquo;cool enough&rdquo; to make it the cut.">
+<meta name="description" content="Making Music Videos
+I am very formulaic in how I make videos for my personal library.
+
+Shoot some footage on my cell phone and/or a GoPro.
+Find a song that captures the feeling of the event.
+Import all the clips from the event to DaVinci Resolve, and the song selected above.
+Add the song to the timeline.
+I then go through the clips, usually chronologically, and see which ones are &ldquo;cool enough&rdquo; to make it the cut.
+If I end up with more clips than I have time for, ruthlessly cut clips until I have the right amount for the song.
+Manually drag clip start and end points to align with the measures of the song.
+Apply Autolevels to each clip, based on the midpoint of the clip (I&rsquo;m red/green color blind and haven&rsquo;t invest any time into figuring out how to color grade).
+Export and Upload.
+
+It&rsquo;s time consuming, but I usually enjoy it. One part that is always frustrating, though, is aligning the cuts in the clips to the measures in the song. I play the timeline and tap the beat on my desk, usually counting out the beats. If I&rsquo;m lucky, there is a visible spike in the waveform on the beats, so I can drag my video clip boundaries to align with them. Sometimes I just have to guess where they are. The whole point is that a generic video like this will draw someone in mre effectively if the video is synchronized with the audio. It&rsquo;s hard to describe, but without the synchronization, the video just sort of plays and the music creates a general feeling. When the timings line up, it feels like the music is pushing the visuals forward, creating more of an emotional resonance with the viewer. That&rsquo;s my experience, at least.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:46463/posts/automatic-music-markers-in-davinci-resolve/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.93f625d739f1d6a5c6f20c146bc6a8d26b233492b34b2220c54b12fd46a04ded.css" integrity="sha256-k/Yl1znx1qXG8gwUa8ao0msjNJKzSyIgxUsS/UagTe0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:46463/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:46463/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:46463/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:46463/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:46463/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/">
+<link rel="alternate" hreflang="en" href="http://localhost:46463/posts/automatic-music-markers-in-davinci-resolve/">
 <noscript>
     <style>
         #theme-toggle,
@@ -68,14 +80,11 @@ Shoot some footage on my cell phone and/or a GoPro. Find a song that captures th
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
-
-  
-
-<meta property="og:url" content="http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/">
+<meta property="og:url" content="http://localhost:46463/posts/automatic-music-markers-in-davinci-resolve/">
   <meta property="og:site_name" content="Brett Fitzgerald">
   <meta property="og:title" content="Automatic Music Markers in Davinci Resolve">
   <meta property="og:description" content="Making Music Videos I am very formulaic in how I make videos for my personal library.
-Shoot some footage on my cell phone and/or a GoPro. Find a song that captures the feeling of the event. Import all the clips from the event to DaVinci Resolve, and the song selected above. Add the song to the timeline. I then go through the clips, usually chronologically, and see which ones are “cool enough” to make it the cut.">
+Shoot some footage on my cell phone and/or a GoPro. Find a song that captures the feeling of the event. Import all the clips from the event to DaVinci Resolve, and the song selected above. Add the song to the timeline. I then go through the clips, usually chronologically, and see which ones are “cool enough” to make it the cut. If I end up with more clips than I have time for, ruthlessly cut clips until I have the right amount for the song. Manually drag clip start and end points to align with the measures of the song. Apply Autolevels to each clip, based on the midpoint of the clip (I’m red/green color blind and haven’t invest any time into figuring out how to color grade). Export and Upload. It’s time consuming, but I usually enjoy it. One part that is always frustrating, though, is aligning the cuts in the clips to the measures in the song. I play the timeline and tap the beat on my desk, usually counting out the beats. If I’m lucky, there is a visible spike in the waveform on the beats, so I can drag my video clip boundaries to align with them. Sometimes I just have to guess where they are. The whole point is that a generic video like this will draw someone in mre effectively if the video is synchronized with the audio. It’s hard to describe, but without the synchronization, the video just sort of plays and the music creates a general feeling. When the timings line up, it feels like the music is pushing the visuals forward, creating more of an emotional resonance with the viewer. That’s my experience, at least.">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -83,8 +92,20 @@ Shoot some footage on my cell phone and/or a GoPro. Find a song that captures th
     <meta property="article:modified_time" content="2025-02-10T15:20:00-05:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Automatic Music Markers in Davinci Resolve">
-<meta name="twitter:description" content="Making Music Videos I am very formulaic in how I make videos for my personal library.
-Shoot some footage on my cell phone and/or a GoPro. Find a song that captures the feeling of the event. Import all the clips from the event to DaVinci Resolve, and the song selected above. Add the song to the timeline. I then go through the clips, usually chronologically, and see which ones are &ldquo;cool enough&rdquo; to make it the cut.">
+<meta name="twitter:description" content="Making Music Videos
+I am very formulaic in how I make videos for my personal library.
+
+Shoot some footage on my cell phone and/or a GoPro.
+Find a song that captures the feeling of the event.
+Import all the clips from the event to DaVinci Resolve, and the song selected above.
+Add the song to the timeline.
+I then go through the clips, usually chronologically, and see which ones are &ldquo;cool enough&rdquo; to make it the cut.
+If I end up with more clips than I have time for, ruthlessly cut clips until I have the right amount for the song.
+Manually drag clip start and end points to align with the measures of the song.
+Apply Autolevels to each clip, based on the midpoint of the clip (I&rsquo;m red/green color blind and haven&rsquo;t invest any time into figuring out how to color grade).
+Export and Upload.
+
+It&rsquo;s time consuming, but I usually enjoy it. One part that is always frustrating, though, is aligning the cuts in the clips to the measures in the song. I play the timeline and tap the beat on my desk, usually counting out the beats. If I&rsquo;m lucky, there is a visible spike in the waveform on the beats, so I can drag my video clip boundaries to align with them. Sometimes I just have to guess where they are. The whole point is that a generic video like this will draw someone in mre effectively if the video is synchronized with the audio. It&rsquo;s hard to describe, but without the synchronization, the video just sort of plays and the music creates a general feeling. When the timings line up, it feels like the music is pushing the visuals forward, creating more of an emotional resonance with the viewer. That&rsquo;s my experience, at least.">
 
 
 <script type="application/ld+json">
@@ -96,13 +117,13 @@ Shoot some footage on my cell phone and/or a GoPro. Find a song that captures th
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://localhost:1313/posts/"
+      "item": "http://localhost:46463/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Automatic Music Markers in Davinci Resolve",
-      "item": "http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/"
+      "item": "http://localhost:46463/posts/automatic-music-markers-in-davinci-resolve/"
     }
   ]
 }
@@ -113,7 +134,7 @@ Shoot some footage on my cell phone and/or a GoPro. Find a song that captures th
   "@type": "BlogPosting",
   "headline": "Automatic Music Markers in Davinci Resolve",
   "name": "Automatic Music Markers in Davinci Resolve",
-  "description": "Making Music Videos I am very formulaic in how I make videos for my personal library.\nShoot some footage on my cell phone and/or a GoPro. Find a song that captures the feeling of the event. Import all the clips from the event to DaVinci Resolve, and the song selected above. Add the song to the timeline. I then go through the clips, usually chronologically, and see which ones are \u0026ldquo;cool enough\u0026rdquo; to make it the cut.",
+  "description": "Making Music Videos I am very formulaic in how I make videos for my personal library.\nShoot some footage on my cell phone and/or a GoPro. Find a song that captures the feeling of the event. Import all the clips from the event to DaVinci Resolve, and the song selected above. Add the song to the timeline. I then go through the clips, usually chronologically, and see which ones are \u0026ldquo;cool enough\u0026rdquo; to make it the cut. If I end up with more clips than I have time for, ruthlessly cut clips until I have the right amount for the song. Manually drag clip start and end points to align with the measures of the song. Apply Autolevels to each clip, based on the midpoint of the clip (I\u0026rsquo;m red/green color blind and haven\u0026rsquo;t invest any time into figuring out how to color grade). Export and Upload. It\u0026rsquo;s time consuming, but I usually enjoy it. One part that is always frustrating, though, is aligning the cuts in the clips to the measures in the song. I play the timeline and tap the beat on my desk, usually counting out the beats. If I\u0026rsquo;m lucky, there is a visible spike in the waveform on the beats, so I can drag my video clip boundaries to align with them. Sometimes I just have to guess where they are. The whole point is that a generic video like this will draw someone in mre effectively if the video is synchronized with the audio. It\u0026rsquo;s hard to describe, but without the synchronization, the video just sort of plays and the music creates a general feeling. When the timings line up, it feels like the music is pushing the visuals forward, creating more of an emotional resonance with the viewer. That\u0026rsquo;s my experience, at least.\n",
   "keywords": [
     
   ],
@@ -124,14 +145,14 @@ Shoot some footage on my cell phone and/or a GoPro. Find a song that captures th
   "dateModified": "2025-02-10T15:20:00-05:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/posts/automatic-music-markers-in-davinci-resolve/"
+    "@id": "http://localhost:46463/posts/automatic-music-markers-in-davinci-resolve/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Brett Fitzgerald",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.ico"
+      "url": "http://localhost:46463/favicon.ico"
     }
   }
 }
@@ -153,9 +174,9 @@ Shoot some footage on my cell phone and/or a GoPro. Find a song that captures th
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Brett Fitzgerald (Alt + H)">Brett Fitzgerald</a>
+            <a href="http://localhost:46463/" accesskey="h" title="Brett Fitzgerald (Alt + H)">Brett Fitzgerald</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -179,12 +200,12 @@ Shoot some footage on my cell phone and/or a GoPro. Find a song that captures th
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/posts/" title="Posts">
+                <a href="http://localhost:46463/posts/" title="Posts">
                     <span>Posts</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
+                <a href="http://localhost:46463/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -244,7 +265,7 @@ Shoot some footage on my cell phone and/or a GoPro. Find a song that captures th
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">Brett Fitzgerald</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:46463/">Brett Fitzgerald</a></span> · 
 
     <span>
         Powered by
