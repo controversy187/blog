@@ -9,6 +9,8 @@ params:
   TocOpen: false
   ShowReadingTime: true
   ShowWordCount: true
+  ShowCodeCopyButtons: true
+  ShowShareButtons: true
   profileMode:
     enabled: true
     title: "Brett Fitzgerald"
