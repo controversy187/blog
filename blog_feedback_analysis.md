@@ -109,7 +109,7 @@ Your blog has a strong foundation with:
 
 ### Phase 1 (Quick Wins)
 1. ~~Add author photo and enhanced bio~~ *(Completed: Avatar now displays on homepage; "About Me" button links to About page. Short summary in profile; full bio on About page.)*
-2. Implement table of contents for long posts
+2. ~~Implement table of contents for long posts~~ *(Completed: Global TOC enabled with custom styling, collapsible design, and responsive layout)*
 3. Add reading time estimates
 4. Improve code block styling with copy buttons
 5. Add social sharing buttons

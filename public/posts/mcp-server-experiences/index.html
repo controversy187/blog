@@ -67,6 +67,12 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
+
+
+
+
+<link rel="stylesheet" href="/css/custom-toc.css">
+
 <meta property="og:url" content="http://localhost:1313/posts/mcp-server-experiences/">
   <meta property="og:site_name" content="Brett Fitzgerald">
   <meta property="og:title" content="Obsidian, MCP Servers, and Supercharging Your Second Brain with AI">
@@ -199,10 +205,37 @@
     <div class="post-description">
       Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system.
     </div>
-    <div class="post-meta"><span title='2025-04-02 00:00:00 -0500 -0500'>April 2, 2025</span>
+    <div class="post-meta"><span title='2025-04-02 00:00:00 -0500 -0500'>April 2, 2025</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;938 words
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#my-journey-with-mcp-servers" aria-label="My Journey with MCP Servers">My Journey with MCP Servers</a></li>
+                <li>
+                    <a href="#my-second-brain" aria-label="My Second Brain">My Second Brain</a></li>
+                <li>
+                    <a href="#getting-things-going" aria-label="Getting things going">Getting things going</a></li>
+                <li>
+                    <a href="#plumbing-the-depths-of-my-second-brain" aria-label="Plumbing the depths of my second brain&hellip;">Plumbing the depths of my second brain&hellip;</a><ul>
+                        
+                <li>
+                    <a href="#creating-notes" aria-label="Creating Notes">Creating Notes</a></li>
+                <li>
+                    <a href="#reflection" aria-label="Reflection">Reflection</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h2 id="my-journey-with-mcp-servers">My Journey with MCP Servers<a hidden class="anchor" aria-hidden="true" href="#my-journey-with-mcp-servers">#</a></h2>
 <p>I recently learned of MCP (Model Control Protocol) servers through a <a href="https://news.ycombinator.com/item?id=43410866">post on Hacker News</a>. The premise seems really neat. MCP is essentially a protocol that allows AI models like Claude to interact with external tools and services through a standardized interface. I can write a very simple server and create &ldquo;tools&rdquo; for the Claude.ai desktop application to connect to and use. The example in the post created some tools that gave Claude access to read and write to the local filesystem (unrestricted, by the way). The original intent was to have Claude write some application. I cloned and ran the <a href="https://github.com/ZbigniewTomanek/my-mcp-server">sample MCP server</a> from the article to play with it, and was immediately impressed. This unlocks so many opportunities to integrate an LLM with countless services!</p>
 <p>Hold on to that thought&hellip;</p>

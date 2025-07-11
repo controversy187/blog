@@ -10,3 +10,9 @@
 
 <!-- LightGallery CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
+
+<!-- Custom TOC CSS -->
+{{ $customTocCSS := resources.Get "css/custom-toc.css" }}
+{{ if $customTocCSS }}
+<link rel="stylesheet" href="{{ $customTocCSS.RelPermalink }}">
+{{ end }}

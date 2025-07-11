@@ -5,6 +5,10 @@ theme: ["PaperMod"]
 
 params:
   env: production
+  ShowToc: true
+  TocOpen: false
+  ShowReadingTime: true
+  ShowWordCount: true
   profileMode:
     enabled: true
     title: "Brett Fitzgerald"

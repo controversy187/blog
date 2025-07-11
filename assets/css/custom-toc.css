@@ -1,0 +1,100 @@
+/* Custom TOC Styling */
+.toc {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toc details {
+    border: none;
+    background: transparent;
+}
+
+.toc summary {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 1rem;
+}
+
+.toc summary:hover {
+    color: var(--primary);
+    background: transparent;
+}
+
+.toc .inner {
+    padding-left: 0;
+}
+
+.toc ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.toc li {
+    margin: 0.5rem 0;
+    padding: 0;
+}
+
+.toc a {
+    color: var(--secondary);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    display: block;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.toc a:hover {
+    color: var(--primary);
+    background: var(--code-bg);
+    padding-left: 0.5rem;
+}
+
+/* Nested TOC items */
+.toc ul ul {
+    padding-left: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.toc ul ul a {
+    font-size: 0.95rem;
+    color: var(--tertiary);
+}
+
+.toc ul ul ul a {
+    font-size: 0.9rem;
+    color: var(--tertiary);
+}
+
+/* Active TOC item */
+.toc a.active {
+    color: var(--primary);
+    font-weight: 600;
+    background: var(--code-bg);
+    border-left: 3px solid var(--primary);
+    padding-left: 0.5rem;
+}
+
+/* Responsive TOC */
+@media (max-width: 768px) {
+    .toc {
+        margin: 1rem 0;
+        padding: 0.75rem;
+    }
+    
+    .toc summary {
+        font-size: 1rem;
+    }
+    
+    .toc ul ul {
+        padding-left: 1rem;
+    }
+} 

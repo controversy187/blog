@@ -67,6 +67,12 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
+
+
+
+
+<link rel="stylesheet" href="/css/custom-toc.css">
+
 <meta property="og:url" content="http://localhost:1313/posts/how-i-used-google-adk-and-ai-agents-to-take-control-of-my-todoist-backlog/">
   <meta property="og:site_name" content="Brett Fitzgerald">
   <meta property="og:title" content="Taming My Todoist Beast with Google ADK and AI Agents">
@@ -198,10 +204,38 @@
     <h1 class="post-title entry-hint-parent">
       Taming My Todoist Beast with Google ADK and AI Agents
     </h1>
-    <div class="post-meta"><span title='2025-07-02 00:00:00 +0000 UTC'>July 2, 2025</span>
+    <div class="post-meta"><span title='2025-07-02 00:00:00 +0000 UTC'>July 2, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;790 words
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#my-todoist-was-a-mess" aria-label="My Todoist Was a Mess">My Todoist Was a Mess</a></li>
+                <li>
+                    <a href="#why-i-chose-google-adk" aria-label="Why I Chose Google ADK">Why I Chose Google ADK</a></li>
+                <li>
+                    <a href="#building-my-ai-assistant" aria-label="Building My AI Assistant">Building My AI Assistant</a></li>
+                <li>
+                    <a href="#how-it-works---a-refinement-session" aria-label="How It Works - A Refinement Session">How It Works - A Refinement Session</a></li>
+                <li>
+                    <a href="#how-it-works---prioritization" aria-label="How It Works - Prioritization">How It Works - Prioritization</a></li>
+                <li>
+                    <a href="#the-results" aria-label="The Results">The Results</a></li>
+                <li>
+                    <a href="#bugs" aria-label="Bugs">Bugs</a></li>
+                <li>
+                    <a href="#what-i-learned" aria-label="What I Learned">What I Learned</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h2 id="my-todoist-was-a-mess">My Todoist Was a Mess<a hidden class="anchor" aria-hidden="true" href="#my-todoist-was-a-mess">#</a></h2>
 <p>I&rsquo;ve been a loyal Todoist user for years. It&rsquo;s been my trusty sidekick for keeping my work organized. But recently, things got a little out of hand. A small internal restructure at the organization I work for meant my workload grew significantly. More projects, more stakeholders, and a couple more people on my team. And a constant stream of new tasks hitting my inbox. I was struggling to keep my head above water. I was busy, but I wasn&rsquo;t making progress on the things that actually mattered.</p>
 <p>I knew I needed to do something different. One of my teammates had been experimenting with the <a href="https://github.com/google/adk">Google ADK (Agent Development Kit)</a> and it got me thinking: could I build my own AI assistant to help me make sense of the chaos?</p>
