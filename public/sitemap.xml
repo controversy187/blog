@@ -1,1 +1,343 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://brettgfitzgerald.com/tags/ai/</loc><lastmod>2025-07-02T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/automation/</loc><lastmod>2025-07-02T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/</loc><lastmod>2025-07-02T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/google-adk/</loc><lastmod>2025-07-02T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/posts/</loc><lastmod>2025-07-02T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/productivity/</loc><lastmod>2025-07-02T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/</loc><lastmod>2025-07-02T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/posts/how-i-used-google-adk-and-ai-agents-to-take-control-of-my-todoist-backlog/</loc><lastmod>2025-07-02T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/todoist/</loc><lastmod>2025-07-02T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/posts/delving-into-cursor/</loc><lastmod>2025-05-13T00:00:00-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/programming/</loc><lastmod>2025-05-13T00:00:00-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/technology/</loc><lastmod>2025-05-13T00:00:00-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/mcp/</loc><lastmod>2025-04-02T00:00:00-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/posts/mcp-server-experiences/</loc><lastmod>2025-04-02T00:00:00-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/servers/</loc><lastmod>2025-04-02T00:00:00-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/video/</loc><lastmod>2025-02-12T05:00:00-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/posts/video-compression-analysis/</loc><lastmod>2025-02-12T05:00:00-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/posts/build-a-large-language-model/</loc><lastmod>2025-02-06T12:57:27-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/llm/</loc><lastmod>2025-02-06T12:57:27-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/tags/python/</loc><lastmod>2025-02-06T12:57:27-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/about/</loc><lastmod>2025-02-05T16:02:50-05:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url><loc>https://brettgfitzgerald.com/posts/new-blog/</loc><lastmod>2025-02-05T00:00:00+00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://localhost:1313/</loc>
+    
+    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/building-a-saas-product-the-hidden-80-percent/</loc>
+    
+    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/entrepreneurship/</loc>
+    
+    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/</loc>
+    
+    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/programming/</loc>
+    
+    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/saas/</loc>
+    
+    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    
+    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/technology/</loc>
+    
+    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/web-development/</loc>
+    
+    <lastmod>2025-07-11T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/ai/</loc>
+    
+    <lastmod>2025-07-02T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/automation/</loc>
+    
+    <lastmod>2025-07-02T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/google-adk/</loc>
+    
+    <lastmod>2025-07-02T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/productivity/</loc>
+    
+    <lastmod>2025-07-02T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/how-i-used-google-adk-and-ai-agents-to-take-control-of-my-todoist-backlog/</loc>
+    
+    <lastmod>2025-07-02T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/todoist/</loc>
+    
+    <lastmod>2025-07-02T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/delving-into-cursor/</loc>
+    
+    <lastmod>2025-05-13T00:00:00-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/mcp/</loc>
+    
+    <lastmod>2025-04-02T00:00:00-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/mcp-server-experiences/</loc>
+    
+    <lastmod>2025-04-02T00:00:00-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/servers/</loc>
+    
+    <lastmod>2025-04-02T00:00:00-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/video/</loc>
+    
+    <lastmod>2025-02-12T05:00:00-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/video-compression-analysis/</loc>
+    
+    <lastmod>2025-02-12T05:00:00-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/build-a-large-language-model/</loc>
+    
+    <lastmod>2025-02-06T12:57:27-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/llm/</loc>
+    
+    <lastmod>2025-02-06T12:57:27-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/python/</loc>
+    
+    <lastmod>2025-02-06T12:57:27-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/about/</loc>
+    
+    <lastmod>2025-02-05T16:02:50-05:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/posts/new-blog/</loc>
+    
+    <lastmod>2025-02-05T00:00:00+00:00</lastmod>
+    
+    
+    <changefreq>weekly</changefreq>
+    
+    
+    <priority>0.5</priority>
+    
+  </url>
+  
+</urlset>

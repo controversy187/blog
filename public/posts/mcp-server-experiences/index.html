@@ -1,6 +1,221 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Obsidian, MCP Servers, and Supercharging Your Second Brain with AI | Brett Fitzgerald</title><meta name=keywords content="Servers,MCP,Technology"><meta name=description content="Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system."><meta name=author content><link rel=canonical href=https://brettgfitzgerald.com/posts/mcp-server-experiences/><link crossorigin=anonymous href=/assets/css/stylesheet.93f625d739f1d6a5c6f20c146bc6a8d26b233492b34b2220c54b12fd46a04ded.css integrity="sha256-k/Yl1znx1qXG8gwUa8ao0msjNJKzSyIgxUsS/UagTe0=" rel="preload stylesheet" as=style><link rel=icon href=https://brettgfitzgerald.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://brettgfitzgerald.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://brettgfitzgerald.com/favicon-32x32.png><link rel=apple-touch-icon href=https://brettgfitzgerald.com/apple-touch-icon.png><link rel=mask-icon href=https://brettgfitzgerald.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://brettgfitzgerald.com/posts/mcp-server-experiences/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4RD2MGN21"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-Z4RD2MGN21")</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css><meta property="og:url" content="https://brettgfitzgerald.com/posts/mcp-server-experiences/"><meta property="og:site_name" content="Brett Fitzgerald"><meta property="og:title" content="Obsidian, MCP Servers, and Supercharging Your Second Brain with AI"><meta property="og:description" content="Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system."><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-04-02T00:00:00-05:00"><meta property="article:modified_time" content="2025-04-02T00:00:00-05:00"><meta property="article:tag" content="Servers"><meta property="article:tag" content="MCP"><meta property="article:tag" content="Technology"><meta name=twitter:card content="summary"><meta name=twitter:title content="Obsidian, MCP Servers, and Supercharging Your Second Brain with AI"><meta name=twitter:description content="Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://brettgfitzgerald.com/posts/"},{"@type":"ListItem","position":2,"name":"Obsidian, MCP Servers, and Supercharging Your Second Brain with AI","item":"https://brettgfitzgerald.com/posts/mcp-server-experiences/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Obsidian, MCP Servers, and Supercharging Your Second Brain with AI","name":"Obsidian, MCP Servers, and Supercharging Your Second Brain with AI","description":"Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system.","keywords":["Servers","MCP","Technology"],"articleBody":"My Journey with MCP Servers I recently learned of MCP (Model Control Protocol) servers through a post on Hacker News. The premise seems really neat. MCP is essentially a protocol that allows AI models like Claude to interact with external tools and services through a standardized interface. I can write a very simple server and create “tools” for the Claude.ai desktop application to connect to and use. The example in the post created some tools that gave Claude access to read and write to the local filesystem (unrestricted, by the way). The original intent was to have Claude write some application. I cloned and ran the sample MCP server from the article to play with it, and was immediately impressed. This unlocks so many opportunities to integrate an LLM with countless services!\nHold on to that thought…\nMy Second Brain For the past several years, I’ve been using Tiago Forte’s Build a Second Brain method using Obsidian.md for my second brain. I implemented the PARA Method for organization, and create a Daily Note every day to link my chronological life to my disorganized brain. It’s been a good system, even if I don’t use it to it’s fullest. At the very least, I have all my notes synced with me between my desktop, laptop, and phone, thanks to Syncthing. That being said, Obsidian’s search capabilities are relatively lackluster.\nThis is where my MCP server can help.\nGetting things going To get it all setup, I basically cloned the MCP server linked above, and then set it up as they described, creating the server config in the Claude Desktop app. Since I’m running Linux, I had to hack around a bit to get the Windows Claude client running, but it works fine. With the MCP server connected, I now showed that I had several tools available to Claude.\nAfter some sample queries, I validated that Claude now had full access to my filesystem!\nPlumbing the depths of my second brain… Since I write a Daily Note every day, I first asked Claude to summarize my daily notes for the month of March 2025. It came up with accurate and surprisingly detailed insights.\nMarch 2025 Daily Notes Summary Personal Life Family Activities: Started the month at ****** with the ****** and ****** families, though you noted it was chaotic with misaligned schedules Went skiing with ****** at Crystal Mountain on March 10th, where you had a meaningful father-son conversation about life and relationships Your daughter ****** attended Middle School Ministry several times References to your family (******, ******, ******, ******) appear consistently throughout the month Fitness: Maintained consistent workout schedule with 15 recorded workout days Primarily practiced Jiu-Jitsu at ****** (both gi and nogi classes) Also incorporated running into your fitness routine Tracked your weight throughout the month, ranging from 179 lbs to 187 lbs, with an average around 182 lbs Spiritual Practice: Maintained daily quiet time starting mid-month (March 18-31) Studied the Gospel of Matthew, progressing sequentially from Matthew 12:38 through Matthew 14:33 Each quiet time session appears well-documented with dedicated notes Professional Life Regular Meetings: ****** (almost daily) Weekly kickoff meetings (Mondays) One-on-one meetings with various team members including ******, ******, and ****** Key Projects: ****** Rush Orders project with weekly check-ins ****** project with multiple coordination meetings Corporate Injury Analysis work Supply Chain ****** activities and meetings Non******stock ETA modeling work (created ******) Professional Development: Participated in Looker Studio training for data visualization Worked on Google Maps Optimization POC Set up Gemini in VSCode Explored Jira metrics via API People Management: Reached out to ****** about a ****** Provided feedback on ******'s Flow Metrics presentation Worked with various team members including ******, ******, ******, and ****** Your month shows a balanced life with consistent attention to physical fitness, spiritual growth, family time, and professional responsibilities, with a particular focus on data and supply chain projects at work. This was great! For years, my Second Brain has been a storage device. I had the ability to go back and manually retrieve that information, but I had to read the notes into my short-term (actual) brain, and hold it there while I search for other information to connect it to. Obsidian and the Second Brain method make this simpler by encouraging the use of internal links in notes, but now I had another tool for synthesizing meaningful information from all these connections!\nCreating Notes Equipped with a tool for analyzing my second brain, I turned toward project management. I’ve had a few ideas for side projects that I wanted to flesh out a bit. I’ve worked with LLMs in the past to bounce ideas off and refine some thoughts, but now I could generate documentation around these ideas, store that information, and retrieve it later for ongoing processing and development! I took a conversation about a project I’m thinking through, described my desired goal, and then asked Claude to develop a plan for a low-code, low-cost MVP to test market fit. It described the approach, I refined it a bit, and then asked Claude to store the project documentation in my Obsidian Vault. Boom, project plan and action steps created!\nReflection MCP Servers seem extremely powerful. For such a long time, LLMs have seemed contained to limited use cases. Plugins for code editors have allowed functionality in coding and chatbots are common. Further integrations have required the use of APIs and coding to leverage the power of LLMs in other contexts. Now, with MCP Servers, it really feels like we have simple-to-create interfaces that allow LLMs to interact with the rest of the digital world. What will you create?\n","wordCount":"938","inLanguage":"en","datePublished":"2025-04-02T00:00:00-05:00","dateModified":"2025-04-02T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://brettgfitzgerald.com/posts/mcp-server-experiences/"},"publisher":{"@type":"Organization","name":"Brett Fitzgerald","logo":{"@type":"ImageObject","url":"https://brettgfitzgerald.com/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://brettgfitzgerald.com/ accesskey=h title="Brett Fitzgerald (Alt + H)">Brett Fitzgerald</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://brettgfitzgerald.com/posts/ title=Posts><span>Posts</span></a></li><li><a href=https://brettgfitzgerald.com/about/ title=About><span>About</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">Obsidian, MCP Servers, and Supercharging Your Second Brain with AI</h1><div class=post-description>Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system.</div><div class=post-meta><span title='2025-04-02 00:00:00 -0500 -0500'>April 2, 2025</span></div></header><div class=post-content><h2 id=my-journey-with-mcp-servers>My Journey with MCP Servers<a hidden class=anchor aria-hidden=true href=#my-journey-with-mcp-servers>#</a></h2><p>I recently learned of MCP (Model Control Protocol) servers through a <a href="https://news.ycombinator.com/item?id=43410866">post on Hacker News</a>. The premise seems really neat. MCP is essentially a protocol that allows AI models like Claude to interact with external tools and services through a standardized interface. I can write a very simple server and create &ldquo;tools&rdquo; for the Claude.ai desktop application to connect to and use. The example in the post created some tools that gave Claude access to read and write to the local filesystem (unrestricted, by the way). The original intent was to have Claude write some application. I cloned and ran the <a href=https://github.com/ZbigniewTomanek/my-mcp-server>sample MCP server</a> from the article to play with it, and was immediately impressed. This unlocks so many opportunities to integrate an LLM with countless services!</p><p>Hold on to that thought&mldr;</p><h2 id=my-second-brain>My Second Brain<a hidden class=anchor aria-hidden=true href=#my-second-brain>#</a></h2><p>For the past several years, I&rsquo;ve been using Tiago Forte&rsquo;s <a href=https://www.buildingasecondbrain.com/>Build a Second Brain</a> method using Obsidian.md for my second brain. I implemented the <a href=https://fortelabs.com/blog/para/>PARA Method</a> for organization, and create a Daily Note every day to link my chronological life to my disorganized brain. It&rsquo;s been a good system, even if I don&rsquo;t use it to it&rsquo;s fullest. At the very least, I have all my notes synced with me between my desktop, laptop, and phone, thanks to Syncthing. That being said, Obsidian&rsquo;s search capabilities are relatively lackluster.</p><p>This is where my MCP server can help.</p><h2 id=getting-things-going>Getting things going<a hidden class=anchor aria-hidden=true href=#getting-things-going>#</a></h2><p>To get it all setup, I basically cloned the MCP server linked above, and then set it up as they described, creating the server config in the Claude Desktop app. Since I&rsquo;m running Linux, I had to <a href=https://github.com/aaddrick/claude-desktop-debian>hack around a bit</a> to get the Windows Claude client running, but it works fine. With the MCP server connected, I now showed that I had several tools available to Claude.</p><p><img alt="Available Tools" loading=lazy src=/posts/mcp-server-experiences/available-tools.png></p><p>After some sample queries, I validated that Claude now had full access to my filesystem!</p><h2 id=plumbing-the-depths-of-my-second-brain>Plumbing the depths of my second brain&mldr;<a hidden class=anchor aria-hidden=true href=#plumbing-the-depths-of-my-second-brain>#</a></h2><p>Since I write a Daily Note every day, I first asked Claude to summarize my daily notes for the month of March 2025. It came up with accurate and surprisingly detailed insights.</p><pre tabindex=0><code>March 2025 Daily Notes Summary
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Obsidian, MCP Servers, and Supercharging Your Second Brain with AI | Brett Fitzgerald</title>
+<meta name="keywords" content="Servers, MCP, Technology">
+<meta name="description" content="Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/mcp-server-experiences/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.93f625d739f1d6a5c6f20c146bc6a8d26b233492b34b2220c54b12fd46a04ded.css" integrity="sha256-k/Yl1znx1qXG8gwUa8ao0msjNJKzSyIgxUsS/UagTe0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/mcp-server-experiences/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4RD2MGN21"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z4RD2MGN21');
+</script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
+<meta property="og:url" content="http://localhost:1313/posts/mcp-server-experiences/">
+  <meta property="og:site_name" content="Brett Fitzgerald">
+  <meta property="og:title" content="Obsidian, MCP Servers, and Supercharging Your Second Brain with AI">
+  <meta property="og:description" content="Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-02T00:00:00-05:00">
+    <meta property="article:modified_time" content="2025-04-02T00:00:00-05:00">
+    <meta property="article:tag" content="Servers">
+    <meta property="article:tag" content="MCP">
+    <meta property="article:tag" content="Technology">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Obsidian, MCP Servers, and Supercharging Your Second Brain with AI">
+<meta name="twitter:description" content="Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Obsidian, MCP Servers, and Supercharging Your Second Brain with AI",
+      "item": "http://localhost:1313/posts/mcp-server-experiences/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Obsidian, MCP Servers, and Supercharging Your Second Brain with AI",
+  "name": "Obsidian, MCP Servers, and Supercharging Your Second Brain with AI",
+  "description": "Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system.",
+  "keywords": [
+    "Servers", "MCP", "Technology"
+  ],
+  "articleBody": "My Journey with MCP Servers I recently learned of MCP (Model Control Protocol) servers through a post on Hacker News. The premise seems really neat. MCP is essentially a protocol that allows AI models like Claude to interact with external tools and services through a standardized interface. I can write a very simple server and create “tools” for the Claude.ai desktop application to connect to and use. The example in the post created some tools that gave Claude access to read and write to the local filesystem (unrestricted, by the way). The original intent was to have Claude write some application. I cloned and ran the sample MCP server from the article to play with it, and was immediately impressed. This unlocks so many opportunities to integrate an LLM with countless services!\nHold on to that thought…\nMy Second Brain For the past several years, I’ve been using Tiago Forte’s Build a Second Brain method using Obsidian.md for my second brain. I implemented the PARA Method for organization, and create a Daily Note every day to link my chronological life to my disorganized brain. It’s been a good system, even if I don’t use it to it’s fullest. At the very least, I have all my notes synced with me between my desktop, laptop, and phone, thanks to Syncthing. That being said, Obsidian’s search capabilities are relatively lackluster.\nThis is where my MCP server can help.\nGetting things going To get it all setup, I basically cloned the MCP server linked above, and then set it up as they described, creating the server config in the Claude Desktop app. Since I’m running Linux, I had to hack around a bit to get the Windows Claude client running, but it works fine. With the MCP server connected, I now showed that I had several tools available to Claude.\nAfter some sample queries, I validated that Claude now had full access to my filesystem!\nPlumbing the depths of my second brain… Since I write a Daily Note every day, I first asked Claude to summarize my daily notes for the month of March 2025. It came up with accurate and surprisingly detailed insights.\nMarch 2025 Daily Notes Summary Personal Life Family Activities: Started the month at ****** with the ****** and ****** families, though you noted it was chaotic with misaligned schedules Went skiing with ****** at Crystal Mountain on March 10th, where you had a meaningful father-son conversation about life and relationships Your daughter ****** attended Middle School Ministry several times References to your family (******, ******, ******, ******) appear consistently throughout the month Fitness: Maintained consistent workout schedule with 15 recorded workout days Primarily practiced Jiu-Jitsu at ****** (both gi and nogi classes) Also incorporated running into your fitness routine Tracked your weight throughout the month, ranging from 179 lbs to 187 lbs, with an average around 182 lbs Spiritual Practice: Maintained daily quiet time starting mid-month (March 18-31) Studied the Gospel of Matthew, progressing sequentially from Matthew 12:38 through Matthew 14:33 Each quiet time session appears well-documented with dedicated notes Professional Life Regular Meetings: ****** (almost daily) Weekly kickoff meetings (Mondays) One-on-one meetings with various team members including ******, ******, and ****** Key Projects: ****** Rush Orders project with weekly check-ins ****** project with multiple coordination meetings Corporate Injury Analysis work Supply Chain ****** activities and meetings Non******stock ETA modeling work (created ******) Professional Development: Participated in Looker Studio training for data visualization Worked on Google Maps Optimization POC Set up Gemini in VSCode Explored Jira metrics via API People Management: Reached out to ****** about a ****** Provided feedback on ******'s Flow Metrics presentation Worked with various team members including ******, ******, ******, and ****** Your month shows a balanced life with consistent attention to physical fitness, spiritual growth, family time, and professional responsibilities, with a particular focus on data and supply chain projects at work. This was great! For years, my Second Brain has been a storage device. I had the ability to go back and manually retrieve that information, but I had to read the notes into my short-term (actual) brain, and hold it there while I search for other information to connect it to. Obsidian and the Second Brain method make this simpler by encouraging the use of internal links in notes, but now I had another tool for synthesizing meaningful information from all these connections!\nCreating Notes Equipped with a tool for analyzing my second brain, I turned toward project management. I’ve had a few ideas for side projects that I wanted to flesh out a bit. I’ve worked with LLMs in the past to bounce ideas off and refine some thoughts, but now I could generate documentation around these ideas, store that information, and retrieve it later for ongoing processing and development! I took a conversation about a project I’m thinking through, described my desired goal, and then asked Claude to develop a plan for a low-code, low-cost MVP to test market fit. It described the approach, I refined it a bit, and then asked Claude to store the project documentation in my Obsidian Vault. Boom, project plan and action steps created!\nReflection MCP Servers seem extremely powerful. For such a long time, LLMs have seemed contained to limited use cases. Plugins for code editors have allowed functionality in coding and chatbots are common. Further integrations have required the use of APIs and coding to leverage the power of LLMs in other contexts. Now, with MCP Servers, it really feels like we have simple-to-create interfaces that allow LLMs to interact with the rest of the digital world. What will you create?\n",
+  "wordCount" : "938",
+  "inLanguage": "en",
+  "datePublished": "2025-04-02T00:00:00-05:00",
+  "dateModified": "2025-04-02T00:00:00-05:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/mcp-server-experiences/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Brett Fitzgerald",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Brett Fitzgerald (Alt + H)">Brett Fitzgerald</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Obsidian, MCP Servers, and Supercharging Your Second Brain with AI
+    </h1>
+    <div class="post-description">
+      Learn how to connect Claude AI to your Obsidian vault using MCP servers to analyze notes, generate documentation, and unlock powerful insights from your Second Brain system.
+    </div>
+    <div class="post-meta"><span title='2025-04-02 00:00:00 -0500 -0500'>April 2, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="my-journey-with-mcp-servers">My Journey with MCP Servers<a hidden class="anchor" aria-hidden="true" href="#my-journey-with-mcp-servers">#</a></h2>
+<p>I recently learned of MCP (Model Control Protocol) servers through a <a href="https://news.ycombinator.com/item?id=43410866">post on Hacker News</a>. The premise seems really neat. MCP is essentially a protocol that allows AI models like Claude to interact with external tools and services through a standardized interface. I can write a very simple server and create &ldquo;tools&rdquo; for the Claude.ai desktop application to connect to and use. The example in the post created some tools that gave Claude access to read and write to the local filesystem (unrestricted, by the way). The original intent was to have Claude write some application. I cloned and ran the <a href="https://github.com/ZbigniewTomanek/my-mcp-server">sample MCP server</a> from the article to play with it, and was immediately impressed. This unlocks so many opportunities to integrate an LLM with countless services!</p>
+<p>Hold on to that thought&hellip;</p>
+<h2 id="my-second-brain">My Second Brain<a hidden class="anchor" aria-hidden="true" href="#my-second-brain">#</a></h2>
+<p>For the past several years, I&rsquo;ve been using Tiago Forte&rsquo;s <a href="https://www.buildingasecondbrain.com/">Build a Second Brain</a> method using Obsidian.md for my second brain. I implemented the <a href="https://fortelabs.com/blog/para/">PARA Method</a> for organization, and create a Daily Note every day to link my chronological life to my disorganized brain. It&rsquo;s been a good system, even if I don&rsquo;t use it to it&rsquo;s fullest. At the very least, I have all my notes synced with me between my desktop, laptop, and phone, thanks to Syncthing. That being said, Obsidian&rsquo;s search capabilities are relatively lackluster.</p>
+<p>This is where my MCP server can help.</p>
+<h2 id="getting-things-going">Getting things going<a hidden class="anchor" aria-hidden="true" href="#getting-things-going">#</a></h2>
+<p>To get it all setup, I basically cloned the MCP server linked above, and then set it up as they described, creating the server config in the Claude Desktop app. Since I&rsquo;m running Linux, I had to <a href="https://github.com/aaddrick/claude-desktop-debian">hack around a bit</a> to get the Windows Claude client running, but it works fine. With the MCP server connected, I now showed that I had several tools available to Claude.</p>
+<p><img alt="Available Tools" loading="lazy" src="/posts/mcp-server-experiences/available-tools.png"></p>
+<p>After some sample queries, I validated that Claude now had full access to my filesystem!</p>
+<h2 id="plumbing-the-depths-of-my-second-brain">Plumbing the depths of my second brain&hellip;<a hidden class="anchor" aria-hidden="true" href="#plumbing-the-depths-of-my-second-brain">#</a></h2>
+<p>Since I write a Daily Note every day, I first asked Claude to summarize my daily notes for the month of March 2025. It came up with accurate and surprisingly detailed insights.</p>
+<pre tabindex="0"><code>March 2025 Daily Notes Summary
 Personal Life
 Family Activities:
 
@@ -51,8 +266,101 @@ Provided feedback on ******&#39;s Flow Metrics presentation
 Worked with various team members including ******, ******, ******, and ******
 
 Your month shows a balanced life with consistent attention to physical fitness, spiritual growth, family time, and professional responsibilities, with a particular focus on data and supply chain projects at work.
-</code></pre><p>This was great! For years, my Second Brain has been a storage device. I had the ability to go back and manually retrieve that information, but I had to read the notes into my short-term (actual) brain, and hold it there while I search for other information to connect it to. Obsidian and the Second Brain method make this simpler by encouraging the use of internal links in notes, but now I had another tool for synthesizing meaningful information from all these connections!</p><h3 id=creating-notes>Creating Notes<a hidden class=anchor aria-hidden=true href=#creating-notes>#</a></h3><p>Equipped with a tool for analyzing my second brain, I turned toward project management. I&rsquo;ve had a few ideas for side projects that I wanted to flesh out a bit. I&rsquo;ve worked with LLMs in the past to bounce ideas off and refine some thoughts, but now I could generate documentation around these ideas, store that information, and retrieve it later for ongoing processing and development! I took a conversation about a project I&rsquo;m thinking through, described my desired goal, and then asked Claude to develop a plan for a low-code, low-cost MVP to test market fit. It described the approach, I refined it a bit, and then asked Claude to store the project documentation in my Obsidian Vault. Boom, project plan and action steps created!</p><p><img alt="Project Plan" loading=lazy src=/posts/mcp-server-experiences/project-plan.jpg></p><h3 id=reflection>Reflection<a hidden class=anchor aria-hidden=true href=#reflection>#</a></h3><p>MCP Servers seem extremely powerful. For such a long time, LLMs have seemed contained to limited use cases. Plugins for code editors have allowed functionality in coding and chatbots are common. Further integrations have required the use of APIs and coding to leverage the power of LLMs in other contexts. Now, with MCP Servers, it really feels like we have simple-to-create interfaces that allow LLMs to interact with the rest of the digital world. What will you create?</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://brettgfitzgerald.com/tags/servers/>Servers</a></li><li><a href=https://brettgfitzgerald.com/tags/mcp/>MCP</a></li><li><a href=https://brettgfitzgerald.com/tags/technology/>Technology</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://brettgfitzgerald.com/>Brett Fitzgerald</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
-</a><script src=https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js></script><script>document.addEventListener("DOMContentLoaded",function(){lightGallery(document.getElementById("gallery"))})</script><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+</code></pre><p>This was great! For years, my Second Brain has been a storage device. I had the ability to go back and manually retrieve that information, but I had to read the notes into my short-term (actual) brain, and hold it there while I search for other information to connect it to. Obsidian and the Second Brain method make this simpler by encouraging the use of internal links in notes, but now I had another tool for synthesizing meaningful information from all these connections!</p>
+<h3 id="creating-notes">Creating Notes<a hidden class="anchor" aria-hidden="true" href="#creating-notes">#</a></h3>
+<p>Equipped with a tool for analyzing my second brain, I turned toward project management. I&rsquo;ve had a few ideas for side projects that I wanted to flesh out a bit. I&rsquo;ve worked with LLMs in the past to bounce ideas off and refine some thoughts, but now I could generate documentation around these ideas, store that information, and retrieve it later for ongoing processing and development! I took a conversation about a project I&rsquo;m thinking through, described my desired goal, and then asked Claude to develop a plan for a low-code, low-cost MVP to test market fit. It described the approach, I refined it a bit, and then asked Claude to store the project documentation in my Obsidian Vault. Boom, project plan and action steps created!</p>
+<p><img alt="Project Plan" loading="lazy" src="/posts/mcp-server-experiences/project-plan.jpg"></p>
+<h3 id="reflection">Reflection<a hidden class="anchor" aria-hidden="true" href="#reflection">#</a></h3>
+<p>MCP Servers seem extremely powerful. For such a long time, LLMs have seemed contained to limited use cases. Plugins for code editors have allowed functionality in coding and chatbots are common. Further integrations have required the use of APIs and coding to leverage the power of LLMs in other contexts. Now, with MCP Servers, it really feels like we have simple-to-create interfaces that allow LLMs to interact with the rest of the digital world. What will you create?</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/servers/">Servers</a></li>
+      <li><a href="http://localhost:1313/tags/mcp/">MCP</a></li>
+      <li><a href="http://localhost:1313/tags/technology/">Technology</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Brett Fitzgerald</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    lightGallery(document.getElementById('gallery'));
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

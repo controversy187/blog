@@ -1,38 +1,378 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Build a Large Language Model From Scratch | Brett Fitzgerald</title><meta name=keywords content="AI,LLM,Python"><meta name=description content="A developer's journey through building an LLM from scratch, sharing key insights about tokenization, training, and the learning process of mastering AI fundamentals."><meta name=author content><link rel=canonical href=https://brettgfitzgerald.com/posts/build-a-large-language-model/><link crossorigin=anonymous href=/assets/css/stylesheet.93f625d739f1d6a5c6f20c146bc6a8d26b233492b34b2220c54b12fd46a04ded.css integrity="sha256-k/Yl1znx1qXG8gwUa8ao0msjNJKzSyIgxUsS/UagTe0=" rel="preload stylesheet" as=style><link rel=icon href=https://brettgfitzgerald.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://brettgfitzgerald.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://brettgfitzgerald.com/favicon-32x32.png><link rel=apple-touch-icon href=https://brettgfitzgerald.com/apple-touch-icon.png><link rel=mask-icon href=https://brettgfitzgerald.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://brettgfitzgerald.com/posts/build-a-large-language-model/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4RD2MGN21"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-Z4RD2MGN21")</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css><meta property="og:url" content="https://brettgfitzgerald.com/posts/build-a-large-language-model/"><meta property="og:site_name" content="Brett Fitzgerald"><meta property="og:title" content="Build a Large Language Model From Scratch"><meta property="og:description" content="A developer's journey through building an LLM from scratch, sharing key insights about tokenization, training, and the learning process of mastering AI fundamentals."><meta property="og:locale" content="en-us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-02-06T12:57:27-05:00"><meta property="article:modified_time" content="2025-02-06T12:57:27-05:00"><meta property="article:tag" content="Ai"><meta property="article:tag" content="LLM"><meta property="article:tag" content="Python"><meta name=twitter:card content="summary"><meta name=twitter:title content="Build a Large Language Model From Scratch"><meta name=twitter:description content="A developer's journey through building an LLM from scratch, sharing key insights about tokenization, training, and the learning process of mastering AI fundamentals."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://brettgfitzgerald.com/posts/"},{"@type":"ListItem","position":2,"name":"Build a Large Language Model From Scratch","item":"https://brettgfitzgerald.com/posts/build-a-large-language-model/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Build a Large Language Model From Scratch","name":"Build a Large Language Model From Scratch","description":"A developer's journey through building an LLM from scratch, sharing key insights about tokenization, training, and the learning process of mastering AI fundamentals.","keywords":["AI","LLM","Python"],"articleBody":"Building a large language model from scratch I’m a machine learning / A.I. hobbyist. The technologies fascinate me, and I can’t seem to learn enough about them. Sebastian Raschka’s book, Build a Large Language Model (From Scratch) caught my eye. I don’t recall how I stumbled on it, but I found it when it was still in early access from Manning Publications. I purchased it, and started working through it as the final chapters were being written and released. I just completed the book and all the included work and loved every minute of it.\nMy approach A while ago, I read some advice about learning programming from digital books and tutorials. The advice was to never copy and paste code from samples but to hand-type all the code. I took that approach with this book. I typed every single line of code (except for a couple of blocks which were highly repetitive and long). You can see all my work here: https://github.com/controversy187/build-a-large-language-model\nI did my best to work in section chunks. I didn’t want to start a section unless I had the time dedicated to completing it. Some sections are pretty short, others are fairly involved and time-consuming.\nI built this in Jupyter Notebooks on my laptop, which is pretty underpowered for this type of work. The premise of the book was that you can build an LLM on consumer hardware, and it can perform decently well. As I’m writing this, I’m currently fine-tuning my model locally. My model is about 50 steps into a 230-step tuning, and I just crossed the 20-minute execution time mark. The earlier code samples ran quicker, but the last few sections used larger models, which slowed things down considerably.\nI didn’t do most of the supplemental exercises. I tend to have an “I want to do ALL THE THINGS!” personality. The drawback is that if I take the time to do all the things, I eventually get long-term distracted and never actually finish what I started. So I sort of rushed through this book. I even took several weeks off around Christmas and New Year’s. But I got back into it and powered through the last few chapters.\nSo, more or less, I read through the chapters and wrote all the mandatory coding assignments.\nLearnings What can I tell you about large language models? A lot more than I could before I started this book, but certainly not all the things the author attempted to teach me. I’ll summarize my understanding, but I could be wrong about some of these things, and I most certainly forgot or misunderstood others.\nTokenization \u0026 Vocabulary A large language model starts its life by building a vocabulary of text. A massive amount of text is distilled down into a list of unique words. Each word is then translated into an integer because computers like numbers more than they like words. This process is referred to as “tokenization”, where the word is replaced with a numerical token. So now we have a list of unique tokens, which is the vocabulary of the large language model.\n# Build a more advanced tokenizer text = \"Hello, world. Is this-- a test?\" result = re.split(r'([,.:;?_!\"()\\']|--|\\s)', text) result = [item.strip() for item in result if item.strip()] print(result) # Outputs \"['Hello', ',', 'world', '.', 'Is', 'this', '--', 'a', 'test', '?']\" all_words = sorted(set(result)) vocab_size = len(all_words) print(vocab_size) # Outputs 10 # Display the first 51 tokens in our vocabulary. vocab = {token:integer for integer,token in enumerate(all_words)} for i, item in enumerate(vocab.items()): print(item) # Outputs: (',', 0) ('--', 1) ('.', 2) ('?', 3) ('Hello', 4) ('Is', 5) ('a', 6) ('test', 7) ('this', 8) ('world', 9) # In this example, the id 9 represents the word \"world\". 5 represents \"Is\". etc. This is where my understanding gets fuzzy. We didn’t get very far before that happened, ’eh? Now, we take that massive amount of text we were using earlier to create the vocabulary (or a subset, or totally different text), and we tokenize the entire text. We do this by using the vocabulary we built previously and substituting the words in the training text for their equivalent token value. This is now our training text.\nModel Training \u0026 Relationships With that complete, we can “train” the model. This process involves taking each token in the vocabulary and building a relationship to each other token in the vocabulary, based on those tokens’ relative positions to each other in the training text. So if the word “cat” is followed by the word “jump”, the model records that relationship. But it also records the relationship of the word “cat” to other words in the text. So “jump” follows “cat”, but maybe it does so more frequently when they are close to the word “mouse”. And maybe less frequently when they are close to the word “nap”. Recording ALL these relationships would require a massive dataset, so the relationships are mathematically reduced and approximated. There are definitely more technical terms to use, and the book went into them. I definitely forget them, though.\nText Generation Process Now, if you provide a starter text to the model, it will try to complete the text for you. Continuing our example, if I gave the model the text “My cat saw a mouse and it”, based on the word cat being close to the word mouse, it might predict the word “jumped” to come next. So it appends the word “jumped” to the text I submitted, and then it takes that whole new sentence and feeds it back into itself. So now the input text is “My cat saw a mouse and it jumped”. The next output word could be “on”, so it appends that word and feeds this concatenated output back into its input.\nEvery time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window) and then calculates the most likely next token, then converts it all back to text for us to read. See update\nModel Weights \u0026 Distribution Saving all those relationships between the tokens are known as the “weights” of the model. See update Those can be distributed, so if you train a model on a given training text, you can give that to your friends and they can use those model weights to predict text similar to that training text.\nFine Tuning Fine-tuning is the process of training a model for specific… things. My mind is getting fuzzier here, so I’m not going to go into this deeper. Suffice it to say, that you start with a base language model and continue to train it using specific input and output pairs. In the book, we built a spam classifier that determined if a given message was spam or not, as well as a model that will follow instructions. That’s actually the one that’s being trained right now as I write this post, so I’m not sure how it will turn out. Based on the fact that it’s published in a book, I think it will come out just fine.\nSo while I’m not completely done with the book, I’m very nearly there. I did learn a lot of great concepts, although obviously some of them weren’t retained. It would probably behoove me to go back through the book again and quickly breeze through it, in order to refresh my memory and cement my learnings.\nMeta learnings Other than the technical aspects of Large Language Models, what else did I learn through this experience?\nThrough my experiment with typing all the code samples by hand, I can say that my time would have been better spent with a different approach. If I do this again, I’ll probably not type all the code snippets, but rather “type” them in my mind, and really understand what each line does. The times I learned the most were actually when I made a typo and had to go back through my code to debug it. That forced me to understand what was happening so I could figure out what went wrong.\nI learn better with paper, rather than a digital book. I don’t know why. I had both available to me, and I read the first couple of chapters in the paper book. That information stuck better. Maybe because it was earlier in the book and simpler to understand, or maybe the format played into it. But I enjoyed it better, regardless.\nI didn’t have to “figure out” anything, and I think that hampered my learning. There are supplemental exercises in the book, where the author gives you a problem and you have to figure out how to solve it. The answers are given in his GitHub repository. That would have slowed me down a lot, but I’m very confident that I would have learned the material better.\nWhat’s next? I’m torn right now. I want to understand this material better, but I wonder if getting into lower-level, specific material might help me understand AI and machine learning better. What will likely happen is that I’ll copy and paste this content into Claude.ai and suggest a path forward for me.\nUpdate: 2025-02-17 Sebastian Raschka sent me a kind message in response to this post and clarified some of my thinking. To quote him:\n“Every time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window)”. You do this initially when you parse the input text. But then you technically don’t need to re-tokenize anything. You can leave the generated output in the tokenized form when creating the next token. What I mean is if the text is\n“My cat saw a mouse”\nThe tokens might be “123 1 5 6 99” (numbers are arbitrary examples). Then the LLM generates the token 801 for “jump”. Then you simply use “123 1 5 6 99 801” as the input for the next word.\nWhen you show the output to the user, then you convert back into text.\n“Saving all those relationships between the tokens are known as the “weights” of the model.” I would say that relationships between tokens are the attention scores. The model weights are more like values that are involved in computing things like the attention scores (and other things).\nNow that you finished the book, in case you are bored, I do also have some more materials as bonus material in the GitHub repository.\nI’d say the GPT-\u003eLlama conversion (https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/07_gpt_to_llama) and the DPO preference tuning (https://github.com/rasbt/LLMs-from-scratch/blob/main/ch07/04_preference-tuning-with-dpo/dpo-from-scratch.ipynb) are maybe the most interesting ones.\nI also just uploaded some PyTorch tips for increasing the training speed of the model: https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/10_llm-training-speed\nThese materials are less polished than the book itself, but maybe you’ll still find them useful!\n","wordCount":"1803","inLanguage":"en","datePublished":"2025-02-06T12:57:27-05:00","dateModified":"2025-02-06T12:57:27-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://brettgfitzgerald.com/posts/build-a-large-language-model/"},"publisher":{"@type":"Organization","name":"Brett Fitzgerald","logo":{"@type":"ImageObject","url":"https://brettgfitzgerald.com/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://brettgfitzgerald.com/ accesskey=h title="Brett Fitzgerald (Alt + H)">Brett Fitzgerald</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://brettgfitzgerald.com/posts/ title=Posts><span>Posts</span></a></li><li><a href=https://brettgfitzgerald.com/about/ title=About><span>About</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">Build a Large Language Model From Scratch</h1><div class=post-description>A developer's journey through building an LLM from scratch, sharing key insights about tokenization, training, and the learning process of mastering AI fundamentals.</div><div class=post-meta><span title='2025-02-06 12:57:27 -0500 EST'>February 6, 2025</span></div></header><div class=post-content><h2 id=building-a-large-language-model-from-scratch>Building a large language model from scratch<a hidden class=anchor aria-hidden=true href=#building-a-large-language-model-from-scratch>#</a></h2><p>I&rsquo;m a machine learning / A.I. hobbyist. The technologies fascinate me, and I can&rsquo;t seem to learn enough about them. Sebastian Raschka&rsquo;s book, Build a Large Language Model (From Scratch) caught my eye. I don&rsquo;t recall how I stumbled on it, but I found it when it was still in early access from Manning Publications. I purchased it, and started working through it as the final chapters were being written and released. I just completed the book and all the included work and loved every minute of it.</p><p><img alt="Build a Large Language Model From Scratch by Sebastian Raschka" loading=lazy src=/posts/build-a-large-language-model/llm-book.jpg></p><h2 id=my-approach>My approach<a hidden class=anchor aria-hidden=true href=#my-approach>#</a></h2><p>A while ago, I read some advice about learning programming from digital books and tutorials. The advice was to never copy and paste code from samples but to hand-type all the code. I took that approach with this book. I typed every single line of code (except for a couple of blocks which were highly repetitive and long). You can see all my work here: <a href=https://github.com/controversy187/build-a-large-language-model>https://github.com/controversy187/build-a-large-language-model</a></p><p>I did my best to work in section chunks. I didn&rsquo;t want to start a section unless I had the time dedicated to completing it. Some sections are pretty short, others are fairly involved and time-consuming.</p><p>I built this in Jupyter Notebooks on my laptop, which is pretty underpowered for this type of work. The premise of the book was that you can build an LLM on consumer hardware, and it can perform decently well. As I&rsquo;m writing this, I&rsquo;m currently fine-tuning my model locally. My model is about 50 steps into a 230-step tuning, and I just crossed the 20-minute execution time mark. The earlier code samples ran quicker, but the last few sections used larger models, which slowed things down considerably.</p><p>I didn&rsquo;t do most of the supplemental exercises. I tend to have an &ldquo;I want to do ALL THE THINGS!&rdquo; personality. The drawback is that if I take the time to do all the things, I eventually get long-term distracted and never actually finish what I started. So I sort of rushed through this book. I even took several weeks off around Christmas and New Year&rsquo;s. But I got back into it and powered through the last few chapters.</p><p>So, more or less, I read through the chapters and wrote all the mandatory coding assignments.</p><h2 id=learnings>Learnings<a hidden class=anchor aria-hidden=true href=#learnings>#</a></h2><p>What can I tell you about large language models? A lot more than I could before I started this book, but certainly not all the things the author attempted to teach me. I&rsquo;ll summarize my understanding, but I could be wrong about some of these things, and I most certainly forgot or misunderstood others.</p><h3 id=tokenization--vocabulary>Tokenization & Vocabulary<a hidden class=anchor aria-hidden=true href=#tokenization--vocabulary>#</a></h3><p>A large language model starts its life by building a vocabulary of text. A massive amount of text is distilled down into a list of unique words. Each word is then translated into an integer because computers like numbers more than they like words. This process is referred to as &ldquo;tokenization&rdquo;, where the word is replaced with a numerical token. So now we have a list of unique tokens, which is the vocabulary of the large language model.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># Build a more advanced tokenizer</span>
-</span></span><span style=display:flex><span>text <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Hello, world. Is this-- a test?&#34;</span>
-</span></span><span style=display:flex><span>result <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>split(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;([,.:;?_!&#34;()</span><span style=color:#ae81ff>\&#39;</span><span style=color:#e6db74>]|--|\s)&#39;</span>, text)
-</span></span><span style=display:flex><span>result <span style=color:#f92672>=</span> [item<span style=color:#f92672>.</span>strip() <span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> result <span style=color:#66d9ef>if</span> item<span style=color:#f92672>.</span>strip()]
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>print(result)
-</span></span><span style=display:flex><span><span style=color:#75715e># Outputs &#34;[&#39;Hello&#39;, &#39;,&#39;, &#39;world&#39;, &#39;.&#39;, &#39;Is&#39;, &#39;this&#39;, &#39;--&#39;, &#39;a&#39;, &#39;test&#39;, &#39;?&#39;]&#34;</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>all_words <span style=color:#f92672>=</span> sorted(set(result))
-</span></span><span style=display:flex><span>vocab_size <span style=color:#f92672>=</span> len(all_words)
-</span></span><span style=display:flex><span>print(vocab_size)
-</span></span><span style=display:flex><span><span style=color:#75715e># Outputs 10</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Display the first 51 tokens in our vocabulary.</span>
-</span></span><span style=display:flex><span>vocab <span style=color:#f92672>=</span> {token:integer <span style=color:#66d9ef>for</span> integer,token <span style=color:#f92672>in</span> enumerate(all_words)}
-</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i, item <span style=color:#f92672>in</span> enumerate(vocab<span style=color:#f92672>.</span>items()):
-</span></span><span style=display:flex><span>    print(item)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Outputs:</span>
-</span></span><span style=display:flex><span>(<span style=color:#e6db74>&#39;,&#39;</span>, <span style=color:#ae81ff>0</span>)
-</span></span><span style=display:flex><span>(<span style=color:#e6db74>&#39;--&#39;</span>, <span style=color:#ae81ff>1</span>)
-</span></span><span style=display:flex><span>(<span style=color:#e6db74>&#39;.&#39;</span>, <span style=color:#ae81ff>2</span>)
-</span></span><span style=display:flex><span>(<span style=color:#e6db74>&#39;?&#39;</span>, <span style=color:#ae81ff>3</span>)
-</span></span><span style=display:flex><span>(<span style=color:#e6db74>&#39;Hello&#39;</span>, <span style=color:#ae81ff>4</span>)
-</span></span><span style=display:flex><span>(<span style=color:#e6db74>&#39;Is&#39;</span>, <span style=color:#ae81ff>5</span>)
-</span></span><span style=display:flex><span>(<span style=color:#e6db74>&#39;a&#39;</span>, <span style=color:#ae81ff>6</span>)
-</span></span><span style=display:flex><span>(<span style=color:#e6db74>&#39;test&#39;</span>, <span style=color:#ae81ff>7</span>)
-</span></span><span style=display:flex><span>(<span style=color:#e6db74>&#39;this&#39;</span>, <span style=color:#ae81ff>8</span>)
-</span></span><span style=display:flex><span>(<span style=color:#e6db74>&#39;world&#39;</span>, <span style=color:#ae81ff>9</span>)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># In this example, the id 9 represents the word &#34;world&#34;. 5 represents &#34;Is&#34;. etc.</span>
-</span></span></code></pre></div><p>This is where my understanding gets fuzzy. We didn&rsquo;t get very far before that happened, &rsquo;eh? Now, we take that massive amount of text we were using earlier to create the vocabulary (or a subset, or totally different text), and we tokenize the entire text. We do this by using the vocabulary we built previously and substituting the words in the training text for their equivalent token value. This is now our training text.</p><h3 id=model-training--relationships>Model Training & Relationships<a hidden class=anchor aria-hidden=true href=#model-training--relationships>#</a></h3><p>With that complete, we can &ldquo;train&rdquo; the model. This process involves taking each token in the vocabulary and building a relationship to each other token in the vocabulary, based on those tokens&rsquo; relative positions to each other in the training text. So if the word &ldquo;cat&rdquo; is followed by the word &ldquo;jump&rdquo;, the model records that relationship. But it also records the relationship of the word &ldquo;cat&rdquo; to other words in the text. So &ldquo;jump&rdquo; follows &ldquo;cat&rdquo;, but maybe it does so more frequently when they are close to the word &ldquo;mouse&rdquo;. And maybe less frequently when they are close to the word &ldquo;nap&rdquo;. Recording ALL these relationships would require a massive dataset, so the relationships are mathematically reduced and approximated. There are definitely more technical terms to use, and the book went into them. I definitely forget them, though.</p><h3 id=text-generation-process>Text Generation Process<a hidden class=anchor aria-hidden=true href=#text-generation-process>#</a></h3><p>Now, if you provide a starter text to the model, it will try to complete the text for you. Continuing our example, if I gave the model the text &ldquo;My cat saw a mouse and it&rdquo;, based on the word cat being close to the word mouse, it might predict the word &ldquo;jumped&rdquo; to come next. So it appends the word &ldquo;jumped&rdquo; to the text I submitted, and then it takes that whole new sentence and feeds it back into itself. So now the input text is &ldquo;My cat saw a mouse and it jumped&rdquo;. The next output word could be &ldquo;on&rdquo;, so it appends that word and feeds this concatenated output back into its input.</p><p><del>Every time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window) and then calculates the most likely next token, then converts it all back to text for us to read.</del> <em><a href=#update-2025-02-17>See update</a></em></p><h3 id=model-weights--distribution>Model Weights & Distribution<a hidden class=anchor aria-hidden=true href=#model-weights--distribution>#</a></h3><p><del>Saving all those relationships between the tokens are known as the &ldquo;weights&rdquo; of the model.</del> <em><a href=#update-2025-02-17>See update</a></em> Those can be distributed, so if you train a model on a given training text, you can give that to your friends and they can use those model weights to predict text similar to that training text.</p><h3 id=fine-tuning>Fine Tuning<a hidden class=anchor aria-hidden=true href=#fine-tuning>#</a></h3><p>Fine-tuning is the process of training a model for specific&mldr; things. My mind is getting fuzzier here, so I&rsquo;m not going to go into this deeper. Suffice it to say, that you start with a base language model and continue to train it using specific input and output pairs. In the book, we built a spam classifier that determined if a given message was spam or not, as well as a model that will follow instructions. That&rsquo;s actually the one that&rsquo;s being trained right now as I write this post, so I&rsquo;m not sure how it will turn out. Based on the fact that it&rsquo;s published in a book, I think it will come out just fine.</p><p>So while I&rsquo;m not completely done with the book, I&rsquo;m very nearly there. I did learn a lot of great concepts, although obviously some of them weren&rsquo;t retained. It would probably behoove me to go back through the book again and quickly breeze through it, in order to refresh my memory and cement my learnings.</p><h2 id=meta-learnings>Meta learnings<a hidden class=anchor aria-hidden=true href=#meta-learnings>#</a></h2><p>Other than the technical aspects of Large Language Models, what else did I learn through this experience?</p><p>Through my experiment with typing all the code samples by hand, I can say that my time would have been better spent with a different approach. If I do this again, I&rsquo;ll probably not type all the code snippets, but rather &ldquo;type&rdquo; them in my mind, and really understand what each line does. The times I learned the most were actually when I made a typo and had to go back through my code to debug it. That forced me to understand what was happening so I could figure out what went wrong.</p><p>I learn better with paper, rather than a digital book. I don&rsquo;t know why. I had both available to me, and I read the first couple of chapters in the paper book. That information stuck better. Maybe because it was earlier in the book and simpler to understand, or maybe the format played into it. But I enjoyed it better, regardless.</p><p>I didn&rsquo;t have to &ldquo;figure out&rdquo; anything, and I think that hampered my learning. There are supplemental exercises in the book, where the author gives you a problem and you have to figure out how to solve it. The answers are given in his GitHub repository. That would have slowed me down a lot, but I&rsquo;m very confident that I would have learned the material better.</p><h2 id=whats-next>What&rsquo;s next?<a hidden class=anchor aria-hidden=true href=#whats-next>#</a></h2><p>I&rsquo;m torn right now. I want to understand this material better, but I wonder if getting into lower-level, specific material might help me understand AI and machine learning better. What will likely happen is that I&rsquo;ll copy and paste this content into Claude.ai and suggest a path forward for me.</p><hr><h2 id=update-2025-02-17>Update: 2025-02-17<a hidden class=anchor aria-hidden=true href=#update-2025-02-17>#</a></h2><p><a href=https://www.linkedin.com/in/sebastianraschka/>Sebastian Raschka</a> sent me a kind message in response to this post and clarified some of my thinking. To quote him:</p><blockquote><ol><li>&ldquo;Every time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window)&rdquo;. You do this initially when you parse the input text. But then you technically don&rsquo;t need to re-tokenize anything. You can leave the generated output in the tokenized form when creating the next token.</li></ol><p>What I mean is if the text is</p><p>&ldquo;My cat saw a mouse&rdquo;</p><p>The tokens might be &ldquo;123 1 5 6 99&rdquo; (numbers are arbitrary examples). Then the LLM generates the token 801 for &ldquo;jump&rdquo;. Then you simply use &ldquo;123 1 5 6 99 801&rdquo; as the input for the next word.</p><p>When you show the output to the user, then you convert back into text.</p><ol start=2><li>&ldquo;Saving all those relationships between the tokens are known as the “weights” of the model.&rdquo;</li></ol><p>I would say that relationships between tokens are the attention scores. The model weights are more like values that are involved in computing things like the attention scores (and other things).</p><p>Now that you finished the book, in case you are bored, I do also have some more materials as bonus material in the GitHub repository.</p><p>I&rsquo;d say the GPT->Llama conversion (<a href=https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/07_gpt_to_llama>https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/07_gpt_to_llama</a>) and the DPO preference tuning (<a href=https://github.com/rasbt/LLMs-from-scratch/blob/main/ch07/04_preference-tuning-with-dpo/dpo-from-scratch.ipynb>https://github.com/rasbt/LLMs-from-scratch/blob/main/ch07/04_preference-tuning-with-dpo/dpo-from-scratch.ipynb</a>) are maybe the most interesting ones.</p><p>I also just uploaded some PyTorch tips for increasing the training speed of the model: <a href=https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/10_llm-training-speed>https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/10_llm-training-speed</a></p><p>These materials are less polished than the book itself, but maybe you&rsquo;ll still find them useful!</p></blockquote></div><footer class=post-footer><ul class=post-tags><li><a href=https://brettgfitzgerald.com/tags/ai/>Ai</a></li><li><a href=https://brettgfitzgerald.com/tags/llm/>LLM</a></li><li><a href=https://brettgfitzgerald.com/tags/python/>Python</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://brettgfitzgerald.com/>Brett Fitzgerald</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
-</a><script src=https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js></script><script>document.addEventListener("DOMContentLoaded",function(){lightGallery(document.getElementById("gallery"))})</script><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Build a Large Language Model From Scratch | Brett Fitzgerald</title>
+<meta name="keywords" content="AI, LLM, Python">
+<meta name="description" content="A developer&#39;s journey through building an LLM from scratch, sharing key insights about tokenization, training, and the learning process of mastering AI fundamentals.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/build-a-large-language-model/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.93f625d739f1d6a5c6f20c146bc6a8d26b233492b34b2220c54b12fd46a04ded.css" integrity="sha256-k/Yl1znx1qXG8gwUa8ao0msjNJKzSyIgxUsS/UagTe0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/build-a-large-language-model/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4RD2MGN21"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z4RD2MGN21');
+</script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
+<meta property="og:url" content="http://localhost:1313/posts/build-a-large-language-model/">
+  <meta property="og:site_name" content="Brett Fitzgerald">
+  <meta property="og:title" content="Build a Large Language Model From Scratch">
+  <meta property="og:description" content="A developer&#39;s journey through building an LLM from scratch, sharing key insights about tokenization, training, and the learning process of mastering AI fundamentals.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-06T12:57:27-05:00">
+    <meta property="article:modified_time" content="2025-02-06T12:57:27-05:00">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Build a Large Language Model From Scratch">
+<meta name="twitter:description" content="A developer&#39;s journey through building an LLM from scratch, sharing key insights about tokenization, training, and the learning process of mastering AI fundamentals.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Build a Large Language Model From Scratch",
+      "item": "http://localhost:1313/posts/build-a-large-language-model/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Build a Large Language Model From Scratch",
+  "name": "Build a Large Language Model From Scratch",
+  "description": "A developer's journey through building an LLM from scratch, sharing key insights about tokenization, training, and the learning process of mastering AI fundamentals.",
+  "keywords": [
+    "AI", "LLM", "Python"
+  ],
+  "articleBody": "Building a large language model from scratch I’m a machine learning / A.I. hobbyist. The technologies fascinate me, and I can’t seem to learn enough about them. Sebastian Raschka’s book, Build a Large Language Model (From Scratch) caught my eye. I don’t recall how I stumbled on it, but I found it when it was still in early access from Manning Publications. I purchased it, and started working through it as the final chapters were being written and released. I just completed the book and all the included work and loved every minute of it.\nMy approach A while ago, I read some advice about learning programming from digital books and tutorials. The advice was to never copy and paste code from samples but to hand-type all the code. I took that approach with this book. I typed every single line of code (except for a couple of blocks which were highly repetitive and long). You can see all my work here: https://github.com/controversy187/build-a-large-language-model\nI did my best to work in section chunks. I didn’t want to start a section unless I had the time dedicated to completing it. Some sections are pretty short, others are fairly involved and time-consuming.\nI built this in Jupyter Notebooks on my laptop, which is pretty underpowered for this type of work. The premise of the book was that you can build an LLM on consumer hardware, and it can perform decently well. As I’m writing this, I’m currently fine-tuning my model locally. My model is about 50 steps into a 230-step tuning, and I just crossed the 20-minute execution time mark. The earlier code samples ran quicker, but the last few sections used larger models, which slowed things down considerably.\nI didn’t do most of the supplemental exercises. I tend to have an “I want to do ALL THE THINGS!” personality. The drawback is that if I take the time to do all the things, I eventually get long-term distracted and never actually finish what I started. So I sort of rushed through this book. I even took several weeks off around Christmas and New Year’s. But I got back into it and powered through the last few chapters.\nSo, more or less, I read through the chapters and wrote all the mandatory coding assignments.\nLearnings What can I tell you about large language models? A lot more than I could before I started this book, but certainly not all the things the author attempted to teach me. I’ll summarize my understanding, but I could be wrong about some of these things, and I most certainly forgot or misunderstood others.\nTokenization \u0026 Vocabulary A large language model starts its life by building a vocabulary of text. A massive amount of text is distilled down into a list of unique words. Each word is then translated into an integer because computers like numbers more than they like words. This process is referred to as “tokenization”, where the word is replaced with a numerical token. So now we have a list of unique tokens, which is the vocabulary of the large language model.\n# Build a more advanced tokenizer text = \"Hello, world. Is this-- a test?\" result = re.split(r'([,.:;?_!\"()\\']|--|\\s)', text) result = [item.strip() for item in result if item.strip()] print(result) # Outputs \"['Hello', ',', 'world', '.', 'Is', 'this', '--', 'a', 'test', '?']\" all_words = sorted(set(result)) vocab_size = len(all_words) print(vocab_size) # Outputs 10 # Display the first 51 tokens in our vocabulary. vocab = {token:integer for integer,token in enumerate(all_words)} for i, item in enumerate(vocab.items()): print(item) # Outputs: (',', 0) ('--', 1) ('.', 2) ('?', 3) ('Hello', 4) ('Is', 5) ('a', 6) ('test', 7) ('this', 8) ('world', 9) # In this example, the id 9 represents the word \"world\". 5 represents \"Is\". etc. This is where my understanding gets fuzzy. We didn’t get very far before that happened, ’eh? Now, we take that massive amount of text we were using earlier to create the vocabulary (or a subset, or totally different text), and we tokenize the entire text. We do this by using the vocabulary we built previously and substituting the words in the training text for their equivalent token value. This is now our training text.\nModel Training \u0026 Relationships With that complete, we can “train” the model. This process involves taking each token in the vocabulary and building a relationship to each other token in the vocabulary, based on those tokens’ relative positions to each other in the training text. So if the word “cat” is followed by the word “jump”, the model records that relationship. But it also records the relationship of the word “cat” to other words in the text. So “jump” follows “cat”, but maybe it does so more frequently when they are close to the word “mouse”. And maybe less frequently when they are close to the word “nap”. Recording ALL these relationships would require a massive dataset, so the relationships are mathematically reduced and approximated. There are definitely more technical terms to use, and the book went into them. I definitely forget them, though.\nText Generation Process Now, if you provide a starter text to the model, it will try to complete the text for you. Continuing our example, if I gave the model the text “My cat saw a mouse and it”, based on the word cat being close to the word mouse, it might predict the word “jumped” to come next. So it appends the word “jumped” to the text I submitted, and then it takes that whole new sentence and feeds it back into itself. So now the input text is “My cat saw a mouse and it jumped”. The next output word could be “on”, so it appends that word and feeds this concatenated output back into its input.\nEvery time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window) and then calculates the most likely next token, then converts it all back to text for us to read. See update\nModel Weights \u0026 Distribution Saving all those relationships between the tokens are known as the “weights” of the model. See update Those can be distributed, so if you train a model on a given training text, you can give that to your friends and they can use those model weights to predict text similar to that training text.\nFine Tuning Fine-tuning is the process of training a model for specific… things. My mind is getting fuzzier here, so I’m not going to go into this deeper. Suffice it to say, that you start with a base language model and continue to train it using specific input and output pairs. In the book, we built a spam classifier that determined if a given message was spam or not, as well as a model that will follow instructions. That’s actually the one that’s being trained right now as I write this post, so I’m not sure how it will turn out. Based on the fact that it’s published in a book, I think it will come out just fine.\nSo while I’m not completely done with the book, I’m very nearly there. I did learn a lot of great concepts, although obviously some of them weren’t retained. It would probably behoove me to go back through the book again and quickly breeze through it, in order to refresh my memory and cement my learnings.\nMeta learnings Other than the technical aspects of Large Language Models, what else did I learn through this experience?\nThrough my experiment with typing all the code samples by hand, I can say that my time would have been better spent with a different approach. If I do this again, I’ll probably not type all the code snippets, but rather “type” them in my mind, and really understand what each line does. The times I learned the most were actually when I made a typo and had to go back through my code to debug it. That forced me to understand what was happening so I could figure out what went wrong.\nI learn better with paper, rather than a digital book. I don’t know why. I had both available to me, and I read the first couple of chapters in the paper book. That information stuck better. Maybe because it was earlier in the book and simpler to understand, or maybe the format played into it. But I enjoyed it better, regardless.\nI didn’t have to “figure out” anything, and I think that hampered my learning. There are supplemental exercises in the book, where the author gives you a problem and you have to figure out how to solve it. The answers are given in his GitHub repository. That would have slowed me down a lot, but I’m very confident that I would have learned the material better.\nWhat’s next? I’m torn right now. I want to understand this material better, but I wonder if getting into lower-level, specific material might help me understand AI and machine learning better. What will likely happen is that I’ll copy and paste this content into Claude.ai and suggest a path forward for me.\nUpdate: 2025-02-17 Sebastian Raschka sent me a kind message in response to this post and clarified some of my thinking. To quote him:\n“Every time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window)”. You do this initially when you parse the input text. But then you technically don’t need to re-tokenize anything. You can leave the generated output in the tokenized form when creating the next token. What I mean is if the text is\n“My cat saw a mouse”\nThe tokens might be “123 1 5 6 99” (numbers are arbitrary examples). Then the LLM generates the token 801 for “jump”. Then you simply use “123 1 5 6 99 801” as the input for the next word.\nWhen you show the output to the user, then you convert back into text.\n“Saving all those relationships between the tokens are known as the “weights” of the model.” I would say that relationships between tokens are the attention scores. The model weights are more like values that are involved in computing things like the attention scores (and other things).\nNow that you finished the book, in case you are bored, I do also have some more materials as bonus material in the GitHub repository.\nI’d say the GPT-\u003eLlama conversion (https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/07_gpt_to_llama) and the DPO preference tuning (https://github.com/rasbt/LLMs-from-scratch/blob/main/ch07/04_preference-tuning-with-dpo/dpo-from-scratch.ipynb) are maybe the most interesting ones.\nI also just uploaded some PyTorch tips for increasing the training speed of the model: https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/10_llm-training-speed\nThese materials are less polished than the book itself, but maybe you’ll still find them useful!\n",
+  "wordCount" : "1803",
+  "inLanguage": "en",
+  "datePublished": "2025-02-06T12:57:27-05:00",
+  "dateModified": "2025-02-06T12:57:27-05:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/build-a-large-language-model/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Brett Fitzgerald",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Brett Fitzgerald (Alt + H)">Brett Fitzgerald</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Build a Large Language Model From Scratch
+    </h1>
+    <div class="post-description">
+      A developer&#39;s journey through building an LLM from scratch, sharing key insights about tokenization, training, and the learning process of mastering AI fundamentals.
+    </div>
+    <div class="post-meta"><span title='2025-02-06 12:57:27 -0500 EST'>February 6, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="building-a-large-language-model-from-scratch">Building a large language model from scratch<a hidden class="anchor" aria-hidden="true" href="#building-a-large-language-model-from-scratch">#</a></h2>
+<p>I&rsquo;m a machine learning / A.I. hobbyist. The technologies fascinate me, and I can&rsquo;t seem to learn enough about them. Sebastian Raschka&rsquo;s book, Build a Large Language Model (From Scratch) caught my eye. I don&rsquo;t recall how I stumbled on it, but I found it when it was still in early access from Manning Publications. I purchased it, and started working through it as the final chapters were being written and released. I just completed the book and all the included work and loved every minute of it.</p>
+<p><img alt="Build a Large Language Model From Scratch by Sebastian Raschka" loading="lazy" src="/posts/build-a-large-language-model/llm-book.jpg"></p>
+<h2 id="my-approach">My approach<a hidden class="anchor" aria-hidden="true" href="#my-approach">#</a></h2>
+<p>A while ago, I read some advice about learning programming from digital books and tutorials. The advice was to never copy and paste code from samples but to hand-type all the code. I took that approach with this book. I typed every single line of code (except for a couple of blocks which were highly repetitive and long). You can see all my work here: <a href="https://github.com/controversy187/build-a-large-language-model">https://github.com/controversy187/build-a-large-language-model</a></p>
+<p>I did my best to work in section chunks. I didn&rsquo;t want to start a section unless I had the time dedicated to completing it. Some sections are pretty short, others are fairly involved and time-consuming.</p>
+<p>I built this in Jupyter Notebooks on my laptop, which is pretty underpowered for this type of work. The premise of the book was that you can build an LLM on consumer hardware, and it can perform decently well. As I&rsquo;m writing this, I&rsquo;m currently fine-tuning my model locally. My model is about 50 steps into a 230-step tuning, and I just crossed the 20-minute execution time mark. The earlier code samples ran quicker, but the last few sections used larger models, which slowed things down considerably.</p>
+<p>I didn&rsquo;t do most of the supplemental exercises. I tend to have an &ldquo;I want to do ALL THE THINGS!&rdquo; personality. The drawback is that if I take the time to do all the things, I eventually get long-term distracted and never actually finish what I started. So I sort of rushed through this book. I even took several weeks off around Christmas and New Year&rsquo;s. But I got back into it and powered through the last few chapters.</p>
+<p>So, more or less, I read through the chapters and wrote all the mandatory coding assignments.</p>
+<h2 id="learnings">Learnings<a hidden class="anchor" aria-hidden="true" href="#learnings">#</a></h2>
+<p>What can I tell you about large language models? A lot more than I could before I started this book, but certainly not all the things the author attempted to teach me. I&rsquo;ll summarize my understanding, but I could be wrong about some of these things, and I most certainly forgot or misunderstood others.</p>
+<h3 id="tokenization--vocabulary">Tokenization &amp; Vocabulary<a hidden class="anchor" aria-hidden="true" href="#tokenization--vocabulary">#</a></h3>
+<p>A large language model starts its life by building a vocabulary of text. A massive amount of text is distilled down into a list of unique words. Each word is then translated into an integer because computers like numbers more than they like words. This process is referred to as &ldquo;tokenization&rdquo;, where the word is replaced with a numerical token. So now we have a list of unique tokens, which is the vocabulary of the large language model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Build a more advanced tokenizer</span>
+</span></span><span style="display:flex;"><span>text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, world. Is this-- a test?&#34;</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>split(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;([,.:;?_!&#34;()</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">]|--|\s)&#39;</span>, text)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> [item<span style="color:#f92672">.</span>strip() <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> result <span style="color:#66d9ef">if</span> item<span style="color:#f92672">.</span>strip()]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(result)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Outputs &#34;[&#39;Hello&#39;, &#39;,&#39;, &#39;world&#39;, &#39;.&#39;, &#39;Is&#39;, &#39;this&#39;, &#39;--&#39;, &#39;a&#39;, &#39;test&#39;, &#39;?&#39;]&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>all_words <span style="color:#f92672">=</span> sorted(set(result))
+</span></span><span style="display:flex;"><span>vocab_size <span style="color:#f92672">=</span> len(all_words)
+</span></span><span style="display:flex;"><span>print(vocab_size)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Outputs 10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Display the first 51 tokens in our vocabulary.</span>
+</span></span><span style="display:flex;"><span>vocab <span style="color:#f92672">=</span> {token:integer <span style="color:#66d9ef">for</span> integer,token <span style="color:#f92672">in</span> enumerate(all_words)}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i, item <span style="color:#f92672">in</span> enumerate(vocab<span style="color:#f92672">.</span>items()):
+</span></span><span style="display:flex;"><span>    print(item)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Outputs:</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;,&#39;</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;--&#39;</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;.&#39;</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;?&#39;</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;Hello&#39;</span>, <span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;Is&#39;</span>, <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;test&#39;</span>, <span style="color:#ae81ff">7</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;this&#39;</span>, <span style="color:#ae81ff">8</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#e6db74">&#39;world&#39;</span>, <span style="color:#ae81ff">9</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># In this example, the id 9 represents the word &#34;world&#34;. 5 represents &#34;Is&#34;. etc.</span>
+</span></span></code></pre></div><p>This is where my understanding gets fuzzy. We didn&rsquo;t get very far before that happened, &rsquo;eh? Now, we take that massive amount of text we were using earlier to create the vocabulary (or a subset, or totally different text), and we tokenize the entire text. We do this by using the vocabulary we built previously and substituting the words in the training text for their equivalent token value. This is now our training text.</p>
+<h3 id="model-training--relationships">Model Training &amp; Relationships<a hidden class="anchor" aria-hidden="true" href="#model-training--relationships">#</a></h3>
+<p>With that complete, we can &ldquo;train&rdquo; the model. This process involves taking each token in the vocabulary and building a relationship to each other token in the vocabulary, based on those tokens&rsquo; relative positions to each other in the training text. So if the word &ldquo;cat&rdquo; is followed by the word &ldquo;jump&rdquo;, the model records that relationship. But it also records the relationship of the word &ldquo;cat&rdquo; to other words in the text. So &ldquo;jump&rdquo; follows &ldquo;cat&rdquo;, but maybe it does so more frequently when they are close to the word &ldquo;mouse&rdquo;. And maybe less frequently when they are close to the word &ldquo;nap&rdquo;. Recording ALL these relationships would require a massive dataset, so the relationships are mathematically reduced and approximated. There are definitely more technical terms to use, and the book went into them. I definitely forget them, though.</p>
+<h3 id="text-generation-process">Text Generation Process<a hidden class="anchor" aria-hidden="true" href="#text-generation-process">#</a></h3>
+<p>Now, if you provide a starter text to the model, it will try to complete the text for you. Continuing our example, if I gave the model the text &ldquo;My cat saw a mouse and it&rdquo;, based on the word cat being close to the word mouse, it might predict the word &ldquo;jumped&rdquo; to come next. So it appends the word &ldquo;jumped&rdquo; to the text I submitted, and then it takes that whole new sentence and feeds it back into itself. So now the input text is &ldquo;My cat saw a mouse and it jumped&rdquo;. The next output word could be &ldquo;on&rdquo;, so it appends that word and feeds this concatenated output back into its input.</p>
+<p><del>Every time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window) and then calculates the most likely next token, then converts it all back to text for us to read.</del> <em><a href="#update-2025-02-17">See update</a></em></p>
+<h3 id="model-weights--distribution">Model Weights &amp; Distribution<a hidden class="anchor" aria-hidden="true" href="#model-weights--distribution">#</a></h3>
+<p><del>Saving all those relationships between the tokens are known as the &ldquo;weights&rdquo; of the model.</del> <em><a href="#update-2025-02-17">See update</a></em> Those can be distributed, so if you train a model on a given training text, you can give that to your friends and they can use those model weights to predict text similar to that training text.</p>
+<h3 id="fine-tuning">Fine Tuning<a hidden class="anchor" aria-hidden="true" href="#fine-tuning">#</a></h3>
+<p>Fine-tuning is the process of training a model for specific&hellip; things. My mind is getting fuzzier here, so I&rsquo;m not going to go into this deeper. Suffice it to say, that you start with a base language model and continue to train it using specific input and output pairs. In the book, we built a spam classifier that determined if a given message was spam or not, as well as a model that will follow instructions. That&rsquo;s actually the one that&rsquo;s being trained right now as I write this post, so I&rsquo;m not sure how it will turn out. Based on the fact that it&rsquo;s published in a book, I think it will come out just fine.</p>
+<p>So while I&rsquo;m not completely done with the book, I&rsquo;m very nearly there. I did learn a lot of great concepts, although obviously some of them weren&rsquo;t retained. It would probably behoove me to go back through the book again and quickly breeze through it, in order to refresh my memory and cement my learnings.</p>
+<h2 id="meta-learnings">Meta learnings<a hidden class="anchor" aria-hidden="true" href="#meta-learnings">#</a></h2>
+<p>Other than the technical aspects of Large Language Models, what else did I learn through this experience?</p>
+<p>Through my experiment with typing all the code samples by hand, I can say that my time would have been better spent with a different approach. If I do this again, I&rsquo;ll probably not type all the code snippets, but rather &ldquo;type&rdquo; them in my mind, and really understand what each line does. The times I learned the most were actually when I made a typo and had to go back through my code to debug it. That forced me to understand what was happening so I could figure out what went wrong.</p>
+<p>I learn better with paper, rather than a digital book. I don&rsquo;t know why. I had both available to me, and I read the first couple of chapters in the paper book. That information stuck better. Maybe because it was earlier in the book and simpler to understand, or maybe the format played into it. But I enjoyed it better, regardless.</p>
+<p>I didn&rsquo;t have to &ldquo;figure out&rdquo; anything, and I think that hampered my learning. There are supplemental exercises in the book, where the author gives you a problem and you have to figure out how to solve it. The answers are given in his GitHub repository. That would have slowed me down a lot, but I&rsquo;m very confident that I would have learned the material better.</p>
+<h2 id="whats-next">What&rsquo;s next?<a hidden class="anchor" aria-hidden="true" href="#whats-next">#</a></h2>
+<p>I&rsquo;m torn right now. I want to understand this material better, but I wonder if getting into lower-level, specific material might help me understand AI and machine learning better. What will likely happen is that I&rsquo;ll copy and paste this content into Claude.ai and suggest a path forward for me.</p>
+<hr>
+<h2 id="update-2025-02-17">Update: 2025-02-17<a hidden class="anchor" aria-hidden="true" href="#update-2025-02-17">#</a></h2>
+<p><a href="https://www.linkedin.com/in/sebastianraschka/">Sebastian Raschka</a> sent me a kind message in response to this post and clarified some of my thinking. To quote him:</p>
+<blockquote>
+<ol>
+<li>&ldquo;Every time it does a loop like this, it tokenizes the entire input (or up to a limit, known as a context limit or context window)&rdquo;. You do this initially when you parse the input text. But then you technically don&rsquo;t need to re-tokenize anything. You can leave the generated output in the tokenized form when creating the next token.</li>
+</ol>
+<p>What I mean is if the text is</p>
+<p>&ldquo;My cat saw a mouse&rdquo;</p>
+<p>The tokens might be &ldquo;123 1 5 6 99&rdquo; (numbers are arbitrary examples). Then the LLM generates the token 801 for &ldquo;jump&rdquo;. Then you simply use &ldquo;123 1 5 6 99 801&rdquo; as the input for the next word.</p>
+<p>When you show the output to the user, then you convert back into text.</p>
+<ol start="2">
+<li>&ldquo;Saving all those relationships between the tokens are known as the “weights” of the model.&rdquo;</li>
+</ol>
+<p>I would say that relationships between tokens are the attention scores. The model weights are more like values that are involved in computing things like the attention scores (and other things).</p>
+<p>Now that you finished the book, in case you are bored, I do also have some more materials as bonus material in the GitHub repository.</p>
+<p>I&rsquo;d say the GPT-&gt;Llama conversion (<a href="https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/07_gpt_to_llama">https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/07_gpt_to_llama</a>) and the DPO preference tuning (<a href="https://github.com/rasbt/LLMs-from-scratch/blob/main/ch07/04_preference-tuning-with-dpo/dpo-from-scratch.ipynb">https://github.com/rasbt/LLMs-from-scratch/blob/main/ch07/04_preference-tuning-with-dpo/dpo-from-scratch.ipynb</a>) are maybe the most interesting ones.</p>
+<p>I also just uploaded some PyTorch tips for increasing the training speed of the model: <a href="https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/10_llm-training-speed">https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/10_llm-training-speed</a></p>
+<p>These materials are less polished than the book itself, but maybe you&rsquo;ll still find them useful!</p></blockquote>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/ai/">Ai</a></li>
+      <li><a href="http://localhost:1313/tags/llm/">LLM</a></li>
+      <li><a href="http://localhost:1313/tags/python/">Python</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Brett Fitzgerald</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    lightGallery(document.getElementById('gallery'));
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
