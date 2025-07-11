@@ -12,6 +12,9 @@ params:
     buttons:
       - name: Blog
         url: "/posts"
+      - name: About Me
+        url: "/about"
+    imageUrl: "avatar.jpg"
   socialIcons:
     - name: "linkedin"
       url: "https://www.linkedin.com/in/brettgfitzgerald/"

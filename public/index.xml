@@ -17,13 +17,12 @@
       <link>http://localhost:1313/posts/building-a-saas-product-the-hidden-80-percent/</link>
       <pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/building-a-saas-product-the-hidden-80-percent/</guid>
-      <description>&lt;p&gt;&amp;ldquo;I&amp;rsquo;ve got a great idea for a weekend project!&amp;rdquo;&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;I&amp;rsquo;ve got a great idea for a weekend project!&amp;rdquo;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Two months later&amp;hellip;&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;I&amp;rsquo;m launching my weekend project!&amp;rdquo;&lt;/p&gt;
-&lt;h2 id=&#34;the-dream-vs-the-reality&#34;&gt;The Dream vs. The Reality&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;I&amp;rsquo;ll build this in a weekend,&amp;rdquo; I told myself. Two months later, I was still wrestling with user authentication, payment processing, and server monitoring.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;— Me, two months ago&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&amp;ldquo;I&amp;rsquo;m launching my weekend project!&amp;rdquo;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;the-dream-vs-the-reality&#34;&gt;The Dream vs. The Reality&lt;/h2&gt;
 &lt;p&gt;I want to give anyone the power to learn anything, however they want to. That was the idea. With the Age of A.I. changing the way we think and work, I thought this would be a great time to get started turning that project into a reality. As the technology advances, so can my solution. So I whipped up a proof-of-concept in a couple of days, thought to myself &amp;ldquo;that&amp;rsquo;s not bad!&amp;rdquo; and decided to launch it to get feedback. I just needed to wrap up a couple of technical details so other people could play with it, and I&amp;rsquo;d be all set, getting valuable user feedback!&lt;/p&gt;
 &lt;p&gt;Those technical details? Infrastructure, security, user management, payments, hosting, and a hundred other things that users never see but absolutely need for the product to work in the real world.&lt;/p&gt;
 &lt;h2 id=&#34;the-20-bespoke-learning-plans-to-learn-anything-affordably&#34;&gt;The 20%: Bespoke learning plans to learn anything, affordably&lt;/h2&gt;
@@ -87,7 +86,7 @@ So all in all, I wrote my first proof of concept in about two days. Then, to wra
 &lt;p&gt;I&amp;rsquo;m pretty confident I did this The Hard Way. I&amp;rsquo;m sure there are boilerplate frameworks for sites with user registration, security, authentication, payments, etc. Likely, they do a better job than I did, and are more secure. I quite possibly could have saved myself a month or more of time and effort with a quick google search.&lt;/p&gt;
 &lt;p&gt;But I can look at this little project and say &amp;ldquo;I built this.&amp;rdquo; Or rather, &amp;ldquo;I basically guided AI tools through the development process to build this.&amp;rdquo; And I got to experiment with Cursor, Jules, Gemini, ChatGPT, Claude, Lovable, Bolt.new, and a host of other up and coming tools.&lt;/p&gt;
 &lt;p&gt;If I had to do it all over, I&amp;rsquo;d start by looking for a modern web boilerplate package to start from. Maybe I would replace it one day, if that became the best value-add action for my project, but it would certainly accelerate me to getting my idea in front of people.&lt;/p&gt;
-&lt;p&gt;Maybe no one will use this. If you&amp;rsquo;re interested in checking it out, I&amp;rsquo;d love to have you register over at &lt;a href=&#34;https://adeptli.org&#34;&gt;adeptli.org&lt;/a&gt;. I made a &lt;a href=&#34;https://discord.gg/DFgjGagDtM&#34;&gt;discord&lt;/a&gt; server so that I can chat with you and hear your feedback. I would really value any feedback that you have.&lt;/p&gt;
+&lt;p&gt;Maybe no one will use this. If you&amp;rsquo;re interested in checking it out, I&amp;rsquo;d love to have you register over at &lt;a href=&#34;https://adeptli.org&#34;&gt;adeptli.org&lt;/a&gt;. I made a &lt;a href=&#34;https://discord.gg/DFgjGagDtM&#34;&gt;discord&lt;/a&gt; server so that I can chat with you and hear your feedback. I would really value any feedback that you have. If you read this whole post and singed up on Adeptli, drop me a message on the Discord and I&amp;rsquo;ll credit your account a bit so you can really test out the functionality.&lt;/p&gt;
 &lt;script type=&#34;application/ld+json&#34;&gt;
 {
   &#34;@context&#34;: &#34;https://schema.org&#34;,

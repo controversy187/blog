@@ -108,7 +108,7 @@ Your blog has a strong foundation with:
 ## Implementation Priority
 
 ### Phase 1 (Quick Wins)
-1. Add author photo and enhanced bio
+1. ~~Add author photo and enhanced bio~~ *(Completed: Avatar now displays on homepage; "About Me" button links to About page. Short summary in profile; full bio on About page.)*
 2. Implement table of contents for long posts
 3. Add reading time estimates
 4. Improve code block styling with copy buttons
