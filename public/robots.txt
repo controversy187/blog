@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://brettgfitzgerald.com/sitemap.xml
-
-# Disallow common paths you don't want indexed
-Disallow: /tags/
-Disallow: /categories/
