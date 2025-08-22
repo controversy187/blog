@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subnautica Recipe Planner</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to the main JavaScript file -->
+    <script src="./app.js"></script>
+    <!-- Alpine.js for interactivity. "defer" is important! -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+    <!-- Custom Styles -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 antialiased">
+
+    <!-- Main Application Container -->
+    <div x-data="subnauticaApp()" x-cloak class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-cyan-400">Subnautica Recipe Planner</h1>
+            <p class="text-gray-400 mt-2">Select items to build and see a complete shopping list of all raw materials.</p>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Left Column: Controls and Recipe List -->
+            <div class="lg:col-span-1 bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4 text-white">Craftable Items</h2>
+                <!-- Controls: Search and Filters -->
+                <div id="controls" class="mb-4">
+                    <input type="text" x-model="searchText" placeholder="Search for an item..." class="w-full bg-gray-700 border border-gray-600 rounded-md px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                    
+                    <!-- Category Filter Buttons -->
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <button @click="selectedCategory = 'All'" 
+                                :class="selectedCategory === 'All' ? 'bg-cyan-600' : 'bg-gray-600'"
+                                class="px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-cyan-500">
+                            All
+                        </button>
+                        <template x-for="category in [...new Set(recipes.map(r => r.category))]" :key="category">
+                            <button @click="selectedCategory = category"
+                                    :class="selectedCategory === category ? 'bg-cyan-600' : 'bg-gray-600'"
+                                    class="px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-cyan-500"
+                                    x-text="category">
+                            </button>
+                        </template>
+                    </div>
+                </div>
+                
+                <!-- Recipe List Container -->
+                <div id="recipe-list" class="h-96 overflow-y-auto pr-2">
+                    <!-- Error state -->
+                    <template x-if="error">
+                        <div class="p-4 bg-red-900 border border-red-700 rounded-lg">
+                            <p class="text-red-200" x-text="error"></p>
+                        </div>
+                    </template>
+                    
+                    <!-- Loading state -->
+                    <template x-if="isLoading">
+                        <div class="flex items-center justify-center h-32">
+                            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-400"></div>
+                            <span class="ml-3 text-gray-400">Loading recipes...</span>
+                        </div>
+                    </template>
+                    
+                    <!-- Recipes list -->
+                    <template x-if="!isLoading && !error && recipes.length > 0">
+                        <div class="space-y-2">
+                            <template x-for="recipe in filteredRecipes" :key="recipe.id">
+                                <div @click="addItem(recipe.id)" class="p-3 bg-gray-700 rounded-lg hover:bg-gray-600 cursor-pointer transition-colors">
+                                    <div class="flex items-center justify-between">
+                                        <span x-text="recipe.name" class="font-medium"></span>
+                                        <span x-text="recipe.category" class="text-xs text-gray-400 bg-gray-600 px-2 py-1 rounded"></span>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                    
+                    <!-- No results state -->
+                    <template x-if="!isLoading && !error && recipes.length > 0 && filteredRecipes.length === 0">
+                        <div class="text-center py-8">
+                            <p class="text-gray-400">No recipes found matching your criteria.</p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Right Column: Build & Shopping Lists -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Build List Section -->
+                <div id="build-list" class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-2xl font-semibold text-white">Build List</h2>
+                        <div class="flex items-center gap-4">
+                            <span class="text-sm text-gray-400">
+                                <span x-text="buildListCount"></span> items
+                            </span>
+                            <button @click="clearBuildList()" 
+                                    x-show="Object.keys(buildList).length > 0"
+                                    class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-sm font-medium transition-colors">
+                                Clear All
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Empty state -->
+                    <template x-if="Object.keys(buildList).length === 0">
+                        <div class="text-center py-8">
+                            <p class="text-gray-500">Click on an item from the left to add it here.</p>
+                        </div>
+                    </template>
+                    
+                    <!-- Build list items -->
+                    <template x-if="Object.keys(buildList).length > 0">
+                        <div class="space-y-3">
+                            <template x-for="(quantity, id) in buildList" :key="id">
+                                <div class="flex items-center justify-between p-3 bg-gray-700 rounded-lg">
+                                    <span x-text="getRecipeName(id)" class="font-medium"></span>
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-cyan-400 font-semibold" x-text="quantity"></span>
+                                        <div class="flex gap-1">
+                                            <button @click="removeItem(id)" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded text-sm font-medium transition-colors">-</button>
+                                            <button @click="addItem(id)" class="bg-green-600 hover:bg-green-700 px-3 py-1 rounded text-sm font-medium transition-colors">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Intermediate Items Section -->
+                <div id="intermediate-items" class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-2xl font-semibold text-white">Intermediate Items</h2>
+                        <span class="text-sm text-gray-400">
+                            <span x-text="totalIntermediateItems"></span> items to craft
+                        </span>
+                    </div>
+                    
+                    <!-- Empty state -->
+                    <template x-if="Object.keys(intermediateItems).length === 0">
+                        <div class="text-center py-8">
+                            <p class="text-gray-500">Items you need to craft first will appear here.</p>
+                        </div>
+                    </template>
+                    
+                    <!-- Intermediate items list -->
+                    <template x-if="Object.keys(intermediateItems).length > 0">
+                        <div class="space-y-3">
+                            <template x-for="(quantity, id) in intermediateItems" :key="id">
+                                <div class="flex items-center justify-between p-3 bg-gray-700 rounded-lg">
+                                    <span x-text="getRecipeName(id)" class="font-medium"></span>
+                                    <span class="text-cyan-400 font-semibold" x-text="quantity"></span>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Raw Materials Section -->
+                <div id="raw-materials" class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-2xl font-semibold text-white">Raw Materials</h2>
+                        <span class="text-sm text-gray-400">
+                            <span x-text="totalRawMaterials"></span> materials needed
+                        </span>
+                    </div>
+                    
+                    <!-- Empty state -->
+                    <template x-if="Object.keys(shoppingList).length === 0">
+                        <div class="text-center py-8">
+                            <p class="text-gray-500">Your comprehensive material list will be generated here.</p>
+                        </div>
+                    </template>
+                    
+                    <!-- Raw materials list -->
+                    <template x-if="Object.keys(shoppingList).length > 0">
+                        <div class="space-y-3">
+                            <template x-for="(quantity, id) in shoppingList" :key="id">
+                                <div class="flex items-center justify-between p-3 bg-gray-700 rounded-lg">
+                                    <span x-text="getRecipeName(id)" class="font-medium"></span>
+                                    <span class="text-cyan-400 font-semibold text-lg" x-text="quantity"></span>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

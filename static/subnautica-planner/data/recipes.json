@@ -1,0 +1,196 @@
+[
+    {
+      "id": "titanium",
+      "name": "Titanium",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "lead",
+      "name": "Lead",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "table_coral_sample",
+      "name": "Table Coral Sample",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "silver",
+      "name": "Silver Ore",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "copper",
+      "name": "Copper Ore",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "lithium",
+      "name": "Lithium",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "diamond",
+      "name": "Diamond",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "stalkertooth",
+      "name": "Stalker Tooth",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "quartz",
+      "name": "Quartz",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "aluminumoxide",
+      "name": "Ruby",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "jellyplant",
+      "name": "Gel Sack",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "blood_oil",
+      "name": "Blood Oil",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "benzene",
+      "name": "Benzene",
+      "category": "Advanced Materials",
+      "components": [
+        { "id": "blood_oil", "quantity": 3 }
+      ]
+    },
+    {
+      "id": "glass",
+      "name": "Glass",
+      "category": "Basic Materials",
+      "components": [
+        { "id": "quartz", "quantity": 2 }
+      ]
+    },
+    {
+      "id": "enameled_glass",
+      "name": "Enameled Glass",
+      "category": "Basic Materials",
+      "components": [
+        { "id": "glass", "quantity": 1 },
+        { "id": "stalkertooth", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "aerogel",
+      "name": "Aerogel",
+      "category": "Advanced Materials",
+      "components": [
+        { "id": "jellyplant", "quantity": 1 },
+        { "id": "aluminumoxide", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "titanium_ingot",
+      "name": "Titanium Ingot",
+      "category": "Basic Materials",
+      "components": [
+        { "id": "titanium", "quantity": 10 }
+      ]
+    },
+    {
+      "id": "plasteel_ingot",
+      "name": "Plasteel Ingot",
+      "category": "Basic Materials",
+      "components": [
+        { "id": "titanium_ingot", "quantity": 1 },
+        { "id": "lithium", "quantity": 2 }
+      ]
+    },
+    {
+      "id": "copper_wire",
+      "name": "Copper Wire",
+      "category": "Electronics",
+      "components": [
+        { "id": "copper", "quantity": 2 }
+      ]
+    },
+    {
+      "id": "computer_chip",
+      "name": "Computer Chip",
+      "category": "Electronics",
+      "components": [
+        { "id": "table_coral_sample", "quantity": 2 },
+        { "id": "copper_wire", "quantity": 1 },
+        { "id": "gold", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "wiring_kit",
+      "name": "Wiring Kit",
+      "category": "Electronics",
+      "components": [
+        { "id": "silver", "quantity": 2 }
+      ]
+    },
+    {
+      "id": "advanced_wiring_kit",
+      "name": "Advanced Wiring Kit",
+      "category": "Electronics",
+      "components": [
+        { "id": "wiring_kit", "quantity": 1 },
+        { "id": "computer_chip", "quantity": 1 },
+        { "id": "gold", "quantity": 2 }
+      ]
+    },
+    {
+      "id": "exosuit",
+      "name": "Prawn Suit",
+      "category": "Vehicles",
+      "components": [
+        { "id": "plasteel_ingot", "quantity": 2 },
+        { "id": "aerogel", "quantity": 2 },
+        { "id": "enameled_glass", "quantity": 1 },
+        { "id": "diamond", "quantity": 2 },
+        { "id": "lead", "quantity": 2 }
+      ]
+    },
+    {
+      "id": "prawn_suit_drill_arm",
+      "name": "Prawn Suit Drill Arm",
+      "category": "Vehicle Upgrades",
+      "components": [
+        { "id": "titanium", "quantity": 5 },
+        { "id": "lithium", "quantity": 1 },
+        { "id": "diamond", "quantity": 4 }
+      ]
+    },
+    {
+      "id": "prawn_suit_grapple_arm",
+      "name": "Prawn Suit Grapple Arm",
+      "category": "Vehicle Upgrades",
+      "components": [
+        { "id": "titanium", "quantity": 5 },
+        { "id": "advanced_wiring_kit", "quantity": 1 },
+        { "id": "benzene", "quantity": 1 },
+        { "id": "lithium", "quantity": 4 }
+      ]
+    },
+    {
+      "id": "large_room",
+      "name": "Large Room",
+      "category": "Base Rooms",
+      "components": [
+        { "id": "plasteel_ingot", "quantity": 2 }
+      ]
+    }
+  ]
+  
