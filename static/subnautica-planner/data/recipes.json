@@ -1,5 +1,40 @@
 [
     {
+      "id": "creepvine_sample",
+      "name": "Creepvine Sample",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "creepvine_seed_cluster",
+      "name": "Creepvine Seed Cluster",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "salt",
+      "name": "Salt",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "coral_tube_sample",
+      "name": "Coral Tube Sample",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "acid_mushroom",
+      "name": "Acid Mushroom",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "deep_shroom",
+      "name": "Deep Shroom",
+      "category": "Raw Materials"
+    },
+    {
+      "id": "ion_cube",
+      "name": "Ion Cube",
+      "category": "Raw Materials"
+    },
+    {
       "id": "titanium",
       "name": "Titanium",
       "category": "Raw Materials"
@@ -65,11 +100,11 @@
       "category": "Raw Materials"
     },
     {
-      "id": "benzene",
-      "name": "Benzene",
-      "category": "Advanced Materials",
+      "id": "silicone_rubber",
+      "name": "Silicone Rubber (x2)",
+      "category": "Basic Materials",
       "components": [
-        { "id": "blood_oil", "quantity": 3 }
+        { "id": "creepvine_seed_cluster", "quantity": 1 }
       ]
     },
     {
@@ -90,12 +125,28 @@
       ]
     },
     {
-      "id": "aerogel",
-      "name": "Aerogel",
-      "category": "Advanced Materials",
+      "id": "fiber_mesh",
+      "name": "Fiber Mesh",
+      "category": "Basic Materials",
       "components": [
-        { "id": "jellyplant", "quantity": 1 },
-        { "id": "aluminumoxide", "quantity": 1 }
+        { "id": "creepvine_sample", "quantity": 2 },
+      ]
+    },
+    {
+      "id": "bleach",
+      "name": "Bleach",
+      "category": "Basic Materials",
+      "components": [
+        { "id": "salt", "quantity": 1 },
+        { "id": "coral_tube_sample", "quantity": 1 },
+      ]
+    },
+    {
+      "id": "lubricant",
+      "name": "Lubricant",
+      "category": "Basic Materials",
+      "components": [
+        { "id": "creepvine_seed_cluster", "quantity": 1 },
       ]
     },
     {
@@ -113,6 +164,87 @@
       "components": [
         { "id": "titanium_ingot", "quantity": 1 },
         { "id": "lithium", "quantity": 2 }
+      ]
+    },
+    {
+      "id": "hydrochloric_acid",
+      "name": "Hydrochloric acid",
+      "category": "Advanced Materials",
+      "components": [
+        { "id": "deep_shroom", "quantity": 3 },
+        { "id": "salt", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "benzene",
+      "name": "Benzene",
+      "category": "Advanced Materials",
+      "components": [
+        { "id": "blood_oil", "quantity": 3 }
+      ]
+    },
+    {
+      "id": "polyaniline",
+      "name": "Polyaniline",
+      "category": "Advanced Materials",
+      "components": [
+        { "id": "gold", "quantity": 1 },
+        { "id": "hydrochloric_acid", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "synthetic_fibers",
+      "name": "Synthetic Fibers",
+      "category": "Advanced Materials",
+      "components": [
+        { "id": "benzene", "quantity": 1 },
+        { "id": "fiber_mesh", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "aerogel",
+      "name": "Aerogel",
+      "category": "Advanced Materials",
+      "components": [
+        { "id": "jellyplant", "quantity": 1 },
+        { "id": "aluminumoxide", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "battery",
+      "name": "Battery",
+      "category": "Electronics",
+      "components": [
+        { "id": "acid_mushroom", "quantity": 2 },
+        { "id": "copper", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "ion_battery",
+      "name": "Ion Battery",
+      "category": "Electronics",
+      "components": [
+        { "id": "ion_cube", "quantity": 1 },
+        { "id": "gold", "quantity": 1 },
+        { "id": "silver", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "power_cell",
+      "name": "Power Cell",
+      "category": "Electronics",
+      "components": [
+        { "id": "battery", "quantity": 2 },
+        { "id": "silicone_rubber", "quantity": 1 }
+      ]
+    },
+    {
+      "id": "ion_power_cell",
+      "name": "Ion Power Cell",
+      "category": "Electronics",
+      "components": [
+        { "id": "ion_battery", "quantity": 2 },
+        { "id": "silicone_rubber", "quantity": 1 }
       ]
     },
     {
