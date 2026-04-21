@@ -1,4 +1,14 @@
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+{{- $authorEmail := "" }}
+{{- $authorName := "" }}
+{{- with site.Params.author }}
+  {{- if reflect.IsMap . }}
+    {{- with .email }}{{ $authorEmail = . }}{{ end }}
+    {{- with .name }}{{ $authorName = . }}{{ end }}
+  {{- else }}
+    {{- $authorName = . }}
+  {{- end }}
+{{- end }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ .Site.Title }}</title>
@@ -6,8 +16,8 @@
     <description>Recent content on {{ .Site.Title }}</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>{{ .Site.LanguageCode }}</language>
-    {{ with .Site.Author.email }}<managingEditor>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</managingEditor>{{end}}
-    {{ with .Site.Author.email }}<webMaster>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</webMaster>{{end}}
+    {{ with $authorEmail }}<managingEditor>{{.}}{{ with $authorName }} ({{.}}){{end}}</managingEditor>{{end}}
+    {{ with $authorEmail }}<webMaster>{{.}}{{ with $authorName }} ({{.}}){{end}}</webMaster>{{end}}
     {{ with .OutputFormats.Get "RSS" }}
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
