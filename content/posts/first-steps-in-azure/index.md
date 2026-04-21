@@ -1,7 +1,20 @@
 ---
 date: '2026-04-14T16:10:56-04:00'
-draft: true
-title: 'First Steps in Azure'
+draft: false
+title: 'Building a Medallion Data Pipeline in Azure with Data Factory, Databricks, and Power BI'
+description: "A hands-on walkthrough of building an Azure healthcare analytics pipeline from raw Excel files to bronze, silver, and gold Delta tables using Azure Data Factory, Databricks, and Power BI."
+summary: "Using 2023 MEPS healthcare data, I built a small Azure analytics pipeline: landing raw Excel files in ADLS Gen2, orchestrating ingestion in Data Factory, transforming data in Databricks, and visualizing gold-layer outputs in Power BI."
+tags:
+    - Azure
+    - Databricks
+    - Data Engineering
+    - Power BI
+    - Healthcare Analytics
+cover:
+    image: "00-architecture-diagram.png"
+    alt: "Azure medallion architecture using Data Factory, Databricks, Delta Lake, and Power BI"
+    caption: "Bronze, silver, and gold pipeline in Azure"
+    relative: true
 ShowToc: true
 ---
 
