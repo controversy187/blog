@@ -38,7 +38,7 @@ Unused credits are lost when the account is deleted and are not refunded. To ask
 
 - **Purchase records.** For each credit purchase we keep a one-way hash of the Google Play purchase token, the product, the Google Play order ID and the date. They are no longer linked to your account. We keep them so the same purchase can't be redeemed twice, and for refund and accounting purposes. Google Play keeps its own purchase records under [Google's privacy policy](https://policies.google.com/privacy).
 - **Server logs.** Our backend logs can contain your account ID. They are deleted automatically within 30 days.
-- **Usage analytics.** Google Analytics for Firebase records app usage against a random app-instance identifier (or, for some error events, a one-way hash of your account ID), not your name or email address. This data expires automatically under our analytics retention setting of <!-- TODO(Brett): confirm the GA4 retention setting in Analytics > Admin > Data retention, then replace this comment with it, e.g. "2 months" --> .
+- **Usage analytics.** Google Analytics for Firebase records app usage against a random app-instance identifier (or, for some error events, a one-way hash of your account ID), not your name or email address. This data is deleted automatically at the end of the retention period set in Google Analytics.
 
 ## How long it takes
 
